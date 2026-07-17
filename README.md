@@ -50,7 +50,7 @@ python -m http.server 8000 --directory docs
    **Read and write permissions**（Actions 要把抓取結果 commit 回 repo）。
 4. **Actions → track → Run workflow** 手動跑一次，確認正常後就會每天自動跑。
 
-排程是 **UTC 01:00**（台北時間 09:00），寫在 `.github/workflows/track.yml`。
+排程是 **UTC 00:00**（台北時間 08:00），寫在 `.github/workflows/track.yml`。
 GitHub 排程在尖峰時可能延遲數十分鐘，屬正常現象。
 
 ## repo 裡的資料是什麼
