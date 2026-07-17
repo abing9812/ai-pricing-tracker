@@ -1,0 +1,248 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --border: #e2e5ea;
+  --text: #1a1d23;
+  --muted: #666c78;
+  --link: #2563eb;
+  --warn-bg: #fff8e6;
+  --warn-border: #f0c36d;
+  --up: #c2410c;
+  --up-bg: #fff1eb;
+  --down: #15803d;
+  --down-bg: #ecfdf3;
+  --new: #1d4ed8;
+  --new-bg: #eef2ff;
+  --policy: #7c3aed;
+  --policy-bg: #f5f0ff;
+  --removed: #9f1239;
+  --removed-bg: #fff1f4;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --card: #1c1f25;
+    --border: #2d323b;
+    --text: #e8eaed;
+    --muted: #9aa1ae;
+    --link: #7aa5ff;
+    --warn-bg: #2e2716;
+    --warn-border: #7a6224;
+    --up: #ff9a6b;
+    --up-bg: #33201a;
+    --down: #6ee7a0;
+    --down-bg: #14301f;
+    --new: #9bb4ff;
+    --new-bg: #1c2340;
+    --policy: #c4a6ff;
+    --policy-bg: #271c3d;
+    --removed: #ff8fa8;
+    --removed-bg: #351923;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px 16px 64px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC",
+    "Microsoft JhengHei", sans-serif;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+.page-header, main, footer {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+}
+
+.tagline, .section-note, .generated-at, .disclaimer {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin: 0 0 12px;
+}
+
+.loading, .empty {
+  color: var(--muted);
+  padding: 16px;
+  margin: 0;
+}
+
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin: 20px auto 0;
+}
+
+.error {
+  border-color: var(--warn-border);
+  background: var(--warn-bg);
+}
+
+/* 待覆核 */
+.review-item {
+  border: 1px solid var(--warn-border);
+  background: var(--warn-bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+
+.review-item:last-child { margin-bottom: 0; }
+
+.review-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.review-reason {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* 變動列表 */
+.change-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.change-item:last-child { border-bottom: none; }
+
+.change-date {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 5.5em;
+}
+
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-up { color: var(--up); background: var(--up-bg); }
+.badge-down { color: var(--down); background: var(--down-bg); }
+.badge-new { color: var(--new); background: var(--new-bg); }
+.badge-policy { color: var(--policy); background: var(--policy-bg); }
+.badge-removed { color: var(--removed); background: var(--removed-bg); }
+
+.change-text { flex: 1; min-width: 200px; }
+
+.price-old {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* 總表 */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+td.num, th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+tr.recently-changed td {
+  background: var(--new-bg);
+}
+
+tr.needs-review td {
+  background: var(--warn-bg);
+}
+
+.model-name { font-weight: 600; }
+
+.unknown {
+  color: var(--muted);
+  font-style: italic;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+.source-link::after {
+  content: " ↗";
+  font-size: 0.75em;
+}
+
+.flag {
+  cursor: help;
+  margin-left: 4px;
+}
+
+/* 頁尾 */
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+}
+
+.source-group strong {
+  display: block;
+  font-size: 0.8125rem;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 600px) {
+  body { padding: 16px 10px 48px; }
+  .section { padding: 14px; }
+  h1 { font-size: 1.3rem; }
+  .change-date { min-width: auto; }
+}

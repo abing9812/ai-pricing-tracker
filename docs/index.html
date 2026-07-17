@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 模型價格與政策追蹤器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>AI 模型價格與政策追蹤器</h1>
+    <p class="tagline">每天自動抓取四家官方定價頁。每個數字旁邊都有官方連結，點過去三秒確認。</p>
+  </header>
+
+  <main id="main">
+    <p id="loading" class="loading">載入中…</p>
+
+    <section id="review-section" class="section" hidden>
+      <h2>⚠ 待覆核</h2>
+      <p class="section-note">以下項目抓取或解析可能有問題，數字僅供參考，請點官方連結確認。</p>
+      <div id="review-list"></div>
+    </section>
+
+    <section id="changes-section" class="section" hidden>
+      <h2>近 7 天變動與新模型</h2>
+      <div id="changes-list"></div>
+    </section>
+
+    <section id="table-section" class="section" hidden>
+      <h2>四家總表</h2>
+      <div class="table-scroll">
+        <table id="models-table">
+          <thead>
+            <tr>
+              <th>家別</th>
+              <th>模型</th>
+              <th class="num">輸入價</th>
+              <th class="num">輸出價</th>
+              <th class="num">情境視窗</th>
+              <th>最後變動</th>
+              <th>來源</th>
+            </tr>
+          </thead>
+          <tbody id="models-body"></tbody>
+        </table>
+      </div>
+      <p class="section-note">價格單位為每百萬 token（USD）。快取／批次／分級折扣不在追蹤範圍，請點官方連結查看。</p>
+    </section>
+  </main>
+
+  <footer id="footer" class="section" hidden>
+    <p id="generated-at" class="generated-at"></p>
+    <div id="source-links" class="source-links"></div>
+    <p class="disclaimer">本工具為自動抓取結果，可能有誤或落後於官方頁面。任何決策請以官方頁面為準。</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
