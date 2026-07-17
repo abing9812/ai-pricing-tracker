@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T01:49:21Z",
+  "generated_at": "2026-07-17T02:24:49Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1150,13 +1150,18 @@
         {
           "label": "Usage policies",
           "url": "https://openai.com/policies/usage-policies/",
-          "content_hash": "sha256:0926c10e7eaa408ee285d3bf6adc60519b8f707b8ad11f47c0e9a6ac176e5625",
-          "last_changed": "2026-07-17"
+          "content_hash": "sha256:924ec2886b8c0a5800e4cf431993de345ec87a5e74e49f827f527e348e183258",
+          "last_changed": "2026-07-17",
+          "needs_review": true,
+          "review_reasons": [
+            "政策頁內容有變動，請人工檢視"
+          ]
         }
       ],
       "notes": [
         "context window 官方定價頁未提供；價格為 standard 分級、272K 以內的標準區間價。"
-      ]
+      ],
+      "needs_review": true
     },
     "anthropic": {
       "display_name": "Anthropic",
@@ -1899,13 +1904,18 @@
         {
           "label": "Prohibited use policy",
           "url": "https://policies.google.com/terms/generative-ai/use-policy",
-          "content_hash": "sha256:99e0ff55bfdf08c4d2c568660a1edd86826f813a9af9b4be79adbe2a33b14dec",
-          "last_changed": "2026-07-17"
+          "content_hash": "sha256:a6e02c135fadba0495e79a28723daeb7ea78fcd0596f348dbda4aaea4ae9503a",
+          "last_changed": "2026-07-17",
+          "needs_review": true,
+          "review_reasons": [
+            "政策頁內容有變動，請人工檢視"
+          ]
         }
       ],
       "notes": [
         "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。"
-      ]
+      ],
+      "needs_review": true
     },
     "deepseek": {
       "display_name": "DeepSeek",

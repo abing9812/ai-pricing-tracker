@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "date": "2026-07-17",
+    "provider": "openai",
+    "type": "policy_change",
+    "label": "Usage policies",
+    "source_url": "https://openai.com/policies/usage-policies/"
+  },
+  {
+    "date": "2026-07-17",
+    "provider": "google",
+    "type": "policy_change",
+    "label": "Prohibited use policy",
+    "source_url": "https://policies.google.com/terms/generative-ai/use-policy"
+  }
+]
