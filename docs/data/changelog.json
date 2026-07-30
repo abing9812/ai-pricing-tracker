@@ -40,5 +40,12 @@
     "model": "claude-opus-5",
     "type": "new_model",
     "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-07-30",
+    "provider": "google",
+    "type": "policy_change",
+    "label": "Prohibited use policy",
+    "source_url": "https://policies.google.com/terms/generative-ai/use-policy"
   }
 ]
