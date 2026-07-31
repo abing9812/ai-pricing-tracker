@@ -47,5 +47,19 @@
     "type": "policy_change",
     "label": "Prohibited use policy",
     "source_url": "https://policies.google.com/terms/generative-ai/use-policy"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "google",
+    "model": "gemini-robotics-er-2",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "google",
+    "model": "gemini-robotics-er-2-streaming",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming"
   }
 ]
