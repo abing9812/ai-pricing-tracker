@@ -190,42 +190,154 @@ function renderChanges(current, changelog) {
 
 /* ---------- 區塊 3：四家總表 ---------- */
 
-function renderTable(current, changelog) {
-  const body = document.getElementById('models-body');
+/**
+ * 排序取值：一律取原始值，不是畫面上那串字。
+ * fmtContext(1_000_000) 是 '1M'、fmtContext(200_000) 是 '200K'——
+ * 照字串排會把 200K 排到 1M 前面。價格同理（'$0.014' vs '$1.10'）。
+ */
+const SORT_KEYS = {
+  provider: (r) => r.providerName,
+  model: (r) => r.modelName,
+  input: (r) => r.model.input_price_per_mtok,
+  output: (r) => r.model.output_price_per_mtok,
+  context: (r) => r.model.context_window,
+  changed: (r) => r.model.last_changed,
+};
+
+const ARROW = { asc: '↑', desc: '↓', none: '↕' };
+
+/** 預設順序（current.json 的家別分組）。排序取消時還原成這個。 */
+let tableRows = [];
+let sortKey = null;
+let sortDir = 'none';
+
+function buildTableRows(current, changelog) {
   const cutoff = daysAgoISO(RECENT_DAYS);
   const changedRecently = new Set(
     changelog.filter((e) => e.date >= cutoff && e.model).map((e) => `${e.provider}/${e.model}`)
   );
 
+  const rows = [];
   for (const [pid, p] of Object.entries(current.providers || {})) {
     for (const m of p.models || []) {
-      const tr = el('tr');
-      const status = m.field_status || {};
-
-      if (m.needs_review) tr.classList.add('needs-review');
-      else if (changedRecently.has(`${pid}/${m.id}`)) tr.classList.add('recently-changed');
-
-      tr.appendChild(el('td', null, p.display_name || pid));
-
-      const nameTd = el('td', 'model-name', m.display_name || m.id);
-      tr.appendChild(nameTd);
-
-      tr.appendChild(valueCell(fmtPrice(m.input_price_per_mtok), status.input_price_per_mtok));
-      tr.appendChild(valueCell(fmtPrice(m.output_price_per_mtok), status.output_price_per_mtok));
-      tr.appendChild(valueCell(fmtContext(m.context_window), status.context_window));
-      tr.appendChild(el('td', null, m.last_changed || '—'));
-
-      const srcTd = el('td');
-      srcTd.appendChild(link(m.source_url || p.pricing_url, '官方'));
-      tr.appendChild(srcTd);
-
-      body.appendChild(tr);
+      rows.push({
+        model: m,
+        providerName: p.display_name || pid,
+        modelName: m.display_name || m.id,
+        sourceUrl: m.source_url || p.pricing_url,
+        rowClass: m.needs_review
+          ? 'needs-review'
+          : changedRecently.has(`${pid}/${m.id}`)
+            ? 'recently-changed'
+            : null,
+      });
     }
   }
+  return rows;
+}
 
-  if (!body.children.length) {
-    body.appendChild(el('tr')).appendChild(el('td', 'empty', '目前沒有任何模型資料。')).colSpan = 7;
+function compareRows(a, b, key, sign) {
+  const va = SORT_KEYS[key](a);
+  const vb = SORT_KEYS[key](b);
+
+  // 「未知」永遠沉底，不跟著升／降冪翻面：情境視窗有大半是 null，
+  // 若讓它跟著翻，升冪時整片未知會蓋在最上面，正好擋住要比的東西。
+  const aNull = va === null || va === undefined || va === '';
+  const bNull = vb === null || vb === undefined || vb === '';
+  if (aNull || bNull) return aNull && bNull ? 0 : aNull ? 1 : -1;
+
+  const cmp =
+    typeof va === 'number' && typeof vb === 'number'
+      ? va - vb
+      : String(va).localeCompare(String(vb), 'zh-Hant');
+  return cmp * sign;
+}
+
+function sortedRows() {
+  if (!sortKey || sortDir === 'none') return tableRows;
+  const sign = sortDir === 'asc' ? 1 : -1;
+  // slice()：不要就地排序 tableRows，否則預設的家別分組順序就回不去了。
+  // Array#sort 是穩定的 → 同價的列維持預設順序，不必再給次要鍵。
+  return tableRows.slice().sort((a, b) => compareRows(a, b, sortKey, sign));
+}
+
+function rowEl(r) {
+  const tr = el('tr', r.rowClass);
+  const status = r.model.field_status || {};
+
+  tr.appendChild(el('td', null, r.providerName));
+  tr.appendChild(el('td', 'model-name', r.modelName));
+  tr.appendChild(valueCell(fmtPrice(r.model.input_price_per_mtok), status.input_price_per_mtok));
+  tr.appendChild(valueCell(fmtPrice(r.model.output_price_per_mtok), status.output_price_per_mtok));
+  tr.appendChild(valueCell(fmtContext(r.model.context_window), status.context_window));
+  tr.appendChild(el('td', null, r.model.last_changed || '—'));
+
+  const srcTd = el('td');
+  srcTd.appendChild(link(r.sourceUrl, '官方'));
+  tr.appendChild(srcTd);
+  return tr;
+}
+
+function paintTable() {
+  const body = document.getElementById('models-body');
+  const rows = sortedRows();
+
+  if (!rows.length) {
+    const td = el('td', 'empty', '目前沒有任何模型資料。');
+    td.colSpan = 7;
+    const tr = el('tr');
+    tr.appendChild(td);
+    body.replaceChildren(tr);
+    return;
   }
+  body.replaceChildren(...rows.map(rowEl));
+}
+
+function paintSortIndicators() {
+  for (const th of document.querySelectorAll('#models-table th[data-sort-key]')) {
+    const active = th.dataset.sortKey === sortKey && sortDir !== 'none';
+    const dir = active ? sortDir : 'none';
+    th.setAttribute(
+      'aria-sort',
+      dir === 'asc' ? 'ascending' : dir === 'desc' ? 'descending' : 'none'
+    );
+    th.classList.toggle('sorted', active);
+    th.querySelector('.sort-arrow').textContent = ARROW[dir];
+  }
+}
+
+function toggleSort(key) {
+  // 同一欄循環：升冪 → 降冪 → 取消。留「取消」是因為預設的家別分組本身有用，
+  // 少了它就只能重新整理才回得去。
+  if (sortKey !== key) {
+    sortKey = key;
+    sortDir = 'asc';
+  } else if (sortDir === 'asc') {
+    sortDir = 'desc';
+  } else {
+    sortKey = null;
+    sortDir = 'none';
+  }
+  paintSortIndicators();
+  paintTable();
+}
+
+/** 表頭包成 button：Tab 走得到、Enter/Space 直接可用，不必自己接 keydown。 */
+function initSortHeaders() {
+  for (const th of document.querySelectorAll('#models-table th[data-sort-key]')) {
+    const btn = el('button', 'sort-btn');
+    btn.type = 'button';
+    btn.append(el('span', null, th.textContent), el('span', 'sort-arrow'));
+    btn.addEventListener('click', () => toggleSort(th.dataset.sortKey));
+    th.replaceChildren(btn);
+  }
+  paintSortIndicators();
+}
+
+function renderTable(current, changelog) {
+  tableRows = buildTableRows(current, changelog);
+  initSortHeaders();
+  paintTable();
   document.getElementById('table-section').hidden = false;
 }
 

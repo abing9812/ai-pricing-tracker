@@ -190,6 +190,42 @@ td.num, th.num {
   font-variant-numeric: tabular-nums;
 }
 
+/* 可排序表頭 */
+th[data-sort-key] { padding: 0; }
+
+.sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+th.num .sort-btn { justify-content: flex-end; }
+
+.sort-btn:hover { color: var(--text); }
+
+.sort-btn:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: -2px;
+}
+
+/* 寬度固定 → 切換箭頭時欄寬不跳動 */
+.sort-arrow {
+  width: 1em;
+  text-align: center;
+  font-size: 0.9em;
+  opacity: 0.4;
+}
+
+th.sorted { color: var(--text); }
+th.sorted .sort-arrow { opacity: 1; color: var(--link); }
+
 tr.recently-changed td {
   background: var(--new-bg);
 }

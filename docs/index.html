@@ -32,19 +32,19 @@
         <table id="models-table">
           <thead>
             <tr>
-              <th>家別</th>
-              <th>模型</th>
-              <th class="num">輸入價</th>
-              <th class="num">輸出價</th>
-              <th class="num">情境視窗</th>
-              <th>最後變動</th>
-              <th>來源</th>
+              <th scope="col" data-sort-key="provider">家別</th>
+              <th scope="col" data-sort-key="model">模型</th>
+              <th scope="col" class="num" data-sort-key="input">輸入價</th>
+              <th scope="col" class="num" data-sort-key="output">輸出價</th>
+              <th scope="col" class="num" data-sort-key="context">情境視窗</th>
+              <th scope="col" data-sort-key="changed">最後變動</th>
+              <th scope="col">來源</th>
             </tr>
           </thead>
           <tbody id="models-body"></tbody>
         </table>
       </div>
-      <p class="section-note">價格單位為每百萬 token（USD）。快取／批次／分級折扣不在追蹤範圍，請點官方連結查看。</p>
+      <p class="section-note">點欄位標題排序（升冪 → 降冪 → 取消）。價格單位為每百萬 token（USD）。快取／批次／分級折扣不在追蹤範圍，請點官方連結查看。</p>
     </section>
   </main>
 
