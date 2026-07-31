@@ -61,5 +61,122 @@
     "model": "gemini-robotics-er-2-streaming",
     "type": "new_model",
     "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-5.6-terra",
+    "type": "price_change",
+    "field": "input_price_per_mtok",
+    "old": 2.5,
+    "new": 2.0,
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-5.6-terra",
+    "type": "price_change",
+    "field": "output_price_per_mtok",
+    "old": 15.0,
+    "new": 12.0,
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "type": "price_change",
+    "field": "input_price_per_mtok",
+    "old": 1.0,
+    "new": 0.2,
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "type": "price_change",
+    "field": "output_price_per_mtok",
+    "old": 6.0,
+    "new": 1.2,
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "o1-mini",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-4-0125-preview",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-4-1106-preview",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-4-1106-vision-preview",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-4-0314",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-4-32k",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-0613",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-3.5-0301",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-16k-0613",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "type": "policy_change",
+    "label": "Usage policies",
+    "source_url": "https://openai.com/policies/usage-policies/"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "google",
+    "type": "policy_change",
+    "label": "Prohibited use policy",
+    "source_url": "https://policies.google.com/terms/generative-ai/use-policy"
   }
 ]

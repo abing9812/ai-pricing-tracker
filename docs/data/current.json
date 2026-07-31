@@ -1,12 +1,11 @@
 {
-  "generated_at": "2026-07-31T10:05:21Z",
+  "generated_at": "2026-07-31T13:00:32Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
       "pricing_url": "https://developers.openai.com/api/docs/pricing",
       "news_url": "https://developers.openai.com/api/docs/changelog",
-      "fetch_status": "failed",
-      "fetch_error": "抓取失敗：定價頁找不到 tier=standard 的表格，頁面結構可能改了",
+      "fetch_status": "ok",
       "models": [
         {
           "id": "gpt-5.6-sol",
@@ -25,24 +24,28 @@
             "label": "gpt-5.6-sol",
             "tier": "standard",
             "cells": [
-              5.0,
-              0.5,
-              6.25,
-              30.0
-            ]
+              "gpt-5.6-sol",
+              "$5.00",
+              "$0.50",
+              "$6.25",
+              "$30.00",
+              "$10.00",
+              "$1.00",
+              "$12.50",
+              "$45.00"
+            ],
+            "long_context_input_per_mtok": 10.0,
+            "long_context_output_per_mtok": 45.0,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.6-terra",
           "display_name": "gpt-5.6-terra",
-          "input_price_per_mtok": 2.5,
-          "output_price_per_mtok": 15.0,
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 12.0,
           "context_window": null,
           "currency": "USD",
           "source_url": "https://developers.openai.com/api/docs/pricing",
@@ -55,24 +58,28 @@
             "label": "gpt-5.6-terra",
             "tier": "standard",
             "cells": [
-              2.5,
-              0.25,
-              3.125,
-              15.0
-            ]
+              "gpt-5.6-terra",
+              "$2.00",
+              "$0.20",
+              "$2.50",
+              "$12.00",
+              "$4.00",
+              "$0.40",
+              "$5.00",
+              "$18.00"
+            ],
+            "long_context_input_per_mtok": 4.0,
+            "long_context_output_per_mtok": 18.0,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
         },
         {
           "id": "gpt-5.6-luna",
           "display_name": "gpt-5.6-luna",
-          "input_price_per_mtok": 1.0,
-          "output_price_per_mtok": 6.0,
+          "input_price_per_mtok": 0.2,
+          "output_price_per_mtok": 1.2,
           "context_window": null,
           "currency": "USD",
           "source_url": "https://developers.openai.com/api/docs/pricing",
@@ -85,18 +92,22 @@
             "label": "gpt-5.6-luna",
             "tier": "standard",
             "cells": [
-              1.0,
-              0.1,
-              1.25,
-              6.0
-            ]
+              "gpt-5.6-luna",
+              "$0.20",
+              "$0.02",
+              "$0.25",
+              "$1.20",
+              "$0.40",
+              "$0.04",
+              "$0.50",
+              "$1.80"
+            ],
+            "long_context_input_per_mtok": 0.4,
+            "long_context_output_per_mtok": 1.8,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
         },
         {
           "id": "gpt-5.5",
@@ -115,19 +126,22 @@
             "label": "gpt-5.5 (<272K context length)",
             "tier": "standard",
             "cells": [
-              5.0,
-              0.5,
-              null,
-              30.0
+              "gpt-5.5 (<272K context length)",
+              "$5.00",
+              "$0.50",
+              "-",
+              "$30.00",
+              "$10.00",
+              "$1.00",
+              "-",
+              "$45.00"
             ],
-            "note": "標準區間價；超過 272K 的請求官方另以 2× input／1.5× output 計價"
+            "long_context_input_per_mtok": 10.0,
+            "long_context_output_per_mtok": 45.0,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.5-pro",
@@ -146,19 +160,22 @@
             "label": "gpt-5.5-pro (<272K context length)",
             "tier": "standard",
             "cells": [
-              30.0,
-              null,
-              null,
-              180.0
+              "gpt-5.5-pro (<272K context length)",
+              "$30.00",
+              "-",
+              "-",
+              "$180.00",
+              "$60.00",
+              "-",
+              "-",
+              "$270.00"
             ],
-            "note": "標準區間價；超過 272K 的請求官方另以 2× input／1.5× output 計價"
+            "long_context_input_per_mtok": 60.0,
+            "long_context_output_per_mtok": 270.0,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.4",
@@ -177,19 +194,22 @@
             "label": "gpt-5.4 (<272K context length)",
             "tier": "standard",
             "cells": [
-              2.5,
-              0.25,
-              null,
-              15.0
+              "gpt-5.4 (<272K context length)",
+              "$2.50",
+              "$0.25",
+              "-",
+              "$15.00",
+              "$5.00",
+              "$0.50",
+              "-",
+              "$22.50"
             ],
-            "note": "標準區間價；超過 272K 的請求官方另以 2× input／1.5× output 計價"
+            "long_context_input_per_mtok": 5.0,
+            "long_context_output_per_mtok": 22.5,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.4-mini",
@@ -208,18 +228,19 @@
             "label": "gpt-5.4-mini",
             "tier": "standard",
             "cells": [
-              0.75,
-              0.075,
-              null,
-              4.5
+              "gpt-5.4-mini",
+              "$0.75",
+              "$0.075",
+              "-",
+              "$4.50",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.4-nano",
@@ -238,18 +259,19 @@
             "label": "gpt-5.4-nano",
             "tier": "standard",
             "cells": [
-              0.2,
-              0.02,
-              null,
-              1.25
+              "gpt-5.4-nano",
+              "$0.20",
+              "$0.02",
+              "-",
+              "$1.25",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.4-pro",
@@ -268,19 +290,22 @@
             "label": "gpt-5.4-pro (<272K context length)",
             "tier": "standard",
             "cells": [
-              30.0,
-              null,
-              null,
-              180.0
+              "gpt-5.4-pro (<272K context length)",
+              "$30.00",
+              "-",
+              "-",
+              "$180.00",
+              "$60.00",
+              "-",
+              "-",
+              "$270.00"
             ],
-            "note": "標準區間價；超過 272K 的請求官方另以 2× input／1.5× output 計價"
+            "long_context_input_per_mtok": 60.0,
+            "long_context_output_per_mtok": 270.0,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.2",
@@ -299,17 +324,19 @@
             "label": "gpt-5.2",
             "tier": "standard",
             "cells": [
-              1.75,
-              0.175,
-              14.0
+              "gpt-5.2",
+              "$1.75",
+              "$0.175",
+              "-",
+              "$14.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.2-pro",
@@ -328,17 +355,19 @@
             "label": "gpt-5.2-pro",
             "tier": "standard",
             "cells": [
-              21.0,
-              null,
-              168.0
+              "gpt-5.2-pro",
+              "$21.00",
+              "-",
+              "-",
+              "$168.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5.1",
@@ -357,17 +386,19 @@
             "label": "gpt-5.1",
             "tier": "standard",
             "cells": [
-              1.25,
-              0.125,
-              10.0
+              "gpt-5.1",
+              "$1.25",
+              "$0.125",
+              "-",
+              "$10.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5",
@@ -386,17 +417,19 @@
             "label": "gpt-5",
             "tier": "standard",
             "cells": [
-              1.25,
-              0.125,
-              10.0
+              "gpt-5",
+              "$1.25",
+              "$0.125",
+              "-",
+              "$10.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5-mini",
@@ -415,17 +448,19 @@
             "label": "gpt-5-mini",
             "tier": "standard",
             "cells": [
-              0.25,
-              0.025,
-              2.0
+              "gpt-5-mini",
+              "$0.25",
+              "$0.025",
+              "-",
+              "$2.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5-nano",
@@ -444,17 +479,19 @@
             "label": "gpt-5-nano",
             "tier": "standard",
             "cells": [
-              0.05,
-              0.005,
-              0.4
+              "gpt-5-nano",
+              "$0.05",
+              "$0.005",
+              "-",
+              "$0.40",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-5-pro",
@@ -473,17 +510,19 @@
             "label": "gpt-5-pro",
             "tier": "standard",
             "cells": [
-              15.0,
-              null,
-              120.0
+              "gpt-5-pro",
+              "$15.00",
+              "-",
+              "-",
+              "$120.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4.1",
@@ -502,17 +541,19 @@
             "label": "gpt-4.1",
             "tier": "standard",
             "cells": [
-              2.0,
-              0.5,
-              8.0
+              "gpt-4.1",
+              "$2.00",
+              "$0.50",
+              "-",
+              "$8.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4.1-mini",
@@ -531,17 +572,19 @@
             "label": "gpt-4.1-mini",
             "tier": "standard",
             "cells": [
-              0.4,
-              0.1,
-              1.6
+              "gpt-4.1-mini",
+              "$0.40",
+              "$0.10",
+              "-",
+              "$1.60",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4.1-nano",
@@ -560,17 +603,19 @@
             "label": "gpt-4.1-nano",
             "tier": "standard",
             "cells": [
-              0.1,
-              0.025,
-              0.4
+              "gpt-4.1-nano",
+              "$0.10",
+              "$0.025",
+              "-",
+              "$0.40",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4o",
@@ -589,17 +634,19 @@
             "label": "gpt-4o",
             "tier": "standard",
             "cells": [
-              2.5,
-              1.25,
-              10.0
+              "gpt-4o",
+              "$2.50",
+              "$1.25",
+              "-",
+              "$10.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4o-2024-05-13",
@@ -618,17 +665,19 @@
             "label": "gpt-4o-2024-05-13",
             "tier": "standard",
             "cells": [
-              5.0,
-              null,
-              15.0
+              "gpt-4o-2024-05-13",
+              "$5.00",
+              "-",
+              "-",
+              "$15.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4o-mini",
@@ -647,17 +696,19 @@
             "label": "gpt-4o-mini",
             "tier": "standard",
             "cells": [
-              0.15,
-              0.075,
-              0.6
+              "gpt-4o-mini",
+              "$0.15",
+              "$0.075",
+              "-",
+              "$0.60",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "o1",
@@ -676,17 +727,19 @@
             "label": "o1",
             "tier": "standard",
             "cells": [
-              15.0,
-              7.5,
-              60.0
+              "o1",
+              "$15.00",
+              "$7.50",
+              "-",
+              "$60.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "o1-pro",
@@ -705,17 +758,19 @@
             "label": "o1-pro",
             "tier": "standard",
             "cells": [
-              150.0,
-              null,
-              600.0
+              "o1-pro",
+              "$150.00",
+              "-",
+              "-",
+              "$600.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "o3-pro",
@@ -734,17 +789,19 @@
             "label": "o3-pro",
             "tier": "standard",
             "cells": [
-              20.0,
-              null,
-              80.0
+              "o3-pro",
+              "$20.00",
+              "-",
+              "-",
+              "$80.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "o3",
@@ -763,17 +820,19 @@
             "label": "o3",
             "tier": "standard",
             "cells": [
-              2.0,
-              0.5,
-              8.0
+              "o3",
+              "$2.00",
+              "$0.50",
+              "-",
+              "$8.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "o4-mini",
@@ -792,17 +851,19 @@
             "label": "o4-mini",
             "tier": "standard",
             "cells": [
-              1.1,
-              0.275,
-              4.4
+              "o4-mini",
+              "$1.10",
+              "$0.275",
+              "-",
+              "$4.40",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "o3-mini",
@@ -821,46 +882,19 @@
             "label": "o3-mini",
             "tier": "standard",
             "cells": [
-              1.1,
-              0.55,
-              4.4
+              "o3-mini",
+              "$1.10",
+              "$0.55",
+              "-",
+              "$4.40",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "o1-mini",
-          "display_name": "o1-mini",
-          "input_price_per_mtok": 1.1,
-          "output_price_per_mtok": 4.4,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "o1-mini",
-            "tier": "standard",
-            "cells": [
-              1.1,
-              0.55,
-              4.4
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4-turbo-2024-04-09",
@@ -879,104 +913,19 @@
             "label": "gpt-4-turbo-2024-04-09",
             "tier": "standard",
             "cells": [
-              10.0,
-              null,
-              30.0
+              "gpt-4-turbo-2024-04-09",
+              "$10.00",
+              "-",
+              "-",
+              "$30.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-4-0125-preview",
-          "display_name": "gpt-4-0125-preview",
-          "input_price_per_mtok": 10.0,
-          "output_price_per_mtok": 30.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4-0125-preview",
-            "tier": "standard",
-            "cells": [
-              10.0,
-              null,
-              30.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-4-1106-preview",
-          "display_name": "gpt-4-1106-preview",
-          "input_price_per_mtok": 10.0,
-          "output_price_per_mtok": 30.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4-1106-preview",
-            "tier": "standard",
-            "cells": [
-              10.0,
-              null,
-              30.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-4-1106-vision-preview",
-          "display_name": "gpt-4-1106-vision-preview",
-          "input_price_per_mtok": 10.0,
-          "output_price_per_mtok": 30.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4-1106-vision-preview",
-            "tier": "standard",
-            "cells": [
-              10.0,
-              null,
-              30.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-4-0613",
@@ -995,75 +944,19 @@
             "label": "gpt-4-0613",
             "tier": "standard",
             "cells": [
-              30.0,
-              null,
-              60.0
+              "gpt-4-0613",
+              "$30.00",
+              "-",
+              "-",
+              "$60.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-4-0314",
-          "display_name": "gpt-4-0314",
-          "input_price_per_mtok": 30.0,
-          "output_price_per_mtok": 60.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4-0314",
-            "tier": "standard",
-            "cells": [
-              30.0,
-              null,
-              60.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-4-32k",
-          "display_name": "gpt-4-32k",
-          "input_price_per_mtok": 60.0,
-          "output_price_per_mtok": 120.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4-32k",
-            "tier": "standard",
-            "cells": [
-              60.0,
-              null,
-              120.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-3.5-turbo",
@@ -1082,17 +975,19 @@
             "label": "gpt-3.5-turbo",
             "tier": "standard",
             "cells": [
-              0.5,
-              null,
-              1.5
+              "gpt-3.5-turbo",
+              "$0.50",
+              "-",
+              "-",
+              "$1.50",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-3.5-turbo-0125",
@@ -1111,17 +1006,19 @@
             "label": "gpt-3.5-turbo-0125",
             "tier": "standard",
             "cells": [
-              0.5,
-              null,
-              1.5
+              "gpt-3.5-turbo-0125",
+              "$0.50",
+              "-",
+              "-",
+              "$1.50",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-3.5-turbo-1106",
@@ -1140,75 +1037,19 @@
             "label": "gpt-3.5-turbo-1106",
             "tier": "standard",
             "cells": [
-              1.0,
-              null,
-              2.0
+              "gpt-3.5-turbo-1106",
+              "$1.00",
+              "-",
+              "-",
+              "$2.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-3.5-turbo-0613",
-          "display_name": "gpt-3.5-turbo-0613",
-          "input_price_per_mtok": 1.5,
-          "output_price_per_mtok": 2.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-3.5-turbo-0613",
-            "tier": "standard",
-            "cells": [
-              1.5,
-              null,
-              2.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-3.5-0301",
-          "display_name": "gpt-3.5-0301",
-          "input_price_per_mtok": 1.5,
-          "output_price_per_mtok": 2.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-3.5-0301",
-            "tier": "standard",
-            "cells": [
-              1.5,
-              null,
-              2.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "gpt-3.5-turbo-instruct",
@@ -1227,46 +1068,19 @@
             "label": "gpt-3.5-turbo-instruct",
             "tier": "standard",
             "cells": [
-              1.5,
-              null,
-              2.0
+              "gpt-3.5-turbo-instruct",
+              "$1.50",
+              "-",
+              "-",
+              "$2.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
-        },
-        {
-          "id": "gpt-3.5-turbo-16k-0613",
-          "display_name": "gpt-3.5-turbo-16k-0613",
-          "input_price_per_mtok": 3.0,
-          "output_price_per_mtok": 4.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-3.5-turbo-16k-0613",
-            "tier": "standard",
-            "cells": [
-              3.0,
-              null,
-              4.0
-            ]
-          },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "davinci-002",
@@ -1285,17 +1099,19 @@
             "label": "davinci-002",
             "tier": "standard",
             "cells": [
-              2.0,
-              null,
-              2.0
+              "davinci-002",
+              "$2.00",
+              "-",
+              "-",
+              "$2.00",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         },
         {
           "id": "babbage-002",
@@ -1314,35 +1130,37 @@
             "label": "babbage-002",
             "tier": "standard",
             "cells": [
-              0.4,
-              null,
-              0.4
+              "babbage-002",
+              "$0.40",
+              "-",
+              "-",
+              "$0.40",
+              "-",
+              "-",
+              "-",
+              "-"
             ]
           },
-          "last_seen": "2026-07-27",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
         }
       ],
       "policy_pages": [
         {
           "label": "Usage policies",
           "url": "https://openai.com/policies/usage-policies/",
-          "content_hash": "sha256:29182ad8e1464751785dee71959d3b76b6b5931c1ab347cb339a862378001cf6",
-          "last_changed": "2026-07-25",
+          "content_hash": "sha256:545e188ba443f5a224e65a07318be034accccdd50fe62a3c3a3f63219611c7ed",
+          "last_changed": "2026-07-31",
           "needs_review": true,
           "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
+            "政策頁內容有變動，請人工檢視"
           ]
         }
       ],
-      "needs_review": true,
-      "review_reasons": [
-        "抓取失敗：定價頁找不到 tier=standard 的表格，頁面結構可能改了"
-      ]
+      "notes": [
+        "context window 官方定價頁未提供；價格為 standard 分級的短情境（≤272K）區間價。"
+      ],
+      "needs_review": true
     },
     "anthropic": {
       "display_name": "Anthropic",
@@ -2186,13 +2004,18 @@
         {
           "label": "Prohibited use policy",
           "url": "https://policies.google.com/terms/generative-ai/use-policy",
-          "content_hash": "sha256:050c76c08bb857039215dfe32c32665c1831196883345e30a5811f07c5746b7a",
-          "last_changed": "2026-07-30"
+          "content_hash": "sha256:4ea94e3cee3df56fa0f42c488f6f926cac9e4e15c4786fd6c2ab1d6fecca5357",
+          "last_changed": "2026-07-31",
+          "needs_review": true,
+          "review_reasons": [
+            "政策頁內容有變動，請人工檢視"
+          ]
         }
       ],
       "notes": [
         "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。"
-      ]
+      ],
+      "needs_review": true
     },
     "deepseek": {
       "display_name": "DeepSeek",
