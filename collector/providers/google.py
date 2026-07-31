@@ -169,6 +169,9 @@ def _parse(html: str) -> tuple[list[dict[str, Any]], list[str]]:
                 output_price_per_mtok=base.to_mtok(output_price),
                 context_window=None,
                 source_url=f"{PRICING_URL}#{model_id}",
+                # 繪圖模型的 h2 id 都帶 image（gemini-*-image / *-image-preview），
+                # 靠 id 判斷就夠；Imagen 按張計價、根本進不了這個解析器，不會誤標。
+                modality="image" if "image" in model_id else None,
                 raw=raw,
                 unavailable_fields=unavailable,
             )

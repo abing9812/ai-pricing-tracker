@@ -17,6 +17,9 @@
   --policy-bg: #f5f0ff;
   --removed: #9f1239;
   --removed-bg: #fff1f4;
+  --image: #0d7d74;
+  --image-bg: #e6faf7;
+  --star: #d97706;
   --radius: 10px;
 }
 
@@ -40,6 +43,9 @@
     --policy-bg: #271c3d;
     --removed: #ff8fa8;
     --removed-bg: #351923;
+    --image: #6ee0d4;
+    --image-bg: #123530;
+    --star: #fbbf24;
   }
 }
 
@@ -152,6 +158,38 @@ h2 {
 .badge-new { color: var(--new); background: var(--new-bg); }
 .badge-policy { color: var(--policy); background: var(--policy-bg); }
 .badge-removed { color: var(--removed); background: var(--removed-bg); }
+.badge-image { color: var(--image); background: var(--image-bg); }
+
+/* 總表模型名旁的「繪圖」標籤 */
+.model-name .badge { margin-left: 6px; }
+
+/* 星標欄：勾選後頂置 */
+th.star-col { width: 2em; }
+td.star-cell { padding: 0; }
+
+.star-btn {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  line-height: 1;
+  padding: 8px 6px;
+  color: var(--muted);
+  opacity: 0.55;
+}
+
+.star-btn:hover { opacity: 1; }
+
+.star-btn:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: -2px;
+  opacity: 1;
+}
+
+.star-btn.starred {
+  color: var(--star);
+  opacity: 1;
+}
 
 .change-text { flex: 1; min-width: 200px; }
 

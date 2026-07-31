@@ -178,5 +178,40 @@
     "type": "policy_change",
     "label": "Prohibited use policy",
     "source_url": "https://policies.google.com/terms/generative-ai/use-policy"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-image-2",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-image-1.5",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-image-1-mini",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "gpt-image-1",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-07-31",
+    "provider": "openai",
+    "model": "chatgpt-image-latest",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
   }
 ]

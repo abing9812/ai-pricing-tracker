@@ -138,6 +138,8 @@ DeepSeek [terms of service](https://cdn.deepseek.com/policies/en-US/deepseek-ope
 | **OpenAI 只記標準區間價** | `gpt-5.5` 等模型顯示的是 272K 以內的價格 | 超過 272K 的請求官方另以 2× input / 1.5× output 計價，屬分級定價，依規格 §5 不追蹤。原始標籤留在 `raw.label`。 |
 | **Google 多值格只取第一個** | 例如「$0.25 (text/image/video) $0.50 (audio)」只記 0.25 | 依 modality 或 ≤/>200k 分歧的價格屬分級定價，不追蹤。完整原文留在 `raw`。 |
 | **按張計價的模型不記輸出價** | `gemini-2.5-flash-image` 輸出顯示「未知」 | 它是 `$0.039 per image`，不是每百萬 token，無法放進本 schema。硬記會在儀表板上變成便宜到荒謬的假數字。 |
+| **OpenAI 繪圖模型的口徑** | `gpt-image` 系列的輸入價＝文字提示、輸出價＝圖片輸出 | 官方表把每個模型拆成 Image / Text 兩列。文生圖的主要成本路徑是文字進、圖片出，故取這兩格；圖片輸入（編輯／參考圖）與快取價在 `raw.modalities`。 |
+| **Imagen 4 / Veo / sora 不追蹤** | Google Imagen 4（$0.02–0.06/張）、Veo 與 OpenAI sora（按秒）不在表上 | 它們整組都是按張／按秒計價，沒有任何每百萬 token 的數字可記。要查請點官方定價頁。 |
 
 ## 之後怎麼一家一家把解析規則調準
 

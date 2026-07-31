@@ -1,6 +1,508 @@
 {
-  "generated_at": "2026-07-31T13:00:32Z",
+  "generated_at": "2026-07-31T14:13:19Z",
   "providers": {
+    "google": {
+      "display_name": "Google Gemini",
+      "pricing_url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "news_url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "fetch_status": "ok",
+      "models": [
+        {
+          "id": "gemini-3.6-flash",
+          "display_name": "gemini-3.6-flash",
+          "input_price_per_mtok": 1.5,
+          "output_price_per_mtok": 7.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.6-flash",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.50",
+            "output": "$7.50"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-22"
+        },
+        {
+          "id": "gemini-3.5-flash",
+          "display_name": "gemini-3.5-flash",
+          "input_price_per_mtok": 1.5,
+          "output_price_per_mtok": 9.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.50",
+            "output": "$9.00"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3.5-flash-lite",
+          "display_name": "gemini-3.5-flash-lite",
+          "input_price_per_mtok": 0.3,
+          "output_price_per_mtok": 2.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.30 (text / image / video / audio)",
+            "output": "$2.50"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-22"
+        },
+        {
+          "id": "gemini-3.1-flash-lite",
+          "display_name": "gemini-3.1-flash-lite",
+          "input_price_per_mtok": 0.25,
+          "output_price_per_mtok": 1.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-lite",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.25 (text / image / video) $0.50 (audio)",
+            "output": "$1.50"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-omni-flash-preview",
+          "display_name": "gemini-omni-flash-preview",
+          "input_price_per_mtok": 1.5,
+          "output_price_per_mtok": 9.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-omni-flash-preview",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.50 (text / image / video / audio)",
+            "output": "$9.00 (text) $17.50 (video) *"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3.1-pro-preview",
+          "display_name": "gemini-3.1-pro-preview",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 12.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$2.00, prompts <= 200k tokens $4.00, prompts > 200k tokens",
+            "output": "$12.00, prompts <= 200k tokens $18.00, prompts > 200k"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3.1-flash-image",
+          "display_name": "gemini-3.1-flash-image",
+          "input_price_per_mtok": 0.5,
+          "output_price_per_mtok": 3.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-image",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "input": "$0.50 (text/image)",
+            "output": "$3 (text and thinking) $60.00 (images) Equivalent to $0.045 per 0.5K image * $0.067 per 1K image * ,\n        $0.101 per 2K image * ,\n        and $0.151 per 4K image * ."
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3.1-flash-lite-image",
+          "display_name": "gemini-3.1-flash-lite-image",
+          "input_price_per_mtok": 0.25,
+          "output_price_per_mtok": 1.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-lite-image",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "input": "$0.25 (text/image/video)",
+            "output": "$1.50 (text and thinking) $30.00 (images) Equivalent to $0.0336 per 1K resolution image *"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3.1-flash-tts-preview",
+          "display_name": "gemini-3.1-flash-tts-preview",
+          "input_price_per_mtok": 1.0,
+          "output_price_per_mtok": 20.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-tts-preview",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.00 (text)",
+            "output": "$20.00 (audio)"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3-flash-preview",
+          "display_name": "gemini-3-flash-preview",
+          "input_price_per_mtok": 0.5,
+          "output_price_per_mtok": 3.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3-flash-preview",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.50 (text / image / video) $1.00 (audio)",
+            "output": "$3.00"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3-pro-image",
+          "display_name": "gemini-3-pro-image",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 12.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3-pro-image",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "input": "$2.00 (text/image), equivalent to $0.0011 per image *",
+            "output": "$12.00 (text and thinking) $120.00 (images) Equivalent to $0.134 per 1K/2K image ** and $0.24 per 4K image **"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.5-pro",
+          "display_name": "gemini-2.5-pro",
+          "input_price_per_mtok": 1.25,
+          "output_price_per_mtok": 10.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.25, prompts <= 200k tokens $2.50, prompts > 200k tokens",
+            "output": "$10.00, prompts <= 200k tokens $15.00, prompts > 200k"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "display_name": "gemini-2.5-flash",
+          "input_price_per_mtok": 0.3,
+          "output_price_per_mtok": 2.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.30 (text / image / video) $1.00 (audio)",
+            "output": "$2.50"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.5-flash-lite",
+          "display_name": "gemini-2.5-flash-lite",
+          "input_price_per_mtok": 0.1,
+          "output_price_per_mtok": 0.4,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-lite",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.10 (text / image / video) $0.30 (audio)",
+            "output": "$0.40"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.5-flash-lite-preview",
+          "display_name": "gemini-2.5-flash-lite-preview",
+          "input_price_per_mtok": 0.1,
+          "output_price_per_mtok": 0.4,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-lite-preview",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.10 (text / image / video) $0.30 (audio)",
+            "output": "$0.40"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.5-flash-image",
+          "display_name": "gemini-2.5-flash-image",
+          "input_price_per_mtok": 0.3,
+          "output_price_per_mtok": null,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-image",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "unavailable",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "input": "$0.30 (text / image)",
+            "output": "$0.039 per image*"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.5-flash-preview-tts",
+          "display_name": "gemini-2.5-flash-preview-tts",
+          "input_price_per_mtok": 0.5,
+          "output_price_per_mtok": 10.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-preview-tts",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.50 (text)",
+            "output": "$10.00 (audio)"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.5-pro-preview-tts",
+          "display_name": "gemini-2.5-pro-preview-tts",
+          "input_price_per_mtok": 1.0,
+          "output_price_per_mtok": 20.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro-preview-tts",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.00 (text)",
+            "output": "$20.00 (audio)"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.0-flash",
+          "display_name": "gemini-2.0-flash",
+          "input_price_per_mtok": 0.1,
+          "output_price_per_mtok": 0.4,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.0-flash",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.10 (text / image / video) $0.70 (audio)",
+            "output": "$0.40"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-2.0-flash-lite",
+          "display_name": "gemini-2.0-flash-lite",
+          "input_price_per_mtok": 0.075,
+          "output_price_per_mtok": 0.3,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.0-flash-lite",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.075",
+            "output": "$0.30"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-embedding",
+          "display_name": "gemini-embedding",
+          "input_price_per_mtok": 0.15,
+          "output_price_per_mtok": null,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "unavailable",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.15"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-robotics-er-2",
+          "display_name": "gemini-robotics-er-2",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 10.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$2.00 (text / image / video / audio)",
+            "output": "$10.00"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gemini-robotics-er-2-streaming",
+          "display_name": "gemini-robotics-er-2-streaming",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 10.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$2.00 (text / image / video / audio)",
+            "output": "$10.00"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gemini-robotics-er",
+          "display_name": "gemini-robotics-er",
+          "input_price_per_mtok": 1.0,
+          "output_price_per_mtok": 5.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.00 (text / image / video) $2.00 (audio)",
+            "output": "$5.00"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-17"
+        }
+      ],
+      "policy_pages": [
+        {
+          "label": "Prohibited use policy",
+          "url": "https://policies.google.com/terms/generative-ai/use-policy",
+          "content_hash": "sha256:4ea94e3cee3df56fa0f42c488f6f926cac9e4e15c4786fd6c2ab1d6fecca5357",
+          "last_changed": "2026-07-31"
+        }
+      ],
+      "notes": [
+        "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。"
+      ]
+    },
     "openai": {
       "display_name": "OpenAI",
       "pricing_url": "https://developers.openai.com/api/docs/pricing",
@@ -1143,6 +1645,191 @@
           },
           "last_seen": "2026-07-31",
           "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gpt-image-2",
+          "display_name": "gpt-image-2",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 30.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-2",
+                "Image",
+                "$8.00",
+                "$2.00",
+                "$30.00"
+              ],
+              "text": [
+                "gpt-image-2",
+                "Text",
+                "$5.00",
+                "$1.25",
+                "-"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gpt-image-1.5",
+          "display_name": "gpt-image-1.5",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 32.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-1.5",
+                "Image",
+                "$8.00",
+                "$2.00",
+                "$32.00"
+              ],
+              "text": [
+                "gpt-image-1.5",
+                "Text",
+                "$5.00",
+                "$1.25",
+                "$10.00"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gpt-image-1-mini",
+          "display_name": "gpt-image-1-mini",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 8.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-1-mini",
+                "Image",
+                "$2.50",
+                "$0.25",
+                "$8.00"
+              ],
+              "text": [
+                "gpt-image-1-mini",
+                "Text",
+                "$2.00",
+                "$0.20",
+                "-"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gpt-image-1",
+          "display_name": "gpt-image-1",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 40.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-1",
+                "Image",
+                "$10.00",
+                "$2.50",
+                "$40.00"
+              ],
+              "text": [
+                "gpt-image-1",
+                "Text",
+                "$5.00",
+                "$1.25",
+                "-"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "chatgpt-image-latest",
+          "display_name": "chatgpt-image-latest",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 32.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "chatgpt-image-latest",
+                "Image",
+                "$8.00",
+                "$2.00",
+                "$32.00"
+              ],
+              "text": [
+                "chatgpt-image-latest",
+                "Text",
+                "$5.00",
+                "$1.25",
+                "$10.00"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-07-31",
+          "last_changed": "2026-07-31"
         }
       ],
       "policy_pages": [
@@ -1150,17 +1837,13 @@
           "label": "Usage policies",
           "url": "https://openai.com/policies/usage-policies/",
           "content_hash": "sha256:545e188ba443f5a224e65a07318be034accccdd50fe62a3c3a3f63219611c7ed",
-          "last_changed": "2026-07-31",
-          "needs_review": true,
-          "review_reasons": [
-            "政策頁內容有變動，請人工檢視"
-          ]
+          "last_changed": "2026-07-31"
         }
       ],
       "notes": [
-        "context window 官方定價頁未提供；價格為 standard 分級的短情境（≤272K）區間價。"
-      ],
-      "needs_review": true
+        "context window 官方定價頁未提供；價格為 standard 分級的短情境（≤272K）區間價。",
+        "繪圖模型（gpt-image 系列）：輸入價為文字提示、輸出價為圖片輸出，皆為每百萬 token；圖片輸入（編輯／參考圖）與快取價請點官方連結或見 raw。"
+      ]
     },
     "anthropic": {
       "display_name": "Anthropic",
@@ -1513,509 +2196,6 @@
           "last_changed": "2026-07-17"
         }
       ]
-    },
-    "google": {
-      "display_name": "Google Gemini",
-      "pricing_url": "https://ai.google.dev/gemini-api/docs/pricing",
-      "news_url": "https://ai.google.dev/gemini-api/docs/changelog",
-      "fetch_status": "ok",
-      "models": [
-        {
-          "id": "gemini-3.6-flash",
-          "display_name": "gemini-3.6-flash",
-          "input_price_per_mtok": 1.5,
-          "output_price_per_mtok": 7.5,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.6-flash",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.50",
-            "output": "$7.50"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-22"
-        },
-        {
-          "id": "gemini-3.5-flash",
-          "display_name": "gemini-3.5-flash",
-          "input_price_per_mtok": 1.5,
-          "output_price_per_mtok": 9.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.50",
-            "output": "$9.00"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-3.5-flash-lite",
-          "display_name": "gemini-3.5-flash-lite",
-          "input_price_per_mtok": 0.3,
-          "output_price_per_mtok": 2.5,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.30 (text / image / video / audio)",
-            "output": "$2.50"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-22"
-        },
-        {
-          "id": "gemini-3.1-flash-lite",
-          "display_name": "gemini-3.1-flash-lite",
-          "input_price_per_mtok": 0.25,
-          "output_price_per_mtok": 1.5,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-lite",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.25 (text / image / video) $0.50 (audio)",
-            "output": "$1.50"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-omni-flash-preview",
-          "display_name": "gemini-omni-flash-preview",
-          "input_price_per_mtok": 1.5,
-          "output_price_per_mtok": 9.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-omni-flash-preview",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.50 (text / image / video / audio)",
-            "output": "$9.00 (text) $17.50 (video) *"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-3.1-pro-preview",
-          "display_name": "gemini-3.1-pro-preview",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 12.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$2.00, prompts <= 200k tokens $4.00, prompts > 200k tokens",
-            "output": "$12.00, prompts <= 200k tokens $18.00, prompts > 200k"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-3.1-flash-image",
-          "display_name": "gemini-3.1-flash-image",
-          "input_price_per_mtok": 0.5,
-          "output_price_per_mtok": 3.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-image",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.50 (text/image)",
-            "output": "$3 (text and thinking) $60.00 (images) Equivalent to $0.045 per 0.5K image * $0.067 per 1K image * ,\n        $0.101 per 2K image * ,\n        and $0.151 per 4K image * ."
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-3.1-flash-lite-image",
-          "display_name": "gemini-3.1-flash-lite-image",
-          "input_price_per_mtok": 0.25,
-          "output_price_per_mtok": 1.5,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-lite-image",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.25 (text/image/video)",
-            "output": "$1.50 (text and thinking) $30.00 (images) Equivalent to $0.0336 per 1K resolution image *"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-3.1-flash-tts-preview",
-          "display_name": "gemini-3.1-flash-tts-preview",
-          "input_price_per_mtok": 1.0,
-          "output_price_per_mtok": 20.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-tts-preview",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.00 (text)",
-            "output": "$20.00 (audio)"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-3-flash-preview",
-          "display_name": "gemini-3-flash-preview",
-          "input_price_per_mtok": 0.5,
-          "output_price_per_mtok": 3.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3-flash-preview",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.50 (text / image / video) $1.00 (audio)",
-            "output": "$3.00"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-3-pro-image",
-          "display_name": "gemini-3-pro-image",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 12.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3-pro-image",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$2.00 (text/image), equivalent to $0.0011 per image *",
-            "output": "$12.00 (text and thinking) $120.00 (images) Equivalent to $0.134 per 1K/2K image ** and $0.24 per 4K image **"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.5-pro",
-          "display_name": "gemini-2.5-pro",
-          "input_price_per_mtok": 1.25,
-          "output_price_per_mtok": 10.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.25, prompts <= 200k tokens $2.50, prompts > 200k tokens",
-            "output": "$10.00, prompts <= 200k tokens $15.00, prompts > 200k"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.5-flash",
-          "display_name": "gemini-2.5-flash",
-          "input_price_per_mtok": 0.3,
-          "output_price_per_mtok": 2.5,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.30 (text / image / video) $1.00 (audio)",
-            "output": "$2.50"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.5-flash-lite",
-          "display_name": "gemini-2.5-flash-lite",
-          "input_price_per_mtok": 0.1,
-          "output_price_per_mtok": 0.4,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-lite",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.10 (text / image / video) $0.30 (audio)",
-            "output": "$0.40"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.5-flash-lite-preview",
-          "display_name": "gemini-2.5-flash-lite-preview",
-          "input_price_per_mtok": 0.1,
-          "output_price_per_mtok": 0.4,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-lite-preview",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.10 (text / image / video) $0.30 (audio)",
-            "output": "$0.40"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.5-flash-image",
-          "display_name": "gemini-2.5-flash-image",
-          "input_price_per_mtok": 0.3,
-          "output_price_per_mtok": null,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-image",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "unavailable",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.30 (text / image)",
-            "output": "$0.039 per image*"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.5-flash-preview-tts",
-          "display_name": "gemini-2.5-flash-preview-tts",
-          "input_price_per_mtok": 0.5,
-          "output_price_per_mtok": 10.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-preview-tts",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.50 (text)",
-            "output": "$10.00 (audio)"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.5-pro-preview-tts",
-          "display_name": "gemini-2.5-pro-preview-tts",
-          "input_price_per_mtok": 1.0,
-          "output_price_per_mtok": 20.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro-preview-tts",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.00 (text)",
-            "output": "$20.00 (audio)"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.0-flash",
-          "display_name": "gemini-2.0-flash",
-          "input_price_per_mtok": 0.1,
-          "output_price_per_mtok": 0.4,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.0-flash",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.10 (text / image / video) $0.70 (audio)",
-            "output": "$0.40"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-2.0-flash-lite",
-          "display_name": "gemini-2.0-flash-lite",
-          "input_price_per_mtok": 0.075,
-          "output_price_per_mtok": 0.3,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.0-flash-lite",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.075",
-            "output": "$0.30"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-embedding",
-          "display_name": "gemini-embedding",
-          "input_price_per_mtok": 0.15,
-          "output_price_per_mtok": null,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "unavailable",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.15"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gemini-robotics-er-2",
-          "display_name": "gemini-robotics-er-2",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 10.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$2.00 (text / image / video / audio)",
-            "output": "$10.00"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-31"
-        },
-        {
-          "id": "gemini-robotics-er-2-streaming",
-          "display_name": "gemini-robotics-er-2-streaming",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 10.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$2.00 (text / image / video / audio)",
-            "output": "$10.00"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-31"
-        },
-        {
-          "id": "gemini-robotics-er",
-          "display_name": "gemini-robotics-er",
-          "input_price_per_mtok": 1.0,
-          "output_price_per_mtok": 5.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.00 (text / image / video) $2.00 (audio)",
-            "output": "$5.00"
-          },
-          "last_seen": "2026-07-31",
-          "last_changed": "2026-07-17"
-        }
-      ],
-      "policy_pages": [
-        {
-          "label": "Prohibited use policy",
-          "url": "https://policies.google.com/terms/generative-ai/use-policy",
-          "content_hash": "sha256:4ea94e3cee3df56fa0f42c488f6f926cac9e4e15c4786fd6c2ab1d6fecca5357",
-          "last_changed": "2026-07-31",
-          "needs_review": true,
-          "review_reasons": [
-            "政策頁內容有變動，請人工檢視"
-          ]
-        }
-      ],
-      "notes": [
-        "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。"
-      ],
-      "needs_review": true
     },
     "deepseek": {
       "display_name": "DeepSeek",

@@ -15,6 +15,16 @@
     本表追蹤的輸入／輸出價取 Short context 欄——沿用改版前「標準區間價」的口徑；
     長情境價記進 raw 備查，不當主要價格（規格 §5 不追蹤分級計價）。
 
+繪圖模型（2026-07-31 加入追蹤）：
+  - 在「Image generation models」段落，Markdown 標題全叫「Grouped Pricing Table
+    data」（全頁重複九次），無法用標題定位，只能靠純文字標記夾出範圍：
+    區名行 → 「Standard」 → 表格 →「Batch」。
+  - 每個模型拆成 Image / Text 兩列（Modality 欄）。文字提示進、圖片出是主要用法，
+    所以輸入價取 Text 列、輸出價取 Image 列，皆為每百萬 token；圖片輸入
+    （編輯／參考圖）與快取價留在 raw 備查。
+  - 同段落的 Batch 表照舊不追蹤（規格 §5）；Video（sora，按秒計價）放不進
+    本 schema，不追蹤（見 README 已知缺口）。
+
 已知缺口：定價頁沒有 context window，模型頁又是逐一分頁 + tailwind class，
 太脆弱不值得每天抓 50 次，因此 context_window 標為 unavailable（見 README）。
 """
@@ -74,6 +84,46 @@ def _standard_table(md: str) -> list[list[str]]:
         raise base.FetchError(
             f"「{SECTION_HEADING}」底下找不到價格表格，頁面結構可能改了"
         )
+    return tables[0]
+
+
+IMAGE_SECTION = "Image generation models"
+
+# 繪圖模型表的每列是（模型, modality）一組，靠這兩欄配對出一個模型的兩列。
+_MODEL_COLS = ("model",)
+_MODALITY_COLS = ("modality",)
+
+
+def _image_table(md: str) -> list[list[str]]:
+    """取出「Image generation models」段落裡 Standard 分級的表格。
+
+    這一區的 Markdown 標題不可用（全頁九個「Grouped Pricing Table data」），
+    改用純文字標記夾範圍：區名行起、下一個「… models」區名行止；
+    其中再取「Standard」到「Batch」之間的第一張表。
+    """
+    start = re.search(rf"^{re.escape(IMAGE_SECTION)}\s*$", md, re.M)
+    if start is None:
+        raise base.FetchError(
+            f"定價頁找不到「{IMAGE_SECTION}」段落，頁面結構可能改了"
+        )
+
+    section = md[start.end():]
+    nxt = re.search(r"^\w[\w /-]* models\s*$", section, re.M)
+    if nxt:
+        section = section[: nxt.start()]
+
+    std = re.search(r"^Standard\s*$", section, re.M)
+    if std is None:
+        raise base.FetchError(f"「{IMAGE_SECTION}」底下找不到 Standard 分級標記")
+    section = section[std.end():]
+
+    batch = re.search(r"^Batch\s*$", section, re.M)
+    if batch:
+        section = section[: batch.start()]
+
+    tables = base.markdown_tables(section)
+    if not tables or len(tables[0]) < 2:
+        raise base.FetchError(f"「{IMAGE_SECTION}」Standard 分級底下找不到價格表格")
     return tables[0]
 
 
@@ -137,9 +187,67 @@ def _parse_table(table: list[list[str]], source_url: str) -> list[dict[str, Any]
     return models
 
 
+def _parse_image_table(table: list[list[str]], source_url: str) -> list[dict[str, Any]]:
+    """把（模型, modality）成對的列收斂成一模型一筆。
+
+    輸入價取 Text 列（文字提示）、輸出價取 Image 列（生成的圖片 token）——
+    這是文生圖的主要成本路徑。圖片輸入與快取價不當主要欄位，整列留在 raw。
+    """
+    header, *rows = table
+
+    col_model = _find_col(header, _MODEL_COLS, "模型名")
+    col_modality = _find_col(header, _MODALITY_COLS, "modality")
+    col_in = _find_col(header, _INPUT_COLS, "輸入價")
+    col_out = _find_col(header, _OUTPUT_COLS, "輸出價")
+    if None in (col_model, col_modality, col_in, col_out):
+        raise base.FetchError(
+            f"繪圖模型價格表欄位對不上（表頭：{header}），頁面結構可能改了"
+        )
+
+    by_model: dict[str, dict[str, list[str]]] = {}
+    for row in rows:
+        if len(row) <= max(col_model, col_modality, col_in, col_out) or not row[col_model]:
+            continue
+        by_model.setdefault(row[col_model], {})[row[col_modality].lower()] = row
+
+    models: list[dict[str, Any]] = []
+    for model_id, modalities in by_model.items():
+        text_row = modalities.get("text")
+        image_row = modalities.get("image")
+
+        # 缺 Text 或 Image 列時讓該欄走 needs_review（不標 unavailable）：
+        # 這代表列格式變了，該進待覆核區，不是已知的永久缺口。
+        input_price = base.parse_price(text_row[col_in]) if text_row else None
+        output_price = base.parse_price(image_row[col_out]) if image_row else None
+
+        models.append(
+            base.make_model(
+                model_id=model_id,
+                display_name=model_id,
+                input_price_per_mtok=base.to_mtok(input_price),
+                output_price_per_mtok=base.to_mtok(output_price),
+                context_window=None,
+                source_url=source_url,
+                modality="image",
+                raw={
+                    "tier": TIER,
+                    "modalities": modalities,
+                    "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；"
+                    "圖片輸入與快取價見 modalities 各列",
+                },
+                unavailable_fields=("context_window",),
+            )
+        )
+
+    if not models:
+        raise base.FetchError("繪圖模型價格表解析出 0 個模型，列格式可能改了")
+    return models
+
+
 def collect() -> base.ProviderData:
     md = base.get_markdown(PRICING_MD_URL)
     models = _parse_table(_standard_table(md), PRICING_URL)
+    models += _parse_image_table(_image_table(md), PRICING_URL)
 
     data = base.ProviderData(
         display_name=DISPLAY_NAME,
@@ -149,4 +257,8 @@ def collect() -> base.ProviderData:
         policy_pages=[base.policy_page(label, url) for label, url in POLICY_PAGES],
     )
     data.notes.append("context window 官方定價頁未提供；價格為 standard 分級的短情境（≤272K）區間價。")
+    data.notes.append(
+        "繪圖模型（gpt-image 系列）：輸入價為文字提示、輸出價為圖片輸出，"
+        "皆為每百萬 token；圖片輸入（編輯／參考圖）與快取價請點官方連結或見 raw。"
+    )
     return data

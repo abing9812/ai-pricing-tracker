@@ -211,6 +211,38 @@ let tableRows = [];
 let sortKey = null;
 let sortDir = 'none';
 
+/**
+ * 星標：勾選的模型一律頂置在總表最上方，方便挑幾個出來並排比較。
+ * 存 localStorage —— 這是使用者自己的瀏覽器偏好，不屬於抓回來的資料，
+ * 不能寫進 repo 的 JSON（每天重抓會蓋掉）。
+ */
+const STAR_KEY = 'ai-pricing-starred';
+
+function loadStars() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(STAR_KEY)) || []);
+  } catch {
+    return new Set();
+  }
+}
+
+const starred = loadStars();
+
+function saveStars() {
+  try {
+    localStorage.setItem(STAR_KEY, JSON.stringify([...starred]));
+  } catch {
+    // 私密視窗等寫不進去就算了，星標仍在當前頁面生效。
+  }
+}
+
+function toggleStar(key) {
+  if (starred.has(key)) starred.delete(key);
+  else starred.add(key);
+  saveStars();
+  paintTable();
+}
+
 function buildTableRows(current, changelog) {
   const cutoff = daysAgoISO(RECENT_DAYS);
   const changedRecently = new Set(
@@ -222,6 +254,7 @@ function buildTableRows(current, changelog) {
     for (const m of p.models || []) {
       rows.push({
         model: m,
+        key: `${pid}/${m.id}`,
         providerName: p.display_name || pid,
         modelName: m.display_name || m.id,
         sourceUrl: m.source_url || p.pricing_url,
@@ -254,19 +287,38 @@ function compareRows(a, b, key, sign) {
 }
 
 function sortedRows() {
-  if (!sortKey || sortDir === 'none') return tableRows;
-  const sign = sortDir === 'asc' ? 1 : -1;
-  // slice()：不要就地排序 tableRows，否則預設的家別分組順序就回不去了。
-  // Array#sort 是穩定的 → 同價的列維持預設順序，不必再給次要鍵。
-  return tableRows.slice().sort((a, b) => compareRows(a, b, sortKey, sign));
+  let rows = tableRows;
+  if (sortKey && sortDir !== 'none') {
+    const sign = sortDir === 'asc' ? 1 : -1;
+    // slice()：不要就地排序 tableRows，否則預設的家別分組順序就回不去了。
+    // Array#sort 是穩定的 → 同價的列維持預設順序，不必再給次要鍵。
+    rows = tableRows.slice().sort((a, b) => compareRows(a, b, sortKey, sign));
+  }
+  // 星標列一律頂置，兩群內部各自維持目前的排序（或預設分組）順序。
+  if (!starred.size) return rows;
+  return [...rows.filter((r) => starred.has(r.key)), ...rows.filter((r) => !starred.has(r.key))];
 }
 
 function rowEl(r) {
   const tr = el('tr', r.rowClass);
   const status = r.model.field_status || {};
 
+  const isStarred = starred.has(r.key);
+  const starTd = el('td', 'star-cell');
+  const starBtn = el('button', isStarred ? 'star-btn starred' : 'star-btn', isStarred ? '★' : '☆');
+  starBtn.type = 'button';
+  starBtn.title = isStarred ? '取消星標' : '星標：頂置到最上方方便比較';
+  starBtn.setAttribute('aria-pressed', String(isStarred));
+  starBtn.addEventListener('click', () => toggleStar(r.key));
+  starTd.appendChild(starBtn);
+  tr.appendChild(starTd);
+
   tr.appendChild(el('td', null, r.providerName));
-  tr.appendChild(el('td', 'model-name', r.modelName));
+  const nameTd = el('td', 'model-name', r.modelName);
+  if (r.model.modality === 'image') {
+    nameTd.appendChild(el('span', 'badge badge-image', '繪圖'));
+  }
+  tr.appendChild(nameTd);
   tr.appendChild(valueCell(fmtPrice(r.model.input_price_per_mtok), status.input_price_per_mtok));
   tr.appendChild(valueCell(fmtPrice(r.model.output_price_per_mtok), status.output_price_per_mtok));
   tr.appendChild(valueCell(fmtContext(r.model.context_window), status.context_window));
@@ -284,7 +336,7 @@ function paintTable() {
 
   if (!rows.length) {
     const td = el('td', 'empty', '目前沒有任何模型資料。');
-    td.colSpan = 7;
+    td.colSpan = 8;
     const tr = el('tr');
     tr.appendChild(td);
     body.replaceChildren(tr);

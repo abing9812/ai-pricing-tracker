@@ -232,6 +232,7 @@ def make_model(
     context_window: int | None,
     source_url: str,
     currency: str = "USD",
+    modality: str | None = None,
     raw: dict[str, Any] | None = None,
     unavailable_fields: tuple[str, ...] = (),
 ) -> dict[str, Any]:
@@ -265,6 +266,9 @@ def make_model(
         "source_url": source_url,
         "field_status": {key: status(key, val) for key, val in values.items()},
     }
+    if modality:
+        # 只在非預設（文字）時記錄，例如 "image"。儀表板據此顯示「繪圖」標籤。
+        model["modality"] = modality
     if raw:
         # 保留原始值以便查錯（規格 §8：單位標準化後仍要能回溯）。
         model["raw"] = raw
