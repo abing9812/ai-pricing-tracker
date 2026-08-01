@@ -1,6 +1,6 @@
 # AI 模型價格與政策追蹤器
 
-每天自動抓取 OpenAI、Anthropic、Google Gemini、DeepSeek 四家的官方定價頁與政策頁，
+每 12 小時自動抓取 OpenAI、Anthropic、Google Gemini、DeepSeek 四家的官方定價頁與政策頁，
 標出近 7 天的價格變動與新模型，**每個數字旁邊都有官方連結**，點過去三秒確認。
 
 全部跑在 GitHub 免費資源上：Actions 排程抓取 → 結果 commit 回 repo → Pages 顯示儀表板。
@@ -48,10 +48,13 @@ python -m http.server 8000 --directory docs
    資料夾選 **`/docs`**。
 3. **Settings → Actions → General → Workflow permissions**：選
    **Read and write permissions**（Actions 要把抓取結果 commit 回 repo）。
-4. **Actions → track → Run workflow** 手動跑一次，確認正常後就會每天自動跑。
+4. **Actions → track → Run workflow** 手動跑一次，確認正常後就會自動照排程跑。
 
-排程是 **UTC 00:00**（台北時間 08:00），寫在 `.github/workflows/track.yml`。
-GitHub 排程在尖峰時可能延遲數十分鐘，屬正常現象。
+排程是 **每 12 小時一次：UTC 00:00 與 12:00**（台北時間 08:00、20:00），
+寫在 `.github/workflows/track.yml`。GitHub 排程在尖峰時可能延遲數十分鐘，屬正常現象。
+
+變動事件只記日期（不記時分），所以同一天的兩次抓取會標同一個日期；
+`data/changelog.json` 每天最多因此多出一批同日事件，不影響比對正確性。
 
 ## repo 裡的資料是什麼
 
@@ -112,6 +115,51 @@ DeepSeek [terms of service](https://cdn.deepseek.com/policies/en-US/deepseek-ope
 - 政策頁雜湊改變
 - 解析出重複的模型 id
 
+### 旗標什麼時候會消失：條件型 vs 事件型
+
+**條件型**（解析不到值、抓取失敗、模型未再出現、模型數量驟減）每次比對都會重新判定，
+狀況修好旗標就自己消失。不需要人工介入，人工清了也會再回來 —— 因為問題還在。
+
+**事件型**（價格單次變動超過 ±50%、政策頁雜湊改變）只在事發那一次算得出來：
+下次比對時價格已經寫回 `current.json`、雜湊也已經對上，旗標會自己消失。
+排程是 12 小時一次，晚上 20:00 抓到的事情，早上開儀表板時就已經被清掉了。
+
+所以事件型理由會另外記進項目的 `pending_reviews`，跨次帶著，**直到人工確認為止**：
+
+```bash
+python collector/ack.py                       # 列出目前所有待覆核項目
+python collector/ack.py openai/gpt-5.6-luna   # 確認一筆模型
+python collector/ack.py google/"Prohibited use policy"   # 確認一個政策頁
+python collector/ack.py openai                # 確認 OpenAI 底下全部
+python collector/ack.py --all                 # 全部確認
+python collector/ack.py --all --dry-run       # 只看會清掉什麼，不寫檔
+```
+
+確認後該筆的 `needs_review` / `review_reasons` / `pending_reviews` 會被清掉，
+換成 `acknowledged_at`（比對時會一路帶著，之後的抓取不會再把同一件事亮回來）。
+`ack.py` 會同時更新 `data/` 與 `docs/data/`，**改完記得 commit**，否則線上儀表板不會變。
+
+儀表板每一筆待覆核底下都印了對應的 `ack.py` 指令，整行複製到終端機就行
+（靜態頁改不了 repo 裡的 JSON，所以清旗標一定得回終端機跑）。
+
+確認的意思是「我看過了」，不是「這筆沒問題」：真的抓錯就去修解析器，
+真的下架就把該筆從 `current.json` 刪掉（見下一節）。
+
+### 模型從來源消失時
+
+不會自動刪除，而是保留舊資料並標上：
+
+- `status: "missing"` 與 `missing_since`（第一次沒抓到的日期）
+- 總表那列會出現「未再出現」標籤，並進待覆核區
+
+`removed_model` 事件**只在消失的第一天發一次**。保留下來的模型會一直留在上次的資料裡，
+若每次比對都發事件，changelog 會天天多一筆同樣的下架通知。
+
+人工確認真的下架後，**把那筆從 `data/current.json`（與 `docs/data/current.json`）刪掉**即可，
+下次比對不會再把它加回來，儀表板也會把當初那筆事件改顯示成「已確認下架，已從總表移除」。
+確認之前不要動它 —— 模型消失多半是解析失敗而不是真的下架
+（2026-07-28 OpenAI 定價頁改版就讓 45 個模型整批「消失」了四天）。
+
 ### 欄位的三種狀態
 
 `field_status` 裡每個欄位是 `ok` / `needs_review` / `unavailable`：
@@ -162,6 +210,7 @@ python collector/main.py --only google --dry-run   # 只跑一家、不寫檔，
 collector/
   main.py                     進入點：協調抓取、比對、寫檔
   diff.py                     比對與變動偵測規則
+  ack.py                      人工確認：看過待覆核項目後清掉旗標
   test_diff.py                比對邏輯測試（不需網路）
   providers/
     base.py                   共用抓取／解析工具
@@ -185,8 +234,11 @@ GitHub Pages 的來源設為 `docs/` 時，**只會服務 `docs/` 底下的檔�
 - **絕不用空資料覆蓋好資料。** 抓取失敗時保留該家上次的資料，只把 `fetch_status`
   設為 `failed` 並標待覆核。
 - 單一家出錯不會讓整個流程崩潰，四家用 try/except 各自隔離。
-- 模型「消失」時**不會自動刪除**，保留舊資料並標待覆核 —— 多半是解析失敗，不是真的下架。
+- 模型「消失」時**不會自動刪除**，保留舊資料並標 `status: "missing"` 待覆核 ——
+  多半是解析失敗，不是真的下架；`removed_model` 事件只發一次，不會天天重複通知。
 - 政策頁抓不到時沿用上次的雜湊，不會誤報成「政策變動」。
+- 事件型的待覆核旗標（價格暴跌、政策頁改內容）跨次留著，直到人工用 `ack.py` 確認 ——
+  不會因為下一次排程跑過就自己消失。
 - 每次執行具冪等性，可重複安全執行。
 - 政策頁雜湊算的是**可見文字**而非原始 HTML，避免 build id、nonce 每天變動造成誤報。
 

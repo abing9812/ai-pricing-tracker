@@ -125,6 +125,20 @@ h2 {
   margin: 0;
 }
 
+/* 看過之後清旗標的指令，讓人整行複製到終端機。 */
+.review-ack {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  /* 灰階半透明，淺色底變深、深色底變淺，兩個主題都不用各寫一份。 */
+  background: rgba(128, 128, 128, 0.16);
+  user-select: all;
+}
+
 /* 變動列表 */
 .change-item {
   display: flex;

@@ -66,8 +66,62 @@ m, ev = diff_provider("p", prev4, P([M("a", 1.0, 2.0)]), T)
 ids = {x["id"] for x in m["models"]}
 check("消失的模型不被刪除", ids == set("abcd"), ids)
 check("消失的模型標 needs_review", all(x.get("needs_review") for x in m["models"] if x["id"] != "a"))
+check("消失的模型標 status=missing", all(x.get("status")=="missing" for x in m["models"] if x["id"] != "a"))
+check("消失的模型記 missing_since", all(x.get("missing_since")==T for x in m["models"] if x["id"] != "a"))
 check("產生 removed_model 事件", sum(1 for e in ev if e["type"]=="removed_model") == 3, ev)
 check("模型數量驟減 → 整家 needs_review", m.get("needs_review"), m.get("review_reasons"))
+
+# 7b. 隔天再比一次：資料續留，但不可重複發 removed_model
+T2 = "2026-07-18"
+m2, ev2 = diff_provider("p", P(m["models"]), P([M("a", 1.0, 2.0)]), T2)
+check("持續消失仍保留資料", {x["id"] for x in m2["models"]} == set("abcd"), m2["models"])
+check("持續消失不重發 removed_model", not any(e["type"]=="removed_model" for e in ev2), ev2)
+check("missing_since 維持第一天", all(x.get("missing_since")==T for x in m2["models"] if x["id"] != "a"))
+check("覆核理由不重複累積",
+      all(len(x.get("review_reasons",[]))==1 for x in m2["models"] if x["id"] != "a"),
+      [x.get("review_reasons") for x in m2["models"]])
+
+# 7c. 消失後又出現 → 清掉 missing 標記，且不當成新模型
+m3, ev3 = diff_provider("p", P(m["models"]), P([M(x, 1.0, 2.0) for x in "abcd"]), T2)
+check("回來的模型清掉 missing 標記", not any(x.get("status") for x in m3["models"]), m3["models"])
+check("回來的模型不算新模型", not any(e["type"]=="new_model" for e in ev3), ev3)
+
+# 7d. 人工確認下架（把那筆從 current.json 刪掉）後，不可再冒出來
+m4, ev4 = diff_provider("p", P([x for x in m["models"] if x["id"]=="a"]), P([M("a", 1.0, 2.0)]), T2)
+check("人工刪掉後不再復活", {x["id"] for x in m4["models"]} == {"a"}, m4["models"])
+check("人工刪掉後不再發事件", ev4 == [], ev4)
+
+# 7e. 事件型旗標（±50%）要跨次留著，直到人工確認為止
+prev_a = P([M("a", 2.0, 4.0)])
+m5, _ = diff_provider("p", prev_a, P([M("a", 0.2, 4.0)]), T)          # 暴跌那次
+check("暴跌記進 pending_reviews", len(m5["models"][0].get("pending_reviews", [])) == 1, m5["models"][0])
+m6, _ = diff_provider("p", P(m5["models"]), P([M("a", 0.2, 4.0)]), T2)  # 隔次價格已穩定
+check("事件型旗標下次仍在", m6["models"][0].get("needs_review"), m6["models"][0])
+check("事件型理由下次仍在", len(m6["models"][0].get("pending_reviews", [])) == 1, m6["models"][0])
+
+# 7f. 人工確認（ack.py 會清掉這三個 key）後就不再冒出來
+acked = [dict(x) for x in m6["models"]]
+for x in acked:
+    for k in ("needs_review", "review_reasons", "pending_reviews"): x.pop(k, None)
+    x["acknowledged_at"] = T2
+m7, _ = diff_provider("p", P(acked), P([M("a", 0.2, 4.0)]), T2)
+check("確認後旗標不再出現", not m7["models"][0].get("needs_review"), m7["models"][0])
+check("確認後保留 acknowledged_at", m7["models"][0].get("acknowledged_at") == T2, m7["models"][0])
+
+# 7g. 條件型旗標（解析不到值）不進 pending，狀況修好就自己消失
+m8, _ = diff_provider("p", prev_a, P([M("a", None, 4.0)]), T)
+check("條件型不進 pending_reviews", not m8["models"][0].get("pending_reviews"), m8["models"][0])
+m9, _ = diff_provider("p", P(m8["models"]), P([M("a", 2.0, 4.0)]), T2)
+check("條件型修好就自己消失", not m9["models"][0].get("needs_review"), m9["models"][0])
+
+# 7h. 政策頁變動同樣是事件型
+m10, _ = diff_provider("p", P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:aaa"}]),
+                       P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:bbb"}]), T)
+check("政策變動記進 pending_reviews", m10["policy_pages"][0].get("pending_reviews"), m10["policy_pages"][0])
+m11, ev11 = diff_provider("p", P(policies=m10["policy_pages"]),
+                          P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:bbb"}]), T2)
+check("政策事件旗標下次仍在", m11["policy_pages"][0].get("needs_review"), m11["policy_pages"][0])
+check("政策事件不重發變動事件", not any(e["type"]=="policy_change" for e in ev11), ev11)
 
 # 8. 整家抓取失敗 → 沿用全部舊資料、不產生事件
 m, ev = diff_provider("p", prev, P(status="failed", fetch_error="403"), T)

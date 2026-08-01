@@ -74,6 +74,7 @@ function renderReview(current) {
         reasons: p.review_reasons || ['抓取或解析有問題'],
         url: p.pricing_url,
         urlText: '官方定價頁',
+        ackKey: pid,
       });
     }
 
@@ -84,6 +85,7 @@ function renderReview(current) {
         reasons: m.review_reasons || ['欄位待覆核'],
         url: m.source_url || p.pricing_url,
         urlText: '官方定價頁',
+        ackKey: `${pid}/${m.id}`,
       });
     }
 
@@ -94,6 +96,7 @@ function renderReview(current) {
         reasons: page.review_reasons || ['政策頁有變動'],
         url: page.url,
         urlText: '官方政策頁',
+        ackKey: `${pid}/${page.label}`,
       });
     }
   }
@@ -108,6 +111,13 @@ function renderReview(current) {
         box.appendChild(el('p', 'review-reason', reason));
       }
       if (item.url) box.appendChild(link(item.url, item.urlText));
+      // 儀表板是靜態頁，改不了 repo 裡的 JSON。看過之後要清旗標得回終端機跑
+      // ack.py，所以直接把可以整行複製的指令印在這裡。
+      if (item.ackKey) {
+        const cmd = el('code', 'review-ack', `python collector/ack.py "${item.ackKey}"`);
+        cmd.title = '看過了就在終端機跑這行，把這筆的旗標標成已確認';
+        box.appendChild(cmd);
+      }
       list.appendChild(box);
     }
   }
@@ -122,7 +132,7 @@ const FIELD_LABELS = {
   context_window: '情境視窗',
 };
 
-function describeChange(e, providerName) {
+function describeChange(e, providerName, provider) {
   const model = e.model || '';
 
   if (e.type === 'price_change') {
@@ -143,9 +153,19 @@ function describeChange(e, providerName) {
   }
 
   if (e.type === 'removed_model') {
+    // 文案要跟總表一致，不能寫死「資料保留」：人工確認真的下架後那筆會被
+    // 從 current.json 刪掉，這時再說「保留待確認」，讀的人會去總表找一列
+    // 根本不存在的資料（2026-07-31 的 o1-mini 就是這樣）。
+    const kept = (provider.models || []).some((m) => m.id === e.model);
     return {
-      badge: el('span', 'badge badge-removed', '未再出現'),
-      text: el('span', 'change-text', `${providerName} ${model} 這次沒抓到，資料保留待確認`),
+      badge: el('span', 'badge badge-removed', kept ? '未再出現' : '已下架'),
+      text: el(
+        'span',
+        'change-text',
+        kept
+          ? `${providerName} ${model} 這次沒抓到，資料保留待確認`
+          : `${providerName} ${model} 已確認下架，已從總表移除`
+      ),
     };
   }
 
@@ -175,7 +195,7 @@ function renderChanges(current, changelog) {
     for (const e of recent) {
       const provider = (current.providers || {})[e.provider] || {};
       const providerName = provider.display_name || e.provider;
-      const { badge, text } = describeChange(e, providerName);
+      const { badge, text } = describeChange(e, providerName, provider);
 
       const row = el('div', 'change-item');
       row.appendChild(el('span', 'change-date', e.date));
@@ -214,7 +234,7 @@ let sortDir = 'none';
 /**
  * 星標：勾選的模型一律頂置在總表最上方，方便挑幾個出來並排比較。
  * 存 localStorage —— 這是使用者自己的瀏覽器偏好，不屬於抓回來的資料，
- * 不能寫進 repo 的 JSON（每天重抓會蓋掉）。
+ * 不能寫進 repo 的 JSON（每次重抓會蓋掉）。
  */
 const STAR_KEY = 'ai-pricing-starred';
 
@@ -317,6 +337,13 @@ function rowEl(r) {
   const nameTd = el('td', 'model-name', r.modelName);
   if (r.model.modality === 'image') {
     nameTd.appendChild(el('span', 'badge badge-image', '繪圖'));
+  }
+  if (r.model.status === 'missing') {
+    // 官方頁已經看不到它了，這列是保留下來的舊資料——價格可能已經沒有意義，
+    // 要在總表上講清楚，不能讓它跟在架上的模型長得一樣。
+    const badge = el('span', 'badge badge-removed', '未再出現');
+    badge.title = `${r.model.missing_since || ''} 起官方頁就沒再出現，價格為當時保留值`;
+    nameTd.appendChild(badge);
   }
   tr.appendChild(nameTd);
   tr.appendChild(valueCell(fmtPrice(r.model.input_price_per_mtok), status.input_price_per_mtok));

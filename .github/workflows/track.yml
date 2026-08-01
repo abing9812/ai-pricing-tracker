@@ -2,8 +2,9 @@ name: track
 
 on:
   schedule:
-    # 每天 UTC 00:00（台北時間 08:00）。GitHub 排程尖峰時可能延遲數十分鐘，屬正常。
-    - cron: "0 0 * * *"
+    # 每 12 小時：UTC 00:00 與 12:00（台北時間 08:00、20:00）。
+    # GitHub 排程尖峰時可能延遲數十分鐘，屬正常。
+    - cron: "0 0,12 * * *"
   workflow_dispatch:
 
 # 讓 GITHUB_TOKEN 能把抓取結果 commit 回 repo。
