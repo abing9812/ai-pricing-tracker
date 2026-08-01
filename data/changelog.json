@@ -213,5 +213,19 @@
     "model": "chatgpt-image-latest",
     "type": "new_model",
     "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-08-01",
+    "provider": "openai",
+    "type": "policy_change",
+    "label": "Usage policies",
+    "source_url": "https://openai.com/policies/usage-policies/"
+  },
+  {
+    "date": "2026-08-01",
+    "provider": "google",
+    "type": "policy_change",
+    "label": "Prohibited use policy",
+    "source_url": "https://policies.google.com/terms/generative-ai/use-policy"
   }
 ]
