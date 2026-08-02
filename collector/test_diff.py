@@ -140,6 +140,31 @@ m, ev = diff_provider("p", prevp, P(policies=[{"label":"AUP","url":"pu","content
 check("政策頁抓不到不誤報變動", not any(e["type"]=="policy_change" for e in ev), ev)
 check("政策頁抓不到沿用舊雜湊", m["policy_pages"][0]["content_hash"] == "sha256:aaa", m["policy_pages"][0])
 
+# 10b. 換雜湊口徑那次要重新取基準，不可誤報成政策變動
+#      （舊資料沒有 hash_method 欄位，就是 None）
+prev_v1 = P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:old","last_changed":"2026-01-01"}])
+curr_v2 = P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:new","hash_method":"body-v2"}])
+m, ev = diff_provider("p", prev_v1, curr_v2, T)
+check("換口徑不產生政策事件", not any(e["type"]=="policy_change" for e in ev), ev)
+check("換口徑不標 needs_review", not m["policy_pages"][0].get("needs_review"), m["policy_pages"][0])
+check("換口徑收下新雜湊", m["policy_pages"][0]["content_hash"] == "sha256:new", m["policy_pages"][0])
+check("換口徑保留舊 last_changed", m["policy_pages"][0]["last_changed"] == "2026-01-01", m["policy_pages"][0])
+
+# 10c. 換完口徑之後，同口徑下的真變動照樣要抓到
+m2, ev2 = diff_provider("p", P(policies=m["policy_pages"]),
+                        P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:newer","hash_method":"body-v2"}]), T2)
+check("換口徑後仍抓得到真變動", any(e["type"]=="policy_change" for e in ev2), ev2)
+check("換口徑後真變動標 needs_review", m2["policy_pages"][0].get("needs_review"), m2["policy_pages"][0])
+
+# 10d. 政策頁抓不到時，口徑要跟雜湊一起沿用
+#      否則下次成功抓取會拿新口徑去比舊雜湊，白白多一次假警報。
+prev_v2 = P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:new","hash_method":"body-v2"}])
+m3, _ = diff_provider("p", prev_v2, P(policies=[{"label":"AUP","url":"pu","content_hash":None,"fetch_error":"timeout"}]), T)
+check("抓不到時沿用舊口徑", m3["policy_pages"][0].get("hash_method") == "body-v2", m3["policy_pages"][0])
+m4, ev4 = diff_provider("p", P(policies=m3["policy_pages"]),
+                        P(policies=[{"label":"AUP","url":"pu","content_hash":"sha256:new","hash_method":"body-v2"}]), T2)
+check("抓不到隔次恢復不誤報", not any(e["type"]=="policy_change" for e in ev4), ev4)
+
 # 11. unavailable 欄位（官方根本沒公佈）→ 不可佔用待覆核區
 prev_u = P([M("a", 1.0, 2.0, cw=None)])
 curr_u = P([M("a", 1.0, 2.0, cw=None)])

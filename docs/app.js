@@ -68,10 +68,14 @@ function renderReview(current) {
   for (const [pid, p] of Object.entries(current.providers || {})) {
     const name = p.display_name || pid;
 
-    if (p.needs_review) {
+    // 整家的旗標有兩種來源：整家自己出事（抓取失敗、模型數量驟減），
+    // 或只是底下某一筆待覆核而衍生出來的。後者下面就會列出是哪一筆，這裡再印一條
+    // 「整家資料待覆核」等於把單一政策頁的問題講成全家有問題，看的人會先嚇一跳
+    // 再花時間確認 —— 所以只在整家自己有理由時才印。
+    if (p.needs_review && (p.review_reasons || []).length) {
       items.push({
         title: `${name}：整家資料待覆核`,
-        reasons: p.review_reasons || ['抓取或解析有問題'],
+        reasons: p.review_reasons,
         url: p.pricing_url,
         urlText: '官方定價頁',
         ackKey: pid,

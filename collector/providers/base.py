@@ -24,6 +24,11 @@ from bs4 import BeautifulSoup
 TIMEOUT = 30
 RETRIES = 3
 
+# 政策頁雜湊的口徑，會跟著雜湊一起寫進 current.json。
+# 改變 policy_text() 的抽取方式時務必改這個字串：舊雜湊算的是別的東西，
+# 沒有可比性，diff 看到口徑不同會重新取基準，而不是誤報成一次政策變動。
+POLICY_HASH_METHOD = "body-v2"
+
 # 多家定價頁對預設的 requests UA 直接回 403，一律偽裝成瀏覽器。
 BROWSER_HEADERS = {
     "User-Agent": (
@@ -170,16 +175,47 @@ def next_data(html: str) -> dict[str, Any] | None:
         return None
 
 
-def visible_text(html: str) -> str:
-    """抽出頁面的可見文字並正規化空白。
-
-    政策頁雜湊用這個而非整份 HTML：build id、nonce、廣告碼每次都變，
-    直接雜湊 HTML 會天天誤報政策變動。
-    """
+def _stripped_soup(html: str) -> BeautifulSoup:
+    """去掉不會顯示、卻天天變動的節點（build id、nonce、廣告碼都藏在這些標籤裡）。"""
     soup = soup_of(html)
     for tag in soup(["script", "style", "noscript", "svg"]):
         tag.decompose()
-    return re.sub(r"\s+", " ", soup.get_text(" ", strip=True)).strip()
+    return soup
+
+
+def _flat_text(node: Any) -> str:
+    return re.sub(r"\s+", " ", node.get_text(" ", strip=True)).strip()
+
+
+def visible_text(html: str) -> str:
+    """抽出頁面的可見文字並正規化空白。"""
+    return _flat_text(_stripped_soup(html))
+
+
+# 由窄到寬。article 最貼近政策本文；Google 的政策頁用 role 屬性而不是語意標籤，
+# 所以兩種寫法都要試。
+_POLICY_BODY_SELECTORS = ("article", "[role=article]", "main", "[role=main]")
+
+
+def policy_text(html: str) -> str:
+    """抽出政策頁的**主文**文字，供雜湊比對用。
+
+    比 visible_text 再窄一層，導覽列、頁尾、語言選單、cookie 提示都不算進去。
+    這些外框會隨抓取來源的地區而變 —— 同一份頁面，GitHub Actions（美國）與本機
+    （台灣）拿到的頁尾字串就不一樣 —— 雜湊整頁會讓排程與手動執行互相誤報成
+    「政策頁內容有變動」。2026-07-17 到 08-01 之間，OpenAI 的 usage policies 與
+    Google 的 prohibited use policy 各誤報了 4 次，雜湊值在兩個舊值之間來回跳，
+    但兩頁的 Last Modified 分別停在 2025-10-29 與 2024-12-17，本文根本沒動過。
+
+    找不到主文容器就退回整頁：DeepSeek 的政策頁是 CDN 上的靜態 HTML，
+    本來就沒有這層外框，整頁就是本文。
+    """
+    soup = _stripped_soup(html)
+    for selector in _POLICY_BODY_SELECTORS:
+        node = soup.select_one(selector)
+        if node:
+            return _flat_text(node)
+    return _flat_text(soup)
 
 
 def sha256_text(text: str) -> str:
@@ -276,10 +312,19 @@ def make_model(
 
 
 def policy_page(label: str, url: str) -> dict[str, Any]:
-    """抓一個政策頁並算內容雜湊；抓不到時 content_hash 為 None（由 diff 標 needs_review）。"""
+    """抓一個政策頁並算內容雜湊；抓不到時 content_hash 為 None（由 diff 標 needs_review）。
+
+    抓不到時刻意不寫 hash_method：那筆的雜湊會由 diff 沿用上次的，
+    口徑標記要跟著雜湊一起沿用，否則下次成功抓取會拿新口徑去比舊雜湊。
+    """
     try:
-        text = visible_text(get_text(url))
-        return {"label": label, "url": url, "content_hash": sha256_text(text)}
+        text = policy_text(get_text(url))
+        return {
+            "label": label,
+            "url": url,
+            "content_hash": sha256_text(text),
+            "hash_method": POLICY_HASH_METHOD,
+        }
     except Exception as exc:  # noqa: BLE001 - 政策頁失敗不該拖垮定價抓取
         return {
             "label": label,

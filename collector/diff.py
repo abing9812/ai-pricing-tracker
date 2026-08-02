@@ -223,12 +223,19 @@ def _diff_policies(
             if prev:
                 page["content_hash"] = prev.get("content_hash")
                 page["last_changed"] = prev.get("last_changed")
+                # 口徑要跟雜湊一起沿用，否則下次成功抓取會拿新口徑去比舊雜湊。
+                page["hash_method"] = prev.get("hash_method")
             _flag(page, "政策頁抓取失敗，無法比對")
             merged.append(page)
             continue
 
         if prev is None or prev.get("content_hash") is None:
             page["last_changed"] = today
+        elif prev.get("hash_method") != page.get("hash_method"):
+            # 雜湊口徑換了（例如改成只算主文），舊雜湊算的是別的東西。
+            # 這時候「不一樣」是我們自己造成的，不是政策改了 —— 靜靜收下當新基準，
+            # 不發事件也不標覆核，否則換一次口徑就會四家一起假警報。
+            page["last_changed"] = prev.get("last_changed", today)
         elif prev["content_hash"] != page["content_hash"]:
             page["last_changed"] = today
             _flag(page, f"{today} 政策頁內容有變動，請人工檢視", sticky=True)
