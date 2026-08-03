@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T02:49:05Z",
+  "generated_at": "2026-08-03T12:39:37Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1336,8 +1336,8 @@
           "url": "https://openai.com/policies/usage-policies/",
           "content_hash": "sha256:baa7321f351f4bdc99e5988c988ab521809c81f4f74c4617f591c6340e6670de",
           "hash_method": "body-v2",
-          "last_changed": "2026-08-01",
-          "acknowledged_at": "2026-08-03"
+          "acknowledged_at": "2026-08-03",
+          "last_changed": "2026-08-01"
         }
       ],
       "notes": [
@@ -2194,8 +2194,8 @@
           "url": "https://policies.google.com/terms/generative-ai/use-policy",
           "content_hash": "sha256:9773ee5892553802d9040e2b15dea71258ff2d0f14e805cbe5444cae97e41760",
           "hash_method": "body-v2",
-          "last_changed": "2026-08-01",
-          "acknowledged_at": "2026-08-03"
+          "acknowledged_at": "2026-08-03",
+          "last_changed": "2026-08-01"
         }
       ],
       "notes": [
