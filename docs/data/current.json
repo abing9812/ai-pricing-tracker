@@ -1665,60 +1665,6 @@
           },
           "last_seen": "2026-08-12",
           "last_changed": "2026-07-17"
-        },
-        {
-          "id": "claude-sonnet-5-through-august-31-2026",
-          "display_name": "Claude Sonnet 5 through August 31, 2026",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 10.0,
-          "context_window": 1000000,
-          "currency": "USD",
-          "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "ok"
-          },
-          "raw": {
-            "label": "Claude Sonnet 5 through August 31, 2026",
-            "input": "$2 / MTok",
-            "output": "$10 / MTok"
-          },
-          "last_seen": "2026-08-11",
-          "last_changed": "2026-07-17",
-          "status": "missing",
-          "missing_since": "2026-08-12",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-08-12 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
-        },
-        {
-          "id": "claude-sonnet-5-starting-september-1-2026",
-          "display_name": "Claude Sonnet 5 starting September 1, 2026",
-          "input_price_per_mtok": 3.0,
-          "output_price_per_mtok": 15.0,
-          "context_window": 1000000,
-          "currency": "USD",
-          "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "ok"
-          },
-          "raw": {
-            "label": "Claude Sonnet 5 starting September 1, 2026",
-            "input": "$3 / MTok",
-            "output": "$15 / MTok"
-          },
-          "last_seen": "2026-08-11",
-          "last_changed": "2026-07-17",
-          "status": "missing",
-          "missing_since": "2026-08-12",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-08-12 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
         }
       ],
       "policy_pages": [
@@ -1729,8 +1675,7 @@
           "hash_method": "body-v2",
           "last_changed": "2026-07-17"
         }
-      ],
-      "needs_review": true
+      ]
     },
     "google": {
       "display_name": "Google Gemini",
