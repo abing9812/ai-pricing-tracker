@@ -255,5 +255,32 @@
     "model": "claude-sonnet-5-starting-september-1-2026",
     "type": "removed_model",
     "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-08-14",
+    "provider": "google",
+    "model": "gemini-3.7-flash",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.7-flash"
+  },
+  {
+    "date": "2026-08-14",
+    "provider": "google",
+    "model": "gemini-3.6-flash",
+    "type": "price_change",
+    "field": "input_price_per_mtok",
+    "old": 1.5,
+    "new": 0.75,
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.6-flash"
+  },
+  {
+    "date": "2026-08-14",
+    "provider": "google",
+    "model": "gemini-3.6-flash",
+    "type": "price_change",
+    "field": "output_price_per_mtok",
+    "old": 7.5,
+    "new": 3.75,
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.6-flash"
   }
 ]
