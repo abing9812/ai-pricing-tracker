@@ -30,6 +30,7 @@ python collector/main.py              # 抓四家，比對後寫回 data/
 python collector/main.py --only openai   # 只跑一家，調解析器時很好用
 python collector/main.py --dry-run       # 只印結果，不寫檔
 python collector/test_diff.py            # 比對邏輯的測試（不需網路）
+python collector/test_deepseek_parser.py # DeepSeek 解析器測試（不需網路）
 ```
 
 ### 本機看儀表板
@@ -95,14 +96,14 @@ job 被推進更擠的時段後配不到 runner —— 2026-08-06 那次 run 就
 | OpenAI | [`developers.openai.com/api/docs/pricing.md`](https://developers.openai.com/api/docs/pricing.md) | `openai.com/api/pricing/` 無 UA 會 **403**，帶瀏覽器 UA 會被導到企業方案頁，**那裡根本沒有 token 單價**。`platform.openai.com` 已 301 到 `developers.openai.com`。文件站有 Markdown 版，不擋機器人。 |
 | Anthropic | [`platform.claude.com/docs/en/about-claude/pricing.md`](https://platform.claude.com/docs/en/about-claude/pricing.md) | `anthropic.com/pricing` 已導向 `claude.com/pricing`，那是**消費者訂閱方案**頁，沒有 API 單價。文件站從 `docs.anthropic.com` 搬到 `platform.claude.com`。完全不擋機器人。 |
 | Google | [`ai.google.dev/gemini-api/docs/pricing`](https://ai.google.dev/gemini-api/docs/pricing) | 沒有 Markdown 版也沒有 JSON，只能解析 HTML（好在價格在原始 HTML 裡）。 |
-| DeepSeek | [`api-docs.deepseek.com/quick_start/pricing/`](https://api-docs.deepseek.com/quick_start/pricing/) | 規格原網址正確，只是會補尾斜線。沒有 JSON，文件原始碼未公開。 |
+| DeepSeek | [`api-docs.deepseek.com/quick_start/pricing/`](https://api-docs.deepseek.com/quick_start/pricing/) | 規格原網址正確，只是會補尾斜線。沒有 JSON，文件原始碼未公開。價格表是轉置的（模型是欄），2026-08 起又分尖峰／離峰兩小列。 |
 
 政策頁：OpenAI [usage policies](https://openai.com/policies/usage-policies/)、
 Anthropic [AUP](https://www.anthropic.com/legal/aup)、
 Google [prohibited use policy](https://policies.google.com/terms/generative-ai/use-policy)、
 DeepSeek [terms of service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html)。
 
-### 四個會咬人的坑
+### 五個會咬人的坑
 
 改解析器前務必知道，每個都已經在程式碼裡處理掉並註解了：
 
@@ -116,6 +117,12 @@ DeepSeek [terms of service](https://cdn.deepseek.com/policies/en-US/deepseek-ope
    無腦全解析會讓 batch 半價覆蓋掉標準價。解析器只認 standard。
 4. **`.md` 網址不是全站通用。** OpenAI 的 `models/*.md` 回 200 但 content-type 是
    `text/html`。`base.get_markdown()` 會驗 content-type，不只看 200。
+5. **DeepSeek 的價格表是轉置的，且跨格（rowspan／colspan）滿天飛。** 模型是欄不是列，
+   數格子對齊遲早出事：2026-08-18 官方把離峰折扣加回來、價格列多出 OFF-PEAK／PEAK
+   兩小列，舊寫法整排錯開一格 —— 第一個模型的價格變成 `OFF-PEAK` 這個字（至少會標
+   待覆核），第二個模型卻靜默拿到第一個模型的離峰價，**數字看起來很正常**。
+   現在改成先把表展成矩陣，一律用欄位座標對齊。標準價取 CACHE MISS × PEAK；
+   離峰是半價折扣（同 cache hit，不追蹤），只記進 `raw` 備查。
 
 ## 「待覆核」是怎麼決定的
 
@@ -216,7 +223,8 @@ python collector/main.py --only google --dry-run   # 只跑一家、不寫檔，
 ```
 
 每支解析器最上面的 docstring 都記著**那一家的網址為什麼是這個、有哪些坑**。
-改完後跑 `python collector/test_diff.py` 確認沒有破壞比對規則。
+改完後跑 `python collector/test_diff.py` 確認沒有破壞比對規則；
+動到 DeepSeek 或 OpenAI 解析器則再跑對應的 `test_deepseek_parser.py` / `test_openai_parser.py`。
 
 頁面改版時，解析器該做的是**拋例外**（`raise base.FetchError(...)`），不是回傳空清單 ——
 拋例外會讓該家標 `failed` 並**沿用上次的好資料**；回傳空清單則可能被誤判成「模型全下架」。
@@ -230,6 +238,7 @@ collector/
   diff.py                     比對與變動偵測規則
   ack.py                      人工確認：看過待覆核項目後清掉旗標
   test_diff.py                比對邏輯測試（不需網路）
+  test_deepseek_parser.py     DeepSeek 解析器測試（跨格對齊、尖峰／離峰）
   providers/
     base.py                   共用抓取／解析工具
     openai.py  anthropic.py  google.py  deepseek.py
