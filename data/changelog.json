@@ -302,5 +302,45 @@
     "old": 0.87,
     "new": 0.66,
     "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-08-18",
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash",
+    "type": "price_change",
+    "field": "input_price_per_mtok",
+    "old": 0.14,
+    "new": 0.44,
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-08-18",
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash",
+    "type": "price_change",
+    "field": "output_price_per_mtok",
+    "old": 0.28,
+    "new": 1.32,
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-08-18",
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "type": "price_change",
+    "field": "input_price_per_mtok",
+    "old": 0.22,
+    "new": 1.32,
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-08-18",
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "type": "price_change",
+    "field": "output_price_per_mtok",
+    "old": 0.66,
+    "new": 3.96,
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
   }
 ]

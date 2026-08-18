@@ -1,6 +1,96 @@
 {
-  "generated_at": "2026-08-17T13:55:46Z",
+  "generated_at": "2026-08-18T02:21:25Z",
   "providers": {
+    "deepseek": {
+      "display_name": "DeepSeek",
+      "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "news_url": "https://api-docs.deepseek.com/news/",
+      "fetch_status": "ok",
+      "models": [
+        {
+          "id": "deepseek-v4-flash",
+          "display_name": "deepseek-v4-flash",
+          "input_price_per_mtok": 0.44,
+          "output_price_per_mtok": 1.32,
+          "context_window": 1000000,
+          "currency": "USD",
+          "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "ok"
+          },
+          "raw": {
+            "label": "deepseek-v4-flash",
+            "input_cache_miss": "$0.44",
+            "output": "$1.32",
+            "context": "1M",
+            "pricing_tier": "PEAK",
+            "input_cache_miss_off_peak": "$0.22",
+            "output_off_peak": "$0.66"
+          },
+          "last_seen": "2026-08-18",
+          "needs_review": true,
+          "review_reasons": [
+            "input_price_per_mtok 單次變動 0.14 → 0.44，幅度超過 ±50%，疑似解析錯位",
+            "output_price_per_mtok 單次變動 0.28 → 1.32，幅度超過 ±50%，疑似解析錯位"
+          ],
+          "pending_reviews": [
+            "input_price_per_mtok 單次變動 0.14 → 0.44，幅度超過 ±50%，疑似解析錯位",
+            "output_price_per_mtok 單次變動 0.28 → 1.32，幅度超過 ±50%，疑似解析錯位"
+          ],
+          "last_changed": "2026-08-18"
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "display_name": "deepseek-v4-pro",
+          "input_price_per_mtok": 1.32,
+          "output_price_per_mtok": 3.96,
+          "context_window": 1000000,
+          "currency": "USD",
+          "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "ok"
+          },
+          "raw": {
+            "label": "deepseek-v4-pro",
+            "input_cache_miss": "$1.32",
+            "output": "$3.96",
+            "context": "1M",
+            "pricing_tier": "PEAK",
+            "input_cache_miss_off_peak": "$0.66",
+            "output_off_peak": "$1.98"
+          },
+          "last_seen": "2026-08-18",
+          "needs_review": true,
+          "review_reasons": [
+            "input_price_per_mtok 單次變動 0.22 → 1.32，幅度超過 ±50%，疑似解析錯位",
+            "output_price_per_mtok 單次變動 0.66 → 3.96，幅度超過 ±50%，疑似解析錯位"
+          ],
+          "pending_reviews": [
+            "input_price_per_mtok 單次變動 0.22 → 1.32，幅度超過 ±50%，疑似解析錯位",
+            "output_price_per_mtok 單次變動 0.66 → 3.96，幅度超過 ±50%，疑似解析錯位"
+          ],
+          "last_changed": "2026-08-18"
+        }
+      ],
+      "policy_pages": [
+        {
+          "label": "Terms of service",
+          "url": "https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html",
+          "content_hash": "sha256:a7bf5e579e43e3149f4423b61370b316aa32438c0a5d9bda0742c0af6ac2f796",
+          "hash_method": "body-v2",
+          "last_changed": "2026-07-17"
+        }
+      ],
+      "notes": [
+        "輸入價為 cache miss 標準價；cache hit 折扣價不在追蹤範圍，請點官方連結查看。",
+        "官方分尖峰／離峰計價，這裡記的是尖峰（標準）價；離峰為半價，適用時段請點官方連結確認。"
+      ],
+      "needs_review": true
+    },
     "openai": {
       "display_name": "OpenAI",
       "pricing_url": "https://developers.openai.com/api/docs/pricing",
@@ -2220,76 +2310,6 @@
       "notes": [
         "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。"
       ]
-    },
-    "deepseek": {
-      "display_name": "DeepSeek",
-      "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-      "news_url": "https://api-docs.deepseek.com/news/",
-      "fetch_status": "ok",
-      "models": [
-        {
-          "id": "deepseek-v4-flash",
-          "display_name": "deepseek-v4-flash",
-          "input_price_per_mtok": 0.14,
-          "output_price_per_mtok": 0.28,
-          "context_window": 1000000,
-          "currency": "USD",
-          "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-          "field_status": {
-            "input_price_per_mtok": "needs_review",
-            "output_price_per_mtok": "needs_review",
-            "context_window": "ok"
-          },
-          "raw": {
-            "label": "deepseek-v4-flash",
-            "input_cache_miss": "OFF-PEAK",
-            "output": "OFF-PEAK",
-            "context": "1M"
-          },
-          "last_seen": "2026-08-17",
-          "needs_review": true,
-          "review_reasons": [
-            "input_price_per_mtok 解析不到值，沿用上次的數字",
-            "output_price_per_mtok 解析不到值，沿用上次的數字"
-          ],
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "deepseek-v4-pro",
-          "display_name": "deepseek-v4-pro",
-          "input_price_per_mtok": 0.22,
-          "output_price_per_mtok": 0.66,
-          "context_window": 1000000,
-          "currency": "USD",
-          "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "ok"
-          },
-          "raw": {
-            "label": "deepseek-v4-pro",
-            "input_cache_miss": "$0.22",
-            "output": "$0.66",
-            "context": "1M"
-          },
-          "last_seen": "2026-08-17",
-          "last_changed": "2026-08-17"
-        }
-      ],
-      "policy_pages": [
-        {
-          "label": "Terms of service",
-          "url": "https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html",
-          "content_hash": "sha256:a7bf5e579e43e3149f4423b61370b316aa32438c0a5d9bda0742c0af6ac2f796",
-          "hash_method": "body-v2",
-          "last_changed": "2026-07-17"
-        }
-      ],
-      "notes": [
-        "輸入價為 cache miss 標準價；cache hit 折扣價不在追蹤範圍，請點官方連結查看。"
-      ],
-      "needs_review": true
     }
   }
 }
