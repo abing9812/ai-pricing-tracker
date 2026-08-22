@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T02:29:18Z",
+  "generated_at": "2026-08-22T03:23:53Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2225,8 +2225,7 @@
       "display_name": "DeepSeek",
       "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing/",
       "news_url": "https://api-docs.deepseek.com/news/",
-      "fetch_status": "failed",
-      "fetch_error": "抓取失敗：頁面內容沒有「1M INPUT TOKENS (CACHE MISS)」，多半是 Docusaurus 對不存在的路徑回了首頁",
+      "fetch_status": "ok",
       "models": [
         {
           "id": "deepseek-v4-flash",
@@ -2250,12 +2249,11 @@
             "input_cache_miss_off_peak": "$0.22",
             "output_off_peak": "$0.66"
           },
-          "last_seen": "2026-08-21",
+          "last_seen": "2026-08-22",
           "needs_review": true,
           "review_reasons": [
             "input_price_per_mtok 單次變動 0.14 → 0.44，幅度超過 ±50%，疑似解析錯位",
-            "output_price_per_mtok 單次變動 0.28 → 1.32，幅度超過 ±50%，疑似解析錯位",
-            "本次抓取失敗，畫面上是上次的資料"
+            "output_price_per_mtok 單次變動 0.28 → 1.32，幅度超過 ±50%，疑似解析錯位"
           ],
           "pending_reviews": [
             "input_price_per_mtok 單次變動 0.14 → 0.44，幅度超過 ±50%，疑似解析錯位",
@@ -2285,18 +2283,42 @@
             "input_cache_miss_off_peak": "$0.66",
             "output_off_peak": "$1.98"
           },
-          "last_seen": "2026-08-21",
+          "last_seen": "2026-08-22",
           "needs_review": true,
           "review_reasons": [
             "input_price_per_mtok 單次變動 0.22 → 1.32，幅度超過 ±50%，疑似解析錯位",
-            "output_price_per_mtok 單次變動 0.66 → 3.96，幅度超過 ±50%，疑似解析錯位",
-            "本次抓取失敗，畫面上是上次的資料"
+            "output_price_per_mtok 單次變動 0.66 → 3.96，幅度超過 ±50%，疑似解析錯位"
           ],
           "pending_reviews": [
             "input_price_per_mtok 單次變動 0.22 → 1.32，幅度超過 ±50%，疑似解析錯位",
             "output_price_per_mtok 單次變動 0.66 → 3.96，幅度超過 ±50%，疑似解析錯位"
           ],
           "last_changed": "2026-08-18"
+        },
+        {
+          "id": "deepseek-v4-flash-vision-exp",
+          "display_name": "deepseek-v4-flash-vision-exp",
+          "input_price_per_mtok": 0.44,
+          "output_price_per_mtok": 1.32,
+          "context_window": 1000000,
+          "currency": "USD",
+          "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "ok"
+          },
+          "raw": {
+            "label": "deepseek-v4-flash-vision-exp",
+            "input_cache_miss": "$0.44",
+            "output": "$1.32",
+            "context": "1M",
+            "pricing_tier": "PEAK",
+            "input_cache_miss_off_peak": "$0.22",
+            "output_off_peak": "$0.66"
+          },
+          "last_seen": "2026-08-22",
+          "last_changed": "2026-08-22"
         }
       ],
       "policy_pages": [
@@ -2305,17 +2327,14 @@
           "url": "https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html",
           "content_hash": "sha256:a7bf5e579e43e3149f4423b61370b316aa32438c0a5d9bda0742c0af6ac2f796",
           "hash_method": "body-v2",
-          "last_changed": "2026-07-17",
-          "needs_review": true,
-          "review_reasons": [
-            "本次抓取失敗，畫面上是上次的資料"
-          ]
+          "last_changed": "2026-07-17"
         }
       ],
-      "needs_review": true,
-      "review_reasons": [
-        "抓取失敗：頁面內容沒有「1M INPUT TOKENS (CACHE MISS)」，多半是 Docusaurus 對不存在的路徑回了首頁"
-      ]
+      "notes": [
+        "輸入價為 cache miss 標準價；cache hit 折扣價不在追蹤範圍，請點官方連結查看。",
+        "官方分尖峰／離峰計價，這裡記的是尖峰（標準）價；離峰為半價，適用時段請點官方連結確認。"
+      ],
+      "needs_review": true
     }
   }
 }

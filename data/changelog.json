@@ -362,5 +362,12 @@
     "old": 30.0,
     "new": 20.0,
     "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-08-22",
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash-vision-exp",
+    "type": "new_model",
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
   }
 ]
