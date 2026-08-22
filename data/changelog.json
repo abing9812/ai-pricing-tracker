@@ -342,5 +342,25 @@
     "old": 0.66,
     "new": 3.96,
     "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-08-22",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "type": "price_change",
+    "field": "input_price_per_mtok",
+    "old": 5.0,
+    "new": 4.0,
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-08-22",
+    "provider": "openai",
+    "model": "gpt-5.6-sol",
+    "type": "price_change",
+    "field": "output_price_per_mtok",
+    "old": 30.0,
+    "new": 20.0,
+    "source_url": "https://developers.openai.com/api/docs/pricing"
   }
 ]
