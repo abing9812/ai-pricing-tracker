@@ -6,7 +6,10 @@
   - 規格書給的網址正確，只是會補上尾斜線。不擋機器人，UA 有無皆可。
   - ⚠ 這站是 Docusaurus SPA，**任何不存在的路徑都回 HTTP 200 + 首頁 HTML**
     （/quick_start/pricing.md、/llms.txt、/search-index.json 全中招）。所以絕不能
-    用狀態碼判斷成功，一定要驗證內容裡真的有價格表 —— 見 collect() 的斷言。
+    用狀態碼判斷成功，一定要驗證內容裡真的有價格表 —— 見 _has_pricing_table()。
+    這道斷言要比對**去掉標籤後的可見文字**，不能比對原始 HTML：官方 2026-08-22
+    在標籤中間插了一個 <br>，畫面一字未改、價格照樣解析得出，整家卻被誤判成
+    抓取失敗。頁面長怎樣是別人的自由，我們只認畫面上讀得到的字。
   - 沒有 JSON 來源，文件原始碼也未公開，只能解析 HTML（好在是 SSG，價格在原始
     bytes 裡）。
 
@@ -227,12 +230,25 @@ def _parse(html: str) -> list[dict[str, Any]]:
     return models
 
 
+def _has_pricing_table(html: str) -> bool:
+    """定價表真的在這份 HTML 裡嗎？
+
+    Docusaurus 對任何不存在的路徑都回 200 + 首頁，狀態碼不能信，所以要驗內容。
+    但**不能拿原始 HTML 直接 substring 比對**：2026-08-22 官方在標籤正中間插了
+    一個 <br>（`1M INPUT TOKENS<br>(CACHE MISS)`），畫面上一個字沒變、表格也照樣
+    解析得出正確價格，整家卻被這道關卡判成抓取失敗、沿用舊資料兩天。
+    改成比對「去掉標籤後的可見文字」（並套 _norm 收斂空白／大小寫），
+    行內標記怎麼加、字母怎麼大小寫都不影響，首頁還是照樣擋得下來。
+    """
+    return INPUT_ROW in _norm(base.visible_text(html))
+
+
 def collect() -> base.ProviderData:
     html = base.get_text(PRICING_URL)
 
     # Docusaurus 對任何路徑都回 200 + 首頁 HTML，狀態碼完全不能信。
     # 斷言價格表真的在頁面上，否則寧可整家標 failed 沿用上次資料。
-    if INPUT_ROW not in html:
+    if not _has_pricing_table(html):
         raise base.FetchError(
             f"頁面內容沒有「{INPUT_ROW}」，多半是 Docusaurus 對不存在的路徑回了首頁"
         )

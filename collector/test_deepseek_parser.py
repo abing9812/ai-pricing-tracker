@@ -117,5 +117,26 @@ NO_PRICE_ROWS = """
 """
 check("找不到價格列拋錯", raises(lambda: ds._parse(NO_PRICE_ROWS)))
 
+# 8. 標籤中間插行內標記（2026-08-22 官方把 `1M INPUT TOKENS (CACHE MISS)` 改成
+#    `1M INPUT TOKENS<br>(CACHE MISS)`）。畫面沒變、價格也沒變，但拿原始 HTML 做
+#    substring 比對的守門條件會誤判成抓取失敗，整家沿用舊資料。
+BR_IN_LABEL = TIERED.replace(
+    "1M INPUT TOKENS (CACHE MISS)", "1M INPUT TOKENS<br>(CACHE MISS)"
+).replace(
+    "1M OUTPUT TOKENS", "1M <strong>OUTPUT</strong> TOKENS"
+)
+
+check("標籤含 <br> 時守門條件仍認得出定價表", ds._has_pricing_table(BR_IN_LABEL))
+br = {m["id"]: m for m in ds._parse(BR_IN_LABEL)}
+check("標籤含行內標記仍解析得出尖峰價",
+      br["deepseek-v4-flash"]["input_price_per_mtok"] == 0.44
+      and br["deepseek-v4-flash"]["output_price_per_mtok"] == 1.32,
+      br["deepseek-v4-flash"])
+
+# 守門條件本來要擋的東西還是要擋下來：Docusaurus 對不存在路徑回的那份首頁。
+check("首頁（沒有定價表）守門條件擋得下來",
+      not ds._has_pricing_table("<main><h1>DeepSeek API Docs</h1><p>Quick Start</p></main>"))
+
+
 print("\n" + (f"{len(fails)} 個測試失敗" if fails else "全部通過"))
 sys.exit(1 if fails else 0)
