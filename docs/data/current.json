@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T11:12:44Z",
+  "generated_at": "2026-08-27T22:59:03Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1842,6 +1842,26 @@
           },
           "last_seen": "2026-08-27",
           "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-omni-1.1-flash",
+          "display_name": "gemini-omni-1.1-flash",
+          "input_price_per_mtok": 1.5,
+          "output_price_per_mtok": 9.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-omni-1.1-flash",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.50 (text / image / video / audio)",
+            "output": "$9.00 (text) $17.50 (video) *"
+          },
+          "last_seen": "2026-08-27",
+          "last_changed": "2026-08-27"
         },
         {
           "id": "gemini-omni-flash-preview",
