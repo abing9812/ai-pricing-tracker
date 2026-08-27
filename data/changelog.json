@@ -369,5 +369,40 @@
     "model": "deepseek-v4-flash-vision-exp",
     "type": "new_model",
     "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-08-27",
+    "provider": "google",
+    "model": "gemini-3.5-transcribe-live",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-transcribe-live"
+  },
+  {
+    "date": "2026-08-27",
+    "provider": "google",
+    "model": "gemini-3.5-transcribe",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-transcribe"
+  },
+  {
+    "date": "2026-08-27",
+    "provider": "google",
+    "model": "gemini-2.5-flash-lite-preview",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-lite-preview"
+  },
+  {
+    "date": "2026-08-27",
+    "provider": "google",
+    "model": "gemini-2.0-flash",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.0-flash"
+  },
+  {
+    "date": "2026-08-27",
+    "provider": "google",
+    "model": "gemini-2.0-flash-lite",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.0-flash-lite"
   }
 ]
