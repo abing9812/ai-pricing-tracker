@@ -411,5 +411,12 @@
     "model": "gemini-omni-1.1-flash",
     "type": "new_model",
     "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-omni-1.1-flash"
+  },
+  {
+    "date": "2026-09-02",
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash"
   }
 ]

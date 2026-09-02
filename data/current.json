@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T05:51:15Z",
+  "generated_at": "2026-09-02T17:12:09Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1752,6 +1752,26 @@
       "news_url": "https://ai.google.dev/gemini-api/docs/changelog",
       "fetch_status": "ok",
       "models": [
+        {
+          "id": "gemini-3.8-flash",
+          "display_name": "gemini-3.8-flash",
+          "input_price_per_mtok": 0.75,
+          "output_price_per_mtok": 3.75,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
+            "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
+          },
+          "last_seen": "2026-09-02",
+          "last_changed": "2026-09-02"
+        },
         {
           "id": "gemini-3.7-flash",
           "display_name": "gemini-3.7-flash",
