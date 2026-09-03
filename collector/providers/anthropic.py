@@ -33,7 +33,9 @@ POLICY_PAGES = [
 
 # 定價頁有 30 幾張表（批次、快取、fast mode、雲端平台…），只認 Model pricing 那張。
 # 認表頭而不是認順序，表格搬家也不會抓錯。
-_PRICING_HEADERS = ("Base Input Tokens", "Output Tokens")
+_INPUT_HEADER = "Base input tokens"
+_OUTPUT_HEADER = "Output tokens"
+_PRICING_HEADERS = (_INPUT_HEADER, _OUTPUT_HEADER)
 
 # 「Claude Sonnet 5 through August 31, 2026」與「… starting September 1, 2026」是
 # 同一個模型的兩段時效價格，官方同時列出兩列。id 保留時效字樣讓兩列各自獨立，
@@ -50,12 +52,24 @@ def _base_name(name: str) -> str:
     return _TEMPORAL_QUALIFIER.sub("", name).strip()
 
 
+def _norm_header(cell: str) -> str:
+    """表頭比對用的正規化：小寫、收斂空白。
+
+    官方 2026-09-02 把表頭從 `Base Input Tokens` 改成 `Base input tokens`，畫面上
+    只差大小寫、表格一列沒動，整家卻因為精確比對而抓取失敗，Claude 全系列價格
+    凍了一天多。這關卡只該擋「表格真的不見了」，不該被排版習慣絆倒。
+    比照 openai._find_col 的既有作法，認字不認大小寫。
+    """
+    return re.sub(r"\s+", " ", cell).strip().lower()
+
+
 def _find_table(tables: list[list[list[str]]], headers: tuple[str, ...]) -> list[list[str]] | None:
+    wanted = [_norm_header(h) for h in headers]
     for table in tables:
         if not table:
             continue
-        head = table[0]
-        if all(any(h == cell for cell in head) for h in headers):
+        head = [_norm_header(cell) for cell in table[0]]
+        if all(h in head for h in wanted):
             return table
     return None
 
@@ -91,9 +105,9 @@ def _parse_pricing(md: str, contexts: dict[str, int]) -> list[dict[str, Any]]:
     if not table:
         raise base.FetchError("定價頁找不到 Model pricing 表格，頁面結構可能改了")
 
-    header = table[0]
-    input_col = header.index("Base Input Tokens")
-    output_col = header.index("Output Tokens")
+    header = [_norm_header(cell) for cell in table[0]]
+    input_col = header.index(_norm_header(_INPUT_HEADER))
+    output_col = header.index(_norm_header(_OUTPUT_HEADER))
     models: list[dict[str, Any]] = []
 
     for row in table[1:]:
