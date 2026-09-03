@@ -418,5 +418,19 @@
     "model": "gemini-3.8-flash",
     "type": "new_model",
     "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash"
+  },
+  {
+    "date": "2026-09-03",
+    "provider": "anthropic",
+    "model": "claude-fable-5.1",
+    "type": "new_model",
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-09-03",
+    "provider": "anthropic",
+    "model": "claude-mythos-5.1",
+    "type": "new_model",
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
   }
 ]
