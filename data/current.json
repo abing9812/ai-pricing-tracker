@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T02:12:52Z",
+  "generated_at": "2026-09-03T05:50:33Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2312,8 +2312,8 @@
             "output_off_peak": "$0.66"
           },
           "last_seen": "2026-09-03",
-          "last_changed": "2026-08-18",
-          "acknowledged_at": "2026-09-03"
+          "acknowledged_at": "2026-09-03",
+          "last_changed": "2026-08-18"
         },
         {
           "id": "deepseek-v4-pro",
@@ -2338,8 +2338,8 @@
             "output_off_peak": "$1.98"
           },
           "last_seen": "2026-09-03",
-          "last_changed": "2026-08-18",
-          "acknowledged_at": "2026-09-03"
+          "acknowledged_at": "2026-09-03",
+          "last_changed": "2026-08-18"
         },
         {
           "id": "deepseek-v4-flash-vision-exp",
@@ -2379,8 +2379,7 @@
       "notes": [
         "輸入價為 cache miss 標準價；cache hit 折扣價不在追蹤範圍，請點官方連結查看。",
         "官方分尖峰／離峰計價，這裡記的是尖峰（標準）價；離峰為半價，適用時段請點官方連結確認。"
-      ],
-      "acknowledged_at": "2026-09-03"
+      ]
     }
   }
 }
