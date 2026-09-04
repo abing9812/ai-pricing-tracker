@@ -432,5 +432,12 @@
     "model": "claude-mythos-5.1",
     "type": "new_model",
     "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-09-04",
+    "provider": "openai",
+    "model": "gpt-6-astra",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
   }
 ]

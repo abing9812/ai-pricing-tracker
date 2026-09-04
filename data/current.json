@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T17:04:28Z",
+  "generated_at": "2026-09-04T05:55:50Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -7,6 +7,40 @@
       "news_url": "https://developers.openai.com/api/docs/changelog",
       "fetch_status": "ok",
       "models": [
+        {
+          "id": "gpt-6-astra",
+          "display_name": "gpt-6-astra",
+          "input_price_per_mtok": 10.0,
+          "output_price_per_mtok": 50.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-6-astra",
+            "tier": "standard",
+            "cells": [
+              "gpt-6-astra",
+              "$10.00",
+              "$1.00",
+              "$12.50",
+              "$50.00",
+              "$20.00",
+              "$2.00",
+              "$25.00",
+              "$75.00"
+            ],
+            "long_context_input_per_mtok": 20.0,
+            "long_context_output_per_mtok": 75.0,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
+          },
+          "last_seen": "2026-09-04",
+          "last_changed": "2026-09-04"
+        },
         {
           "id": "gpt-5.6-sol",
           "display_name": "gpt-5.6-sol",
@@ -38,7 +72,7 @@
             "long_context_output_per_mtok": 30.0,
             "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-22"
         },
         {
@@ -72,7 +106,7 @@
             "long_context_output_per_mtok": 18.0,
             "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -106,7 +140,7 @@
             "long_context_output_per_mtok": 1.8,
             "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -140,7 +174,7 @@
             "long_context_output_per_mtok": 45.0,
             "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -174,7 +208,7 @@
             "long_context_output_per_mtok": 270.0,
             "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -208,7 +242,7 @@
             "long_context_output_per_mtok": 22.5,
             "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -239,7 +273,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -270,7 +304,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -304,7 +338,7 @@
             "long_context_output_per_mtok": 270.0,
             "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -335,7 +369,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -366,7 +400,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -397,7 +431,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -428,7 +462,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -459,7 +493,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -490,7 +524,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -521,7 +555,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -552,7 +586,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -583,7 +617,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -614,7 +648,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -645,7 +679,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -676,7 +710,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -707,7 +741,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -738,7 +772,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -769,7 +803,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -800,7 +834,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -831,7 +865,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -862,7 +896,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -893,7 +927,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -924,7 +958,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -955,7 +989,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -986,7 +1020,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1017,7 +1051,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1048,7 +1082,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1079,7 +1113,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1110,7 +1144,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1141,7 +1175,7 @@
               "-"
             ]
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1178,7 +1212,7 @@
             },
             "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -1215,7 +1249,7 @@
             },
             "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -1252,7 +1286,7 @@
             },
             "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -1289,7 +1323,7 @@
             },
             "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -1326,7 +1360,7 @@
             },
             "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         }
       ],
@@ -1369,7 +1403,7 @@
             "input": "$10 / MTok",
             "output": "$50 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-09-03"
         },
         {
@@ -1390,7 +1424,7 @@
             "input": "$10 / MTok",
             "output": "$50 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-09-03"
         },
         {
@@ -1411,7 +1445,7 @@
             "input": "$10 / MTok",
             "output": "$50 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1432,7 +1466,7 @@
             "input": "$10 / MTok",
             "output": "$50 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1453,7 +1487,7 @@
             "input": "$5 / MTok",
             "output": "$25 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-25"
         },
         {
@@ -1474,7 +1508,7 @@
             "input": "$5 / MTok",
             "output": "$25 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1495,7 +1529,7 @@
             "input": "$5 / MTok",
             "output": "$25 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1516,7 +1550,7 @@
             "input": "$5 / MTok",
             "output": "$25 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1537,7 +1571,7 @@
             "input": "$5 / MTok",
             "output": "$25 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1558,7 +1592,7 @@
             "input": "$15 / MTok",
             "output": "$75 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1579,7 +1613,7 @@
             "input": "$15 / MTok",
             "output": "$75 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1600,7 +1634,7 @@
             "input": "$2 / MTok",
             "output": "$10 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-12"
         },
         {
@@ -1621,7 +1655,7 @@
             "input": "$3 / MTok",
             "output": "$15 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1642,7 +1676,7 @@
             "input": "$3 / MTok",
             "output": "$15 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1663,7 +1697,7 @@
             "input": "$3 / MTok",
             "output": "$15 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1684,7 +1718,7 @@
             "input": "$1 / MTok",
             "output": "$5 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1705,7 +1739,7 @@
             "input": "$0.80 / MTok",
             "output": "$4 / MTok"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         }
       ],
@@ -1742,7 +1776,7 @@
             "input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
             "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-09-02"
         },
         {
@@ -1762,7 +1796,7 @@
             "input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
             "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-14"
         },
         {
@@ -1782,7 +1816,7 @@
             "input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
             "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-14"
         },
         {
@@ -1802,7 +1836,7 @@
             "input": "$1.50",
             "output": "$9.00"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1822,7 +1856,7 @@
             "input": "$3.50 or $0.0053/min * (audio)",
             "output": "$21.00 or $0.0315/min * (audio)"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-06"
         },
         {
@@ -1842,7 +1876,7 @@
             "input": "$3.50 or $0.005/min * (audio)",
             "output": "$21.00 or $0.004/min * (text)"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-27"
         },
         {
@@ -1862,7 +1896,7 @@
             "input": "$2.00 or $0.003/min * (audio)",
             "output": "$12.00 or $0.002/min * (text)"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-27"
         },
         {
@@ -1882,7 +1916,7 @@
             "input": "$0.30 (text / image / video / audio)",
             "output": "$2.50"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-22"
         },
         {
@@ -1902,7 +1936,7 @@
             "input": "$0.25 (text / image / video) $0.50 (audio)",
             "output": "$1.50"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1922,7 +1956,7 @@
             "input": "$1.50 (text / image / video / audio)",
             "output": "$9.00 (text) $17.50 (video) *"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-27"
         },
         {
@@ -1942,7 +1976,7 @@
             "input": "$1.50 (text / image / video / audio)",
             "output": "$9.00 (text) $17.50 (video) *"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1962,7 +1996,7 @@
             "input": "$2.00, prompts <= 200k tokens $4.00, prompts > 200k tokens",
             "output": "$12.00, prompts <= 200k tokens $18.00, prompts > 200k"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -1983,7 +2017,7 @@
             "input": "$0.50 (text/image)",
             "output": "$3 (text and thinking) $60.00 (images) Equivalent to $0.045 per 0.5K image * $0.067 per 1K image * ,\n        $0.101 per 2K image * ,\n        and $0.151 per 4K image * ."
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2004,7 +2038,7 @@
             "input": "$0.25 (text/image/video)",
             "output": "$1.50 (text and thinking) $30.00 (images) Equivalent to $0.0336 per 1K resolution image *"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2024,7 +2058,7 @@
             "input": "$1.00 (text)",
             "output": "$20.00 (audio)"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2044,7 +2078,7 @@
             "input": "$0.50 (text / image / video) $1.00 (audio)",
             "output": "$3.00"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2065,7 +2099,7 @@
             "input": "$2.00 (text/image), equivalent to $0.0011 per image *",
             "output": "$12.00 (text and thinking) $120.00 (images) Equivalent to $0.134 per 1K/2K image ** and $0.24 per 4K image **"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2085,7 +2119,7 @@
             "input": "$1.25, prompts <= 200k tokens $2.50, prompts > 200k tokens",
             "output": "$10.00, prompts <= 200k tokens $15.00, prompts > 200k"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2105,7 +2139,7 @@
             "input": "$0.30 (text / image / video) $1.00 (audio)",
             "output": "$2.50"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2125,7 +2159,7 @@
             "input": "$0.10 (text / image / video) $0.30 (audio)",
             "output": "$0.40"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2146,7 +2180,7 @@
             "input": "$0.30 (text / image)",
             "output": "$0.039 per image*"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2166,7 +2200,7 @@
             "input": "$0.50 (text)",
             "output": "$10.00 (audio)"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2186,7 +2220,7 @@
             "input": "$1.00 (text)",
             "output": "$20.00 (audio)"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2205,7 +2239,7 @@
           "raw": {
             "input": "$0.15"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         },
         {
@@ -2225,7 +2259,7 @@
             "input": "$2.00 (text / image / video / audio)",
             "output": "$10.00"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -2245,7 +2279,7 @@
             "input": "$2.00 (text / image / video / audio)",
             "output": "$10.00"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-31"
         },
         {
@@ -2265,7 +2299,7 @@
             "input": "$1.00 (text / image / video) $2.00 (audio)",
             "output": "$5.00"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-07-17"
         }
       ],
@@ -2311,7 +2345,7 @@
             "input_cache_miss_off_peak": "$0.22",
             "output_off_peak": "$0.66"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "acknowledged_at": "2026-09-03",
           "last_changed": "2026-08-18"
         },
@@ -2337,7 +2371,7 @@
             "input_cache_miss_off_peak": "$0.66",
             "output_off_peak": "$1.98"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "acknowledged_at": "2026-09-03",
           "last_changed": "2026-08-18"
         },
@@ -2363,7 +2397,7 @@
             "input_cache_miss_off_peak": "$0.22",
             "output_off_peak": "$0.66"
           },
-          "last_seen": "2026-09-03",
+          "last_seen": "2026-09-04",
           "last_changed": "2026-08-22"
         }
       ],
