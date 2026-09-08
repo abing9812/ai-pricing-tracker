@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T05:58:55Z",
+  "generated_at": "2026-09-08T17:17:04Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2245,8 +2245,8 @@
         {
           "id": "gemini-robotics-er-2",
           "display_name": "gemini-robotics-er-2",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 10.0,
+          "input_price_per_mtok": 1.0,
+          "output_price_per_mtok": 5.0,
           "context_window": null,
           "currency": "USD",
           "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2",
@@ -2256,17 +2256,17 @@
             "context_window": "unavailable"
           },
           "raw": {
-            "input": "$2.00 (text / image / video / audio)",
-            "output": "$10.00"
+            "input": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "output": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
           },
           "last_seen": "2026-09-08",
-          "last_changed": "2026-07-31"
+          "last_changed": "2026-09-08"
         },
         {
           "id": "gemini-robotics-er-2-streaming",
           "display_name": "gemini-robotics-er-2-streaming",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 10.0,
+          "input_price_per_mtok": 1.0,
+          "output_price_per_mtok": 5.0,
           "context_window": null,
           "currency": "USD",
           "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming",
@@ -2276,11 +2276,11 @@
             "context_window": "unavailable"
           },
           "raw": {
-            "input": "$2.00 (text / image / video / audio)",
-            "output": "$10.00"
+            "input": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "output": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
           },
           "last_seen": "2026-09-08",
-          "last_changed": "2026-07-31"
+          "last_changed": "2026-09-08"
         },
         {
           "id": "gemini-robotics-er",
