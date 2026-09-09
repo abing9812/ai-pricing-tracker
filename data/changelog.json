@@ -479,5 +479,19 @@
     "old": 10.0,
     "new": 5.0,
     "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming"
+  },
+  {
+    "date": "2026-09-09",
+    "provider": "openai",
+    "model": "gpt-image-2.5-sunburst",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-09-09",
+    "provider": "openai",
+    "model": "gpt-image-2.5-flare",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
   }
 ]
