@@ -493,5 +493,26 @@
     "model": "gpt-image-2.5-flare",
     "type": "new_model",
     "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-09-10",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "type": "new_model",
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-09-10",
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash",
+    "type": "removed_model",
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-09-10",
+    "provider": "deepseek",
+    "model": "deepseek-v4-flash-vision-exp",
+    "type": "removed_model",
+    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
   }
 ]
