@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T05:59:53Z",
+  "generated_at": "2026-09-10T17:02:01Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2527,7 +2527,7 @@
       ],
       "needs_review": true,
       "review_reasons": [
-        "模型數量由 3 掉到 2，疑似解析失敗"
+        "模型數量由 4 掉到 2，疑似解析失敗"
       ]
     }
   }
