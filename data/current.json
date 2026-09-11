@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T06:02:04Z",
+  "generated_at": "2026-09-11T17:03:09Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2298,25 +2298,6 @@
           "last_changed": "2026-07-17"
         },
         {
-          "id": "gemini-embedding",
-          "display_name": "gemini-embedding",
-          "input_price_per_mtok": 0.15,
-          "output_price_per_mtok": null,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "unavailable",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.15"
-          },
-          "last_seen": "2026-09-11",
-          "last_changed": "2026-07-17"
-        },
-        {
           "id": "gemini-robotics-er-2",
           "display_name": "gemini-robotics-er-2",
           "input_price_per_mtok": 1.0,
@@ -2345,16 +2326,86 @@
           "currency": "USD",
           "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming",
           "field_status": {
+            "input_price_per_mtok": "needs_review",
+            "output_price_per_mtok": "needs_review",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "Not available",
+            "output": "Not available"
+          },
+          "last_seen": "2026-09-11",
+          "needs_review": true,
+          "review_reasons": [
+            "input_price_per_mtok 解析不到值，沿用上次的數字",
+            "output_price_per_mtok 解析不到值，沿用上次的數字"
+          ],
+          "last_changed": "2026-09-08"
+        },
+        {
+          "id": "gemini-2.5-computer-use-preview-10-2025",
+          "display_name": "gemini-2.5-computer-use-preview-10-2025",
+          "input_price_per_mtok": 1.25,
+          "output_price_per_mtok": 10.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-computer-use-preview-10-2025",
+          "field_status": {
             "input_price_per_mtok": "ok",
             "output_price_per_mtok": "ok",
             "context_window": "unavailable"
           },
           "raw": {
-            "input": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
-            "output": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
+            "input": "$1.25, prompts <= 200k tokens $2.50, prompts > 200k token",
+            "output": "$10.00, prompts <= 200k tokens $15.00, prompts > 200k"
           },
           "last_seen": "2026-09-11",
-          "last_changed": "2026-09-08"
+          "last_changed": "2026-09-11"
+        },
+        {
+          "id": "gemma-4",
+          "display_name": "gemma-4",
+          "input_price_per_mtok": null,
+          "output_price_per_mtok": null,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemma-4",
+          "field_status": {
+            "input_price_per_mtok": "needs_review",
+            "output_price_per_mtok": "needs_review",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "Not available",
+            "output": "Not available"
+          },
+          "last_seen": "2026-09-11",
+          "last_changed": "2026-09-11"
+        },
+        {
+          "id": "gemini-embedding",
+          "display_name": "gemini-embedding",
+          "input_price_per_mtok": 0.15,
+          "output_price_per_mtok": null,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "unavailable",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.15"
+          },
+          "last_seen": "2026-09-11",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-09-11",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-09-11 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-robotics-er",
@@ -2374,7 +2425,13 @@
             "output": "$5.00"
           },
           "last_seen": "2026-09-11",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-09-11",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-09-11 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         }
       ],
       "policy_pages": [
@@ -2388,8 +2445,10 @@
         }
       ],
       "notes": [
-        "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。"
-      ]
+        "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。",
+        "pricing-for-agents 的計價單位不是每百萬 token（表頭： | Model | Tools），已略過。"
+      ],
+      "needs_review": true
     },
     "deepseek": {
       "display_name": "DeepSeek",

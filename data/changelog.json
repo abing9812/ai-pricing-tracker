@@ -514,5 +514,33 @@
     "model": "deepseek-v4-flash-vision-exp",
     "type": "removed_model",
     "source_url": "https://api-docs.deepseek.com/quick_start/pricing/"
+  },
+  {
+    "date": "2026-09-11",
+    "provider": "google",
+    "model": "gemini-2.5-computer-use-preview-10-2025",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-computer-use-preview-10-2025"
+  },
+  {
+    "date": "2026-09-11",
+    "provider": "google",
+    "model": "gemma-4",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemma-4"
+  },
+  {
+    "date": "2026-09-11",
+    "provider": "google",
+    "model": "gemini-embedding",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding"
+  },
+  {
+    "date": "2026-09-11",
+    "provider": "google",
+    "model": "gemini-robotics-er",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er"
   }
 ]
