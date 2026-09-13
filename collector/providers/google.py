@@ -37,8 +37,16 @@ PLAIN_UA = {"User-Agent": "python-requests"}
 # 第 2 欄是 Free Tier、第 3 欄才是付費價，欄序寫死會抓到「Free of charge」。
 PAID_COLUMN = 2
 
-_INPUT_LABEL = re.compile(r"^input price", re.I)
+# 嵌入模型的輸入列按 modality 拆開，第一列叫「Text input price」而不是「Input price」。
+# 只認 ^input price 的話整個模型會被當成「不是模型段落」靜默跳過（gemini-embedding-2
+# 就這樣漏抓）。image／audio／video input price 仍不認：那些是分級定價，不追蹤。
+_INPUT_LABEL = re.compile(r"^(text )?input price", re.I)
 _OUTPUT_LABEL = re.compile(r"^output price", re.I)
+
+# 付費欄明寫「Not available」＝該模型沒有付費層（例如 Gemma 4 只有免費層），
+# 那是官方公佈的事實，不是解析失敗 → 標 unavailable，不進待覆核區。
+# 只認整格就是這個字：空格或其他讀不懂的內容仍要標 needs_review。
+_NOT_AVAILABLE = re.compile(r"^\s*not available\s*$", re.I)
 
 # 表頭寫「per 1M tokens in USD」，但個別格子可能偷渡別的單位，例如
 # gemini-2.5-flash-image 的輸出價是「$0.039 per image」。直接吃下去會在儀表板上
@@ -101,9 +109,18 @@ def _standard_tables(html: str) -> list[tuple[str, Any]]:
 
 
 def _rows(table: Any) -> list[list[str]]:
+    """只取屬於這張表自己的列，不含巢狀表的列。
+
+    2026-09-11 起官方 HTML 在 gemini-robotics-er-2-streaming 那段漏了 </table>，
+    lxml 會把後面 computer-use、gemma-4、tools、agents 四張表全包進這張表裡。
+    table.find_all("tr") 會一路掃進去，後面每一列「Input price」都覆寫前面的值，
+    streaming 最後拿到 gemma-4 的「Not available」。這次剛好解析不到值還會標待覆核；
+    哪天排在最後的是有價格的表，就會靜默拿到別的模型的價格。
+    """
     return [
         [td.get_text(" ", strip=True) for td in tr.find_all(["td", "th"])]
         for tr in table.find_all("tr")
+        if tr.find_parent("table") is table
     ]
 
 
@@ -130,9 +147,13 @@ def _parse(html: str) -> tuple[list[dict[str, Any]], list[str]]:
         input_price = output_price = None
         has_input_row = has_output_row = False
         non_token: list[str] = []
+        not_offered: list[str] = []
         raw: dict[str, Any] = {}
 
         def price_of(cell: str, field: str) -> float | None:
+            if _NOT_AVAILABLE.match(cell):
+                not_offered.append(field)
+                return None
             price, other_unit = _first_price(cell)
             if other_unit:
                 non_token.append(field)
@@ -157,7 +178,7 @@ def _parse(html: str) -> tuple[list[dict[str, Any]], list[str]]:
             continue  # 這個 h2 不是模型段落
 
         # 嵌入模型只收輸入、表上根本沒有 Output price 那一列，那是事實不是解析失敗。
-        unavailable = ("context_window",) + tuple(non_token)
+        unavailable = ("context_window",) + tuple(non_token) + tuple(not_offered)
         if not has_output_row:
             unavailable += ("output_price_per_mtok",)
 

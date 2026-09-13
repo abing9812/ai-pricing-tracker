@@ -31,6 +31,7 @@ python collector/main.py --only openai   # 只跑一家，調解析器時很好�
 python collector/main.py --dry-run       # 只印結果，不寫檔
 python collector/test_diff.py            # 比對邏輯的測試（不需網路）
 python collector/test_deepseek_parser.py # DeepSeek 解析器測試（不需網路）
+python collector/test_google_parser.py   # Google 解析器測試（不需網路）
 ```
 
 ### 本機看儀表板
@@ -103,7 +104,7 @@ Anthropic [AUP](https://www.anthropic.com/legal/aup)、
 Google [prohibited use policy](https://policies.google.com/terms/generative-ai/use-policy)、
 DeepSeek [terms of service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html)。
 
-### 五個會咬人的坑
+### 六個會咬人的坑
 
 改解析器前務必知道，每個都已經在程式碼裡處理掉並註解了：
 
@@ -123,6 +124,10 @@ DeepSeek [terms of service](https://cdn.deepseek.com/policies/en-US/deepseek-ope
    待覆核），第二個模型卻靜默拿到第一個模型的離峰價，**數字看起來很正常**。
    現在改成先把表展成矩陣，一律用欄位座標對齊。標準價取 CACHE MISS × PEAK；
    離峰是半價折扣（同 cache hit，不追蹤），只記進 `raw` 備查。
+6. **Google 的 HTML 會漏 `</table>`。** 2026-09-11 起 robotics-er-2-streaming 那段少了
+   結尾標籤，lxml 把後面四張表全包進去；逐列讀價格時後面的列會蓋掉前面的，streaming
+   拿到 gemma-4 的「Not available」。這次剛好會標待覆核，換個順序就是**靜默串價**。
+   現在讀表時只收屬於該表自己的列，跳過巢狀表。
 
 ## 「待覆核」是怎麼決定的
 
@@ -210,6 +215,7 @@ python collector/ack.py --all --dry-run       # 只看會清掉什麼，不寫�
 | **Anthropic 部分模型沒有視窗** | 退役／限量機種（Mythos 5、Opus 4、Sonnet 4、Haiku 3.5）顯示「未知」 | 它們不在官方的「最新模型比較表」裡。這是官方文件的結構，不是解析失敗。 |
 | **OpenAI 只記標準區間價** | `gpt-5.5` 等模型顯示的是 272K 以內的價格 | 超過 272K 的請求官方另以 2× input / 1.5× output 計價，屬分級定價，依規格 §5 不追蹤。原始標籤留在 `raw.label`。 |
 | **Google 多值格只取第一個** | 例如「$0.25 (text/image/video) $0.50 (audio)」只記 0.25 | 依 modality 或 ≤/>200k 分歧的價格屬分級定價，不追蹤。完整原文留在 `raw`。 |
+| **Gemma 4 只有免費層** | `gemma-4` 的輸入／輸出價都顯示「未知」 | 官方付費欄明寫 `Not available`，沒有付費價可記。解析器看到這個字會標 `unavailable`、不進待覆核區；空格或其他讀不懂的內容仍會標待覆核。 |
 | **按張計價的模型不記輸出價** | `gemini-2.5-flash-image` 輸出顯示「未知」 | 它是 `$0.039 per image`，不是每百萬 token，無法放進本 schema。硬記會在儀表板上變成便宜到荒謬的假數字。 |
 | **OpenAI 繪圖模型的口徑** | `gpt-image` 系列的輸入價＝文字提示、輸出價＝圖片輸出 | 官方表把每個模型拆成 Image / Text 兩列。文生圖的主要成本路徑是文字進、圖片出，故取這兩格；圖片輸入（編輯／參考圖）與快取價在 `raw.modalities`。 |
 | **Imagen 4 / Veo / sora 不追蹤** | Google Imagen 4（$0.02–0.06/張）、Veo 與 OpenAI sora（按秒）不在表上 | 它們整組都是按張／按秒計價，沒有任何每百萬 token 的數字可記。要查請點官方定價頁。 |
@@ -224,7 +230,7 @@ python collector/main.py --only google --dry-run   # 只跑一家、不寫檔，
 
 每支解析器最上面的 docstring 都記著**那一家的網址為什麼是這個、有哪些坑**。
 改完後跑 `python collector/test_diff.py` 確認沒有破壞比對規則；
-動到 DeepSeek 或 OpenAI 解析器則再跑對應的 `test_deepseek_parser.py` / `test_openai_parser.py`。
+動到 DeepSeek、OpenAI 或 Google 解析器則再跑對應的 `test_deepseek_parser.py` / `test_openai_parser.py` / `test_google_parser.py`。
 
 頁面改版時，解析器該做的是**拋例外**（`raise base.FetchError(...)`），不是回傳空清單 ——
 拋例外會讓該家標 `failed` 並**沿用上次的好資料**；回傳空清單則可能被誤判成「模型全下架」。
@@ -239,6 +245,7 @@ collector/
   ack.py                      人工確認：看過待覆核項目後清掉旗標
   test_diff.py                比對邏輯測試（不需網路）
   test_deepseek_parser.py     DeepSeek 解析器測試（跨格對齊、尖峰／離峰）
+  test_google_parser.py       Google 解析器測試（漏 </table>、嵌入模型、無付費層）
   providers/
     base.py                   共用抓取／解析工具
     openai.py  anthropic.py  google.py  deepseek.py
