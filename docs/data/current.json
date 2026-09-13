@@ -2386,57 +2386,6 @@
             "output_price_per_mtok 解析不到值，沿用上次的數字"
           ],
           "last_changed": "2026-09-11"
-        },
-        {
-          "id": "gemini-embedding",
-          "display_name": "gemini-embedding",
-          "input_price_per_mtok": 0.15,
-          "output_price_per_mtok": null,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "unavailable",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.15"
-          },
-          "last_seen": "2026-09-11",
-          "last_changed": "2026-07-17",
-          "status": "missing",
-          "missing_since": "2026-09-11",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-09-11 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
-        },
-        {
-          "id": "gemini-robotics-er",
-          "display_name": "gemini-robotics-er",
-          "input_price_per_mtok": 1.0,
-          "output_price_per_mtok": 5.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.00 (text / image / video) $2.00 (audio)",
-            "output": "$5.00"
-          },
-          "last_seen": "2026-09-11",
-          "last_changed": "2026-07-17",
-          "status": "missing",
-          "missing_since": "2026-09-11",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-09-11 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
         }
       ],
       "policy_pages": [
@@ -2511,69 +2460,6 @@
           "last_seen": "2026-09-12",
           "acknowledged_at": "2026-09-03",
           "last_changed": "2026-08-18"
-        },
-        {
-          "id": "deepseek-v4-flash",
-          "display_name": "deepseek-v4-flash",
-          "input_price_per_mtok": 0.44,
-          "output_price_per_mtok": 1.32,
-          "context_window": 1000000,
-          "currency": "USD",
-          "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "ok"
-          },
-          "raw": {
-            "label": "deepseek-v4-flash",
-            "input_cache_miss": "$0.44",
-            "output": "$1.32",
-            "context": "1M",
-            "pricing_tier": "PEAK",
-            "input_cache_miss_off_peak": "$0.22",
-            "output_off_peak": "$0.66"
-          },
-          "last_seen": "2026-09-09",
-          "acknowledged_at": "2026-09-03",
-          "last_changed": "2026-08-18",
-          "status": "missing",
-          "missing_since": "2026-09-10",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-09-10 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
-        },
-        {
-          "id": "deepseek-v4-flash-vision-exp",
-          "display_name": "deepseek-v4-flash-vision-exp",
-          "input_price_per_mtok": 0.44,
-          "output_price_per_mtok": 1.32,
-          "context_window": 1000000,
-          "currency": "USD",
-          "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "ok"
-          },
-          "raw": {
-            "label": "deepseek-v4-flash-vision-exp",
-            "input_cache_miss": "$0.44",
-            "output": "$1.32",
-            "context": "1M",
-            "pricing_tier": "PEAK",
-            "input_cache_miss_off_peak": "$0.22",
-            "output_off_peak": "$0.66"
-          },
-          "last_seen": "2026-09-09",
-          "last_changed": "2026-08-22",
-          "status": "missing",
-          "missing_since": "2026-09-10",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-09-10 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
         }
       ],
       "policy_pages": [
