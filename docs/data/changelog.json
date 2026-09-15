@@ -549,5 +549,12 @@
     "model": "gemini-embedding-2",
     "type": "new_model",
     "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2"
+  },
+  {
+    "date": "2026-09-15",
+    "provider": "google",
+    "model": "gemini-3.8-live",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-live"
   }
 ]

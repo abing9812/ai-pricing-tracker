@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T06:11:01Z",
+  "generated_at": "2026-09-15T17:41:41Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1912,6 +1912,26 @@
           },
           "last_seen": "2026-09-15",
           "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3.8-live",
+          "display_name": "gemini-3.8-live",
+          "input_price_per_mtok": 0.75,
+          "output_price_per_mtok": 4.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-live",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.75 (text) $3.00 or $0.005/min (audio) $1.00 or $0.002/min (image/video)",
+            "output": "$4.50 (text) $12.00 or $0.018/min (audio)"
+          },
+          "last_seen": "2026-09-15",
+          "last_changed": "2026-09-15"
         },
         {
           "id": "gemini-3.5-live-translate-preview",
