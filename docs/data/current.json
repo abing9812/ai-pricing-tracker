@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T06:16:52Z",
+  "generated_at": "2026-09-22T17:39:45Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1544,10 +1544,10 @@
           "last_changed": "2026-07-17"
         },
         {
-          "id": "claude-opus-5",
-          "display_name": "Claude Opus 5",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 25.0,
+          "id": "claude-opus-5.5",
+          "display_name": "Claude Opus 5.5",
+          "input_price_per_mtok": 4.0,
+          "output_price_per_mtok": 20.0,
           "context_window": 1000000,
           "currency": "USD",
           "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
@@ -1555,6 +1555,27 @@
             "input_price_per_mtok": "ok",
             "output_price_per_mtok": "ok",
             "context_window": "ok"
+          },
+          "raw": {
+            "label": "Claude Opus 5.5",
+            "input": "$4 / MTok",
+            "output": "$20 / MTok"
+          },
+          "last_seen": "2026-09-22",
+          "last_changed": "2026-09-22"
+        },
+        {
+          "id": "claude-opus-5",
+          "display_name": "Claude Opus 5",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 25.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
           },
           "raw": {
             "label": "Claude Opus 5",
