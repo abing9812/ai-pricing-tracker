@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T06:00:09Z",
+  "generated_at": "2026-09-23T17:52:26Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1794,8 +1794,8 @@
           },
           "raw": {
             "label": "Claude Sonnet 5",
-            "input": "$2 / MTok",
-            "output": "$10 / MTok"
+            "input": "$2 / MTok3",
+            "output": "$10 / MTok3"
           },
           "last_seen": "2026-09-23",
           "last_changed": "2026-08-12"
@@ -2223,6 +2223,46 @@
           },
           "last_seen": "2026-09-23",
           "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-3.8-flash-tts",
+          "display_name": "gemini-3.8-flash-tts",
+          "input_price_per_mtok": 0.5,
+          "output_price_per_mtok": 9.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-tts",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.50 (text) through December 31, 2026. $1.00 (text) starting January 1, 2027.",
+            "output": "$9.00 (audio) through December 31, 2026. $18.00 (audio) starting January 1, 2027."
+          },
+          "last_seen": "2026-09-23",
+          "last_changed": "2026-09-23"
+        },
+        {
+          "id": "gemini-3.8-flash-lite-tts",
+          "display_name": "gemini-3.8-flash-lite-tts",
+          "input_price_per_mtok": 0.5,
+          "output_price_per_mtok": 6.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-lite-tts",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.50 (text) through December 31, 2026. $1.00 (text) starting January 1, 2027.",
+            "output": "$6.00 (audio) through December 31, 2026. $12.00 (audio) starting January 1, 2027."
+          },
+          "last_seen": "2026-09-23",
+          "last_changed": "2026-09-23"
         },
         {
           "id": "gemini-3.1-flash-tts-preview",
