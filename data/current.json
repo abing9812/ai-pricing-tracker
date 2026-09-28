@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T06:57:06Z",
+  "generated_at": "2026-09-28T20:08:54Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1780,8 +1780,8 @@
           "last_changed": "2026-07-17"
         },
         {
-          "id": "claude-sonnet-5",
-          "display_name": "Claude Sonnet 5",
+          "id": "claude-sonnet-5.5",
+          "display_name": "Claude Sonnet 5.5",
           "input_price_per_mtok": 2.0,
           "output_price_per_mtok": 10.0,
           "context_window": 1000000,
@@ -1791,6 +1791,27 @@
             "input_price_per_mtok": "ok",
             "output_price_per_mtok": "ok",
             "context_window": "ok"
+          },
+          "raw": {
+            "label": "Claude Sonnet 5.5",
+            "input": "$2 / MTok",
+            "output": "$10 / MTok"
+          },
+          "last_seen": "2026-09-28",
+          "last_changed": "2026-09-28"
+        },
+        {
+          "id": "claude-sonnet-5",
+          "display_name": "Claude Sonnet 5",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 10.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
           },
           "raw": {
             "label": "Claude Sonnet 5",
