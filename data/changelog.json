@@ -619,5 +619,19 @@
     "model": "gemini-nano-banana-2.1",
     "type": "new_model",
     "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-nano-banana-2.1"
+  },
+  {
+    "date": "2026-10-07",
+    "provider": "anthropic",
+    "model": "claude-haiku-5.5",
+    "type": "new_model",
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-10-07",
+    "provider": "anthropic",
+    "model": "claude-haiku-5.5",
+    "type": "new_model",
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
   }
 ]
