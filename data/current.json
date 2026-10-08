@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T07:26:58Z",
+  "generated_at": "2026-10-08T19:18:48Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2016,9 +2016,16 @@
         {
           "label": "Usage policies",
           "url": "https://www.anthropic.com/legal/aup",
-          "content_hash": "sha256:6a6ebdde1850cdb2829e7e42df957bf9ceab8d0e59404bbcd6c69c3e9385b2c5",
+          "content_hash": "sha256:67b802048f88dcbaa8e7c07fe6cbbee27b194f14517678902d4126a5336e31e8",
           "hash_method": "body-v2",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-10-08",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-08 政策頁內容有變動，請人工檢視"
+          ],
+          "pending_reviews": [
+            "2026-10-08 政策頁內容有變動，請人工檢視"
+          ]
         }
       ],
       "notes": [
