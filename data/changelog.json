@@ -633,5 +633,25 @@
     "model": "claude-haiku-5.5",
     "type": "new_model",
     "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-10-08",
+    "provider": "anthropic",
+    "model": "claude-haiku-5.5",
+    "type": "price_change",
+    "field": "input_price_per_mtok",
+    "old": 0.5,
+    "new": 0.1,
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-10-08",
+    "provider": "anthropic",
+    "model": "claude-haiku-5.5",
+    "type": "price_change",
+    "field": "output_price_per_mtok",
+    "old": 2.5,
+    "new": 0.5,
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
   }
 ]
