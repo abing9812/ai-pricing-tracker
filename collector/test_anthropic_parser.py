@@ -92,6 +92,33 @@ check(
     [m["field_status"] for m in blind],
 )
 
+# 8. 依提示長度分兩段計價（2026-10-07 起的 Haiku 5.5）：兩列括號拿掉後同名，
+#    以前兩列都收成同一個 id，比對時輪流拿到其中一列，天天噴 0.5 → 0.1 的假降價。
+#    只記基本段（≤100K），加價段的原文收進 raw。
+TIERED = LOWER + """| Claude Haiku 5.5 (for prompts up to 100,000 tokens) | $0.10 / MTok | $0.125 / MTok | $0.20 / MTok | $0.01 / MTok | $0.50 / MTok |
+| Claude Haiku 5.5 (for prompts over 100,000 tokens) | $0.50 / MTok | $0.625 / MTok | $1 / MTok | $0.05 / MTok | $2.50 / MTok |
+"""
+tiered = an._parse_pricing(TIERED, {**CONTEXTS, "Claude Haiku 5.5": 1_000_000})
+haiku = [m for m in tiered if m["id"] == "claude-haiku-5.5"]
+check("分段計價只收成一列，不會重複 id", len(haiku) == 1, [m["raw"]["label"] for m in haiku])
+h = haiku[0] if haiku else {}
+check(
+    "分段計價記的是基本段價格",
+    h.get("input_price_per_mtok") == 0.10 and h.get("output_price_per_mtok") == 0.50,
+    h,
+)
+check(
+    "加價段原文留在 raw.long_context",
+    h.get("raw", {}).get("long_context", {}).get("output") == "$2.50 / MTok",
+    h.get("raw"),
+)
+check("其他模型不受影響", len(tiered) == 4, [m["id"] for m in tiered])
+
+# 9. 只剩加價段時不能把整個模型吞掉
+ONLY_OVER = LOWER + "| Claude Haiku 5.5 (for prompts over 100,000 tokens) | $0.50 / MTok | $0.625 / MTok | $1 / MTok | $0.05 / MTok | $2.50 / MTok |\n"
+lonely = [m for m in an._parse_pricing(ONLY_OVER, CONTEXTS) if m["id"] == "claude-haiku-5.5"]
+check("只剩加價段時照樣收成一列", len(lonely) == 1, lonely)
+
 print()
 print(f"{len(fails)} 個失敗" if fails else "全部通過")
 sys.exit(1 if fails else 0)

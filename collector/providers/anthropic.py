@@ -43,6 +43,13 @@ _PRICING_HEADERS = (_INPUT_HEADER, _OUTPUT_HEADER)
 _TEMPORAL_QUALIFIER = re.compile(r"\s+(through|starting)\s+.*$", re.I)
 _PARENTHETICAL = re.compile(r"\s*\([^)]*\)")
 
+# 「Claude Haiku 5.5 (for prompts up to 100,000 tokens)」與「… (for prompts over
+# 100,000 tokens)」是同一個模型依提示長度分兩段計價（2026-10-07 起）。括號拿掉後
+# 兩列同 id，舊寫法兩列都收，比對時每次輪流拿到其中一列，天天噴 0.5 → 0.1 的假降價。
+# 長文加價屬分級定價、依規格 §5 不追蹤（比照 OpenAI 只記 272K 以內）：只記基本段，
+# 加價段的原文收進基本段的 raw 備查。
+_LONG_CONTEXT_TIER = re.compile(r"\((?:for\s+)?prompts?\s+(?:over|above|more than)\s+[\d,]+\s*k?\s+tokens\)", re.I)
+
 
 def _clean_name(cell: str) -> str:
     return _PARENTHETICAL.sub("", cell).strip()
@@ -108,14 +115,21 @@ def _parse_pricing(md: str, contexts: dict[str, int]) -> list[dict[str, Any]]:
     header = [_norm_header(cell) for cell in table[0]]
     input_col = header.index(_norm_header(_INPUT_HEADER))
     output_col = header.index(_norm_header(_OUTPUT_HEADER))
+    rows = [
+        (name, row)
+        for row in table[1:]
+        if len(row) > max(input_col, output_col) and row[0] and (name := _clean_name(row[0]))
+    ]
+    # 加價段要有同名的基本段可以掛才收進 raw；只剩加價段時照樣收成一列，
+    # 讓數字攤在儀表板上被看見，而不是整個模型靜默消失。
+    tiered = {name for name, row in rows if not _LONG_CONTEXT_TIER.search(row[0])}
     models: list[dict[str, Any]] = []
+    long_context: dict[str, dict[str, str]] = {}
 
-    for row in table[1:]:
-        if len(row) <= max(input_col, output_col) or not row[0]:
-            continue
-
-        name = _clean_name(row[0])
-        if not name:
+    for name, row in rows:
+        cells = {"label": row[0], "input": row[input_col], "output": row[output_col]}
+        if _LONG_CONTEXT_TIER.search(row[0]) and name in tiered:
+            long_context[name] = cells
             continue
 
         context = contexts.get(_base_name(name))
@@ -133,14 +147,14 @@ def _parse_pricing(md: str, contexts: dict[str, int]) -> list[dict[str, Any]]:
                 output_price_per_mtok=base.to_mtok(base.parse_price(row[output_col])),
                 context_window=context,
                 source_url=PRICING_URL,
-                raw={
-                    "label": row[0],
-                    "input": row[input_col],
-                    "output": row[output_col],
-                },
+                raw=cells,
                 unavailable_fields=("context_window",) if known_gap else (),
             )
         )
+
+    for model in models:
+        if model["display_name"] in long_context:
+            model["raw"]["long_context"] = long_context[model["display_name"]]
 
     return models
 
