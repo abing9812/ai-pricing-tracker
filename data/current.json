@@ -1934,37 +1934,12 @@
           "raw": {
             "label": "Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
             "input": "$0.10 / MTok",
-            "output": "$0.50 / MTok"
-          },
-          "last_seen": "2026-10-10",
-          "needs_review": true,
-          "review_reasons": [
-            "input_price_per_mtok 單次變動 0.5 → 0.1，幅度超過 ±50%，疑似解析錯位",
-            "output_price_per_mtok 單次變動 2.5 → 0.5，幅度超過 ±50%，疑似解析錯位"
-          ],
-          "pending_reviews": [
-            "input_price_per_mtok 單次變動 0.5 → 0.1，幅度超過 ±50%，疑似解析錯位",
-            "output_price_per_mtok 單次變動 2.5 → 0.5，幅度超過 ±50%，疑似解析錯位"
-          ],
-          "last_changed": "2026-10-10"
-        },
-        {
-          "id": "claude-haiku-5.5",
-          "display_name": "Claude Haiku 5.5",
-          "input_price_per_mtok": 0.5,
-          "output_price_per_mtok": 2.5,
-          "context_window": 1000000,
-          "currency": "USD",
-          "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "ok"
-          },
-          "raw": {
-            "label": "Claude Haiku 5.5 (for prompts over 100,000 tokens)",
-            "input": "$0.50 / MTok",
-            "output": "$2.50 / MTok"
+            "output": "$0.50 / MTok",
+            "long_context": {
+              "label": "Claude Haiku 5.5 (for prompts over 100,000 tokens)",
+              "input": "$0.50 / MTok",
+              "output": "$2.50 / MTok"
+            }
           },
           "last_seen": "2026-10-10",
           "last_changed": "2026-10-07"
@@ -2624,84 +2599,6 @@
           },
           "last_seen": "2026-10-10",
           "last_changed": "2026-09-11"
-        },
-        {
-          "id": "gemini-3.7-flash",
-          "display_name": "gemini-3.7-flash",
-          "input_price_per_mtok": 0.75,
-          "output_price_per_mtok": 3.75,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.7-flash",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
-            "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
-          },
-          "last_seen": "2026-10-09",
-          "last_changed": "2026-08-14",
-          "status": "missing",
-          "missing_since": "2026-10-10",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-10-10 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
-        },
-        {
-          "id": "gemini-3.5-flash",
-          "display_name": "gemini-3.5-flash",
-          "input_price_per_mtok": 1.5,
-          "output_price_per_mtok": 9.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.50",
-            "output": "$9.00"
-          },
-          "last_seen": "2026-10-09",
-          "last_changed": "2026-07-17",
-          "status": "missing",
-          "missing_since": "2026-10-10",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-10-10 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
-        },
-        {
-          "id": "gemini-2.5-computer-use-preview-10-2025",
-          "display_name": "gemini-2.5-computer-use-preview-10-2025",
-          "input_price_per_mtok": 1.25,
-          "output_price_per_mtok": 10.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-computer-use-preview-10-2025",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "input": "$1.25, prompts <= 200k tokens $2.50, prompts > 200k token",
-            "output": "$10.00, prompts <= 200k tokens $15.00, prompts > 200k"
-          },
-          "last_seen": "2026-09-30",
-          "last_changed": "2026-09-11",
-          "status": "missing",
-          "missing_since": "2026-10-01",
-          "needs_review": true,
-          "review_reasons": [
-            "2026-10-01 起來源就沒再出現，已保留舊資料待確認是否真的下架"
-          ]
         }
       ],
       "policy_pages": [
