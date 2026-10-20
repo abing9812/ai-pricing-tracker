@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T06:03:05Z",
+  "generated_at": "2026-10-20T18:01:00Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -26,13 +26,15 @@
             "cells": [
               "gpt-6-astra",
               "$10.00",
+              "$50.00",
               "$1.00",
               "$12.50",
-              "$50.00",
+              "$25.00",
               "$20.00",
+              "$75.00",
               "$2.00",
               "$25.00",
-              "$75.00"
+              "$50.00"
             ],
             "long_context_input_per_mtok": 20.0,
             "long_context_output_per_mtok": 75.0,
@@ -60,13 +62,15 @@
             "cells": [
               "gpt-6.1-sol",
               "$2.00",
+              "$10.00",
               "$0.10",
               "$2.50",
-              "$10.00",
+              "$5.00",
               "$4.00",
+              "$15.00",
               "$0.20",
               "$5.00",
-              "$15.00"
+              "$10.00"
             ],
             "long_context_input_per_mtok": 4.0,
             "long_context_output_per_mtok": 15.0,
@@ -94,13 +98,15 @@
             "cells": [
               "gpt-6-luna",
               "$0.10",
+              "$0.50",
               "$0.01",
               "$0.125",
-              "$0.50",
+              "$0.25",
               "$0.20",
+              "$0.75",
               "$0.02",
               "$0.25",
-              "$0.75"
+              "$0.50"
             ],
             "long_context_input_per_mtok": 0.2,
             "long_context_output_per_mtok": 0.75,
@@ -128,13 +134,15 @@
             "cells": [
               "gpt-6-sol",
               "$2.00",
+              "$10.00",
               "$0.20",
               "$2.50",
-              "$10.00",
+              "$5.00",
               "$4.00",
+              "$15.00",
               "$0.40",
               "$5.00",
-              "$15.00"
+              "$10.00"
             ],
             "long_context_input_per_mtok": 4.0,
             "long_context_output_per_mtok": 15.0,
@@ -162,13 +170,15 @@
             "cells": [
               "gpt-5.6-sol",
               "$4.00",
+              "$20.00",
               "$0.40",
               "$5.00",
-              "$20.00",
+              "$10.00",
               "$8.00",
+              "$30.00",
               "$0.80",
               "$10.00",
-              "$30.00"
+              "$20.00"
             ],
             "long_context_input_per_mtok": 8.0,
             "long_context_output_per_mtok": 30.0,
@@ -196,13 +206,15 @@
             "cells": [
               "gpt-5.6-terra",
               "$2.00",
+              "$12.00",
               "$0.20",
               "$2.50",
-              "$12.00",
+              "$5.00",
               "$4.00",
+              "$18.00",
               "$0.40",
               "$5.00",
-              "$18.00"
+              "$10.00"
             ],
             "long_context_input_per_mtok": 4.0,
             "long_context_output_per_mtok": 18.0,
@@ -230,13 +242,15 @@
             "cells": [
               "gpt-5.6-luna",
               "$0.20",
+              "$1.20",
               "$0.02",
               "$0.25",
-              "$1.20",
+              "$0.50",
               "$0.40",
+              "$1.80",
               "$0.04",
               "$0.50",
-              "$1.80"
+              "$1.00"
             ],
             "long_context_input_per_mtok": 0.4,
             "long_context_output_per_mtok": 1.8,
@@ -264,13 +278,15 @@
             "cells": [
               "gpt-5.5 (<272K context length)",
               "$5.00",
+              "$30.00",
               "$0.50",
               "-",
-              "$30.00",
+              "-",
               "$10.00",
+              "$45.00",
               "$1.00",
               "-",
-              "$45.00"
+              "-"
             ],
             "long_context_input_per_mtok": 10.0,
             "long_context_output_per_mtok": 45.0,
@@ -298,13 +314,15 @@
             "cells": [
               "gpt-5.5-pro (<272K context length)",
               "$30.00",
-              "-",
-              "-",
               "$180.00",
+              "-",
+              "-",
+              "-",
               "$60.00",
+              "$270.00",
               "-",
               "-",
-              "$270.00"
+              "-"
             ],
             "long_context_input_per_mtok": 60.0,
             "long_context_output_per_mtok": 270.0,
@@ -332,13 +350,15 @@
             "cells": [
               "gpt-5.4 (<272K context length)",
               "$2.50",
+              "$15.00",
               "$0.25",
               "-",
-              "$15.00",
+              "-",
               "$5.00",
+              "$22.50",
               "$0.50",
               "-",
-              "$22.50"
+              "-"
             ],
             "long_context_input_per_mtok": 5.0,
             "long_context_output_per_mtok": 22.5,
@@ -346,6 +366,301 @@
           },
           "last_seen": "2026-10-20",
           "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gpt-5.4-pro",
+          "display_name": "gpt-5.4-pro",
+          "input_price_per_mtok": 30.0,
+          "output_price_per_mtok": 180.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-5.4-pro (<272K context length)",
+            "tier": "standard",
+            "cells": [
+              "gpt-5.4-pro (<272K context length)",
+              "$30.00",
+              "$180.00",
+              "-",
+              "-",
+              "-",
+              "$60.00",
+              "$270.00",
+              "-",
+              "-",
+              "-"
+            ],
+            "long_context_input_per_mtok": 60.0,
+            "long_context_output_per_mtok": 270.0,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gpt-image-2.5-sunburst",
+          "display_name": "gpt-image-2.5-sunburst",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 30.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-2.5-sunburst",
+                "Image",
+                "$8.00",
+                "$30.00",
+                "$2.00"
+              ],
+              "text": [
+                "gpt-image-2.5-sunburst",
+                "Text",
+                "$5.00",
+                "-",
+                "$1.25"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-09-09"
+        },
+        {
+          "id": "gpt-image-2.5-flare",
+          "display_name": "gpt-image-2.5-flare",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 30.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-2.5-flare",
+                "Image",
+                "$8.00",
+                "$30.00",
+                "$2.00"
+              ],
+              "text": [
+                "gpt-image-2.5-flare",
+                "Text",
+                "$5.00",
+                "-",
+                "$1.25"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-09-09"
+        },
+        {
+          "id": "gpt-image-2",
+          "display_name": "gpt-image-2",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 30.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-2",
+                "Image",
+                "$8.00",
+                "$30.00",
+                "$2.00"
+              ],
+              "text": [
+                "gpt-image-2",
+                "Text",
+                "$5.00",
+                "-",
+                "$1.25"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gpt-image-1.5",
+          "display_name": "gpt-image-1.5",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 32.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-1.5",
+                "Image",
+                "$8.00",
+                "$32.00",
+                "$2.00"
+              ],
+              "text": [
+                "gpt-image-1.5",
+                "Text",
+                "$5.00",
+                "$10.00",
+                "$1.25"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gpt-image-1-mini",
+          "display_name": "gpt-image-1-mini",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 8.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-1-mini",
+                "Image",
+                "$2.50",
+                "$8.00",
+                "$0.25"
+              ],
+              "text": [
+                "gpt-image-1-mini",
+                "Text",
+                "$2.00",
+                "-",
+                "$0.20"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gpt-image-1",
+          "display_name": "gpt-image-1",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 40.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "gpt-image-1",
+                "Image",
+                "$10.00",
+                "$40.00",
+                "$2.50"
+              ],
+              "text": [
+                "gpt-image-1",
+                "Text",
+                "$5.00",
+                "-",
+                "$1.25"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-07-31"
+        },
+        {
+          "id": "chatgpt-image-latest",
+          "display_name": "chatgpt-image-latest",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 32.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "modality": "image",
+          "raw": {
+            "tier": "standard",
+            "modalities": {
+              "image": [
+                "chatgpt-image-latest",
+                "Image",
+                "$8.00",
+                "$32.00",
+                "$2.00"
+              ],
+              "text": [
+                "chatgpt-image-latest",
+                "Text",
+                "$5.00",
+                "$10.00",
+                "$1.25"
+              ]
+            },
+            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
+          },
+          "last_seen": "2026-10-20",
+          "last_changed": "2026-07-31"
         },
         {
           "id": "gpt-5.4-mini",
@@ -376,7 +691,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5.4-nano",
@@ -407,41 +728,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gpt-5.4-pro",
-          "display_name": "gpt-5.4-pro",
-          "input_price_per_mtok": 30.0,
-          "output_price_per_mtok": 180.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-5.4-pro (<272K context length)",
-            "tier": "standard",
-            "cells": [
-              "gpt-5.4-pro (<272K context length)",
-              "$30.00",
-              "-",
-              "-",
-              "$180.00",
-              "$60.00",
-              "-",
-              "-",
-              "$270.00"
-            ],
-            "long_context_input_per_mtok": 60.0,
-            "long_context_output_per_mtok": 270.0,
-            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5.2",
@@ -472,7 +765,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5.2-pro",
@@ -503,7 +802,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5.1",
@@ -534,7 +839,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5",
@@ -565,7 +876,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5-mini",
@@ -596,7 +913,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5-nano",
@@ -627,7 +950,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-5-pro",
@@ -658,7 +987,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4.1",
@@ -689,7 +1024,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4.1-mini",
@@ -720,7 +1061,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4.1-nano",
@@ -751,7 +1098,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4o",
@@ -782,7 +1135,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4o-2024-05-13",
@@ -813,7 +1172,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4o-mini",
@@ -844,7 +1209,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "o1",
@@ -875,7 +1246,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "o1-pro",
@@ -906,7 +1283,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "o3-pro",
@@ -937,7 +1320,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "o3",
@@ -968,7 +1357,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "o4-mini",
@@ -999,7 +1394,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "o3-mini",
@@ -1030,7 +1431,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4-turbo-2024-04-09",
@@ -1061,7 +1468,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-4-0613",
@@ -1092,7 +1505,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-3.5-turbo",
@@ -1123,7 +1542,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-3.5-turbo-0125",
@@ -1154,7 +1579,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-3.5-turbo-1106",
@@ -1185,7 +1616,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-3.5-turbo-instruct",
@@ -1216,7 +1653,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "davinci-002",
@@ -1247,7 +1690,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "babbage-002",
@@ -1278,266 +1727,13 @@
             ]
           },
           "last_seen": "2026-10-20",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gpt-image-2.5-sunburst",
-          "display_name": "gpt-image-2.5-sunburst",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 30.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "modality": "image",
-          "raw": {
-            "tier": "standard",
-            "modalities": {
-              "image": [
-                "gpt-image-2.5-sunburst",
-                "Image",
-                "$8.00",
-                "$2.00",
-                "$30.00"
-              ],
-              "text": [
-                "gpt-image-2.5-sunburst",
-                "Text",
-                "$5.00",
-                "$1.25",
-                "-"
-              ]
-            },
-            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-09-09"
-        },
-        {
-          "id": "gpt-image-2.5-flare",
-          "display_name": "gpt-image-2.5-flare",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 30.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "modality": "image",
-          "raw": {
-            "tier": "standard",
-            "modalities": {
-              "image": [
-                "gpt-image-2.5-flare",
-                "Image",
-                "$8.00",
-                "$2.00",
-                "$30.00"
-              ],
-              "text": [
-                "gpt-image-2.5-flare",
-                "Text",
-                "$5.00",
-                "$1.25",
-                "-"
-              ]
-            },
-            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-09-09"
-        },
-        {
-          "id": "gpt-image-2",
-          "display_name": "gpt-image-2",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 30.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "modality": "image",
-          "raw": {
-            "tier": "standard",
-            "modalities": {
-              "image": [
-                "gpt-image-2",
-                "Image",
-                "$8.00",
-                "$2.00",
-                "$30.00"
-              ],
-              "text": [
-                "gpt-image-2",
-                "Text",
-                "$5.00",
-                "$1.25",
-                "-"
-              ]
-            },
-            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-07-31"
-        },
-        {
-          "id": "gpt-image-1.5",
-          "display_name": "gpt-image-1.5",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 32.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "modality": "image",
-          "raw": {
-            "tier": "standard",
-            "modalities": {
-              "image": [
-                "gpt-image-1.5",
-                "Image",
-                "$8.00",
-                "$2.00",
-                "$32.00"
-              ],
-              "text": [
-                "gpt-image-1.5",
-                "Text",
-                "$5.00",
-                "$1.25",
-                "$10.00"
-              ]
-            },
-            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-07-31"
-        },
-        {
-          "id": "gpt-image-1-mini",
-          "display_name": "gpt-image-1-mini",
-          "input_price_per_mtok": 2.0,
-          "output_price_per_mtok": 8.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "modality": "image",
-          "raw": {
-            "tier": "standard",
-            "modalities": {
-              "image": [
-                "gpt-image-1-mini",
-                "Image",
-                "$2.50",
-                "$0.25",
-                "$8.00"
-              ],
-              "text": [
-                "gpt-image-1-mini",
-                "Text",
-                "$2.00",
-                "$0.20",
-                "-"
-              ]
-            },
-            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-07-31"
-        },
-        {
-          "id": "gpt-image-1",
-          "display_name": "gpt-image-1",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 40.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "modality": "image",
-          "raw": {
-            "tier": "standard",
-            "modalities": {
-              "image": [
-                "gpt-image-1",
-                "Image",
-                "$10.00",
-                "$2.50",
-                "$40.00"
-              ],
-              "text": [
-                "gpt-image-1",
-                "Text",
-                "$5.00",
-                "$1.25",
-                "-"
-              ]
-            },
-            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-07-31"
-        },
-        {
-          "id": "chatgpt-image-latest",
-          "display_name": "chatgpt-image-latest",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 32.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "modality": "image",
-          "raw": {
-            "tier": "standard",
-            "modalities": {
-              "image": [
-                "chatgpt-image-latest",
-                "Image",
-                "$8.00",
-                "$2.00",
-                "$32.00"
-              ],
-              "text": [
-                "chatgpt-image-latest",
-                "Text",
-                "$5.00",
-                "$1.25",
-                "$10.00"
-              ]
-            },
-            "note": "輸入價＝文字提示、輸出價＝圖片輸出（每百萬 token）；圖片輸入與快取價見 modalities 各列"
-          },
-          "last_seen": "2026-10-20",
-          "last_changed": "2026-07-31"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-10-20",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-10-20 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         }
       ],
       "policy_pages": [
@@ -1545,14 +1741,23 @@
           "label": "Usage policies",
           "url": "https://openai.com/policies/usage-policies/",
           "content_hash": "sha256:baa7321f351f4bdc99e5988c988ab521809c81f4f74c4617f591c6340e6670de",
-          "hash_method": "body-v2",
+          "fetch_error": "GET https://openai.com/policies/usage-policies/ 失敗：403 Client Error: Forbidden for url: https://openai.com/policies/usage-policies/",
           "acknowledged_at": "2026-08-03",
-          "last_changed": "2026-08-01"
+          "last_changed": "2026-08-01",
+          "hash_method": "body-v2",
+          "needs_review": true,
+          "review_reasons": [
+            "政策頁抓取失敗，無法比對"
+          ]
         }
       ],
       "notes": [
         "context window 官方定價頁未提供；價格為 standard 分級的短情境（≤272K）區間價。",
         "繪圖模型（gpt-image 系列）：輸入價為文字提示、輸出價為圖片輸出，皆為每百萬 token；圖片輸入（編輯／參考圖）與快取價請點官方連結或見 raw。"
+      ],
+      "needs_review": true,
+      "review_reasons": [
+        "模型數量由 47 掉到 18，疑似解析失敗"
       ]
     },
     "anthropic": {
@@ -1991,7 +2196,7 @@
         {
           "label": "Usage policies",
           "url": "https://www.anthropic.com/legal/aup",
-          "content_hash": "sha256:2dece8931c3a35ca8576a0a79add35f09cc7c7ff3cdf46a3f7a4f0f6f23c43a3",
+          "content_hash": "sha256:406ea0d96adee2edbbb3e705113d9278648990a96b3891e3802373b635ef5467",
           "hash_method": "body-v2",
           "needs_review": true,
           "review_reasons": [
