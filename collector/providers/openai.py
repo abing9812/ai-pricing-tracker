@@ -14,6 +14,8 @@
   - 欄位改成短／長情境各自計價（Short/Long context input/cached/writes/output 共 9 欄）。
     本表追蹤的輸入／輸出價取 Short context 欄——沿用改版前「標準區間價」的口徑；
     長情境價記進 raw 備查，不當主要價格（規格 §5 不追蹤分級計價）。
+  - 2026-10-20 起同一標題底下拆成兩張表：新模型的短／長情境表，加上舊模型的
+    Input / Output 單一欄位表。兩張都要解析，欄位各自依表頭找。
 
 繪圖模型（2026-07-31 加入追蹤）：
   - 在「Image generation models」段落，Markdown 標題全叫「Grouped Pricing Table
@@ -66,8 +68,13 @@ _LONG_OUTPUT_COLS = ("long context output",)
 _CONTEXT_NOTE = re.compile(r"\s*\((<|>)?\s*\d+K context length\)\s*", re.I)
 
 
-def _standard_table(md: str) -> list[list[str]]:
-    """取出「Standard pricing data」標題底下第一張表格。"""
+def _standard_tables(md: str) -> list[list[list[str]]]:
+    """取出「Standard pricing data」標題底下的所有表格。
+
+    2026-10-20 起這段拆成兩張表：新模型用短／長情境 10 欄表，舊模型另起一張
+    Input / Output / Cached input 的 4 欄表。只取第一張的話，第二張的 25 個模型
+    會整批被當成「未再出現」。每張表的欄位各自依表頭找，不假設兩張同格式。
+    """
     heading = re.search(rf"^###\s+{re.escape(SECTION_HEADING)}\s*$", md, re.M)
     if heading is None:
         raise base.FetchError(
@@ -79,12 +86,12 @@ def _standard_table(md: str) -> list[list[str]]:
     if next_heading:
         section = section[: next_heading.start()]
 
-    tables = base.markdown_tables(section)
-    if not tables or len(tables[0]) < 2:
+    tables = [t for t in base.markdown_tables(section) if len(t) >= 2]
+    if not tables:
         raise base.FetchError(
             f"「{SECTION_HEADING}」底下找不到價格表格，頁面結構可能改了"
         )
-    return tables[0]
+    return tables
 
 
 IMAGE_SECTION = "Image generation models"
@@ -246,7 +253,7 @@ def _parse_image_table(table: list[list[str]], source_url: str) -> list[dict[str
 
 def collect() -> base.ProviderData:
     md = base.get_markdown(PRICING_MD_URL)
-    models = _parse_table(_standard_table(md), PRICING_URL)
+    models = [m for t in _standard_tables(md) for m in _parse_table(t, PRICING_URL)]
     models += _parse_image_table(_image_table(md), PRICING_URL)
 
     data = base.ProviderData(

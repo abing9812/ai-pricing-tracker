@@ -42,8 +42,8 @@ NEW_PAGE = """
 | gpt-5.6-sol | $2.50 | $0.25 | $3.125 | $15.00 | $5.00 | $0.50 | $6.25 | $22.50 |
 """
 
-table = op._standard_table(NEW_PAGE)
-models = op._parse_table(table, "u")
+tables = op._standard_tables(NEW_PAGE)
+models = op._parse_table(tables[0], "u")
 by_id = {m["id"]: m for m in models}
 
 # 1. 只取 Standard 表，不吃到後面的 Batch 半價
@@ -79,13 +79,13 @@ OLD_STYLE = """
 | --- | --- | --- | --- |
 | gpt-x | $1.25 | $0.125 | $10.00 |
 """
-simple = op._parse_table(op._standard_table(OLD_STYLE), "u")
+simple = op._parse_table(op._standard_tables(OLD_STYLE)[0], "u")
 check("單一 Input/Output 表頭也解析得出", simple[0]["input_price_per_mtok"] == 1.25
       and simple[0]["output_price_per_mtok"] == 10.0, simple)
 
 # 7. 頁面結構改了要拋 FetchError（整家 failed → diff 沿用舊資料），不能靜默回空
-check("找不到 Standard 標題拋錯", raises(lambda: op._standard_table("# Pricing\n\nnothing here")))
-check("標題在但沒表格拋錯", raises(lambda: op._standard_table("### Standard pricing data\n\n字而已")))
+check("找不到 Standard 標題拋錯", raises(lambda: op._standard_tables("# Pricing\n\nnothing here")))
+check("標題在但沒表格拋錯", raises(lambda: op._standard_tables("### Standard pricing data\n\n字而已")))
 
 RENAMED = """
 ### Standard pricing data
@@ -94,7 +94,7 @@ RENAMED = """
 | --- | --- | --- |
 | gpt-x | $1.00 | $2.00 |
 """
-check("欄名改掉拋錯而非抓錯欄", raises(lambda: op._parse_table(op._standard_table(RENAMED), "u")))
+check("欄名改掉拋錯而非抓錯欄", raises(lambda: op._parse_table(op._standard_tables(RENAMED)[0], "u")))
 
 EMPTY = """
 ### Standard pricing data
@@ -102,7 +102,7 @@ EMPTY = """
 | Model | Input | Output |
 | --- | --- | --- |
 """
-check("表格空的拋錯而非回空清單", raises(lambda: op._parse_table(op._standard_table(EMPTY), "u")))
+check("表格空的拋錯而非回空清單", raises(lambda: op._standard_tables(EMPTY)))
 
 print("\n" + (f"{len(fails)} 個測試失敗" if fails else "全部通過"))
 sys.exit(1 if fails else 0)
