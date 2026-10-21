@@ -218,6 +218,7 @@ python collector/ack.py --all --dry-run       # 只看會清掉什麼，不寫�
 | **Gemma 4 只有免費層** | `gemma-4` 的輸入／輸出價都顯示「未知」 | 官方付費欄明寫 `Not available`，沒有付費價可記。解析器看到這個字會標 `unavailable`、不進待覆核區；空格或其他讀不懂的內容仍會標待覆核。 |
 | **按張計價的模型不記輸出價** | `gemini-2.5-flash-image` 輸出顯示「未知」 | 它是 `$0.039 per image`，不是每百萬 token，無法放進本 schema。硬記會在儀表板上變成便宜到荒謬的假數字。 |
 | **OpenAI 繪圖模型的口徑** | `gpt-image` 系列的輸入價＝文字提示、輸出價＝圖片輸出 | 官方表把每個模型拆成 Image / Text 兩列。文生圖的主要成本路徑是文字進、圖片出，故取這兩格；圖片輸入（編輯／參考圖）與快取價在 `raw.modalities`。 |
+| **OpenAI Life sciences 模型不追蹤** | `gpt-rosalind-*` 不在表上 | 定價頁「Life sciences models」段落有價格，但只開放給信任存取計畫內的機構。同頁的「Cyber models」有追蹤（`gpt-5.6-cyber` 等），表裡重列的通用模型以主表為準。 |
 | **Imagen 4 / Veo / sora 不追蹤** | Google Imagen 4（$0.02–0.06/張）、Veo 與 OpenAI sora（按秒）不在表上 | 它們整組都是按張／按秒計價，沒有任何每百萬 token 的數字可記。要查請點官方定價頁。 |
 
 ## 之後怎麼一家一家把解析規則調準

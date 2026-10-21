@@ -104,5 +104,76 @@ EMPTY = """
 """
 check("表格空的拋錯而非回空清單", raises(lambda: op._standard_tables(EMPTY)))
 
+# 8. 2026-10-20 起 Standard 段落拆成兩張表（新模型短／長情境表 + 舊模型 Input/Output 表）。
+#    只取第一張的話，第二張整批會被當成「未再出現」。兩張都要取，欄位各自依表頭找。
+SPLIT = """
+### Standard pricing data
+
+| Model | Short context input | Short context output | Short context cached input | Long context input | Long context output |
+| --- | --- | --- | --- | --- | --- |
+| gpt-6-sol | $2.00 | $10.00 | $0.20 | $4.00 | $15.00 |
+
+| Model | Input | Output | Cached input |
+| --- | --- | --- | --- |
+| gpt-4o | $2.50 | $10.00 | $1.25 |
+| o3 | $2.00 | $8.00 | $0.50 |
+
+### Batch pricing data
+
+| Model | Input | Output | Cached input |
+| --- | --- | --- | --- |
+| gpt-4o | $1.25 | $5.00 | - |
+"""
+split = {m["id"]: m for t in op._standard_tables(SPLIT) for m in op._parse_table(t, "u")}
+check("拆成兩張表時兩張都取到", sorted(split) == ["gpt-4o", "gpt-6-sol", "o3"], sorted(split))
+check("第二張表依自己的表頭取欄", split["gpt-4o"]["input_price_per_mtok"] == 2.5
+      and split["gpt-4o"]["output_price_per_mtok"] == 10.0, split.get("gpt-4o"))
+check("第一張表輸出價不被 cached 欄搶走", split["gpt-6-sol"]["output_price_per_mtok"] == 10.0,
+      split.get("gpt-6-sol"))
+
+# 9. Cyber models 段落有自己的「### Standard pricing data」標題，主表搜尋只會命中第一個，
+#    要靠區名行另外夾出來；夾的範圍不能吃到下一個段落的表。
+CYBER_PAGE = """
+### Standard pricing data
+
+| Model | Input | Output |
+| --- | --- | --- |
+| gpt-x | $1.00 | $2.00 |
+
+### Batch pricing data
+
+| Model | Input | Output |
+| --- | --- | --- |
+| gpt-x | $0.50 | $1.00 |
+
+Cyber models
+
+Our latest Daybreak models.
+
+### Standard pricing data
+
+| Model | Short context input | Short context output | Long context input | Long context output |
+| --- | --- | --- | --- | --- |
+| gpt-x | $1.00 | $2.00 | - | - |
+| gpt-x-cyber | $12.50 | $75.00 | - | - |
+
+Life sciences models
+
+### Grouped Pricing Table data
+
+| Model | Input | Output |
+| --- | --- | --- |
+| gpt-bio | $5.00 | $25.00 |
+"""
+cyber = [m for t in op._cyber_tables(CYBER_PAGE) for m in op._parse_table(t, "u")]
+cyber_ids = [m["id"] for m in cyber]
+check("Cyber 段落取到資安模型", "gpt-x-cyber" in cyber_ids, cyber_ids)
+check("Cyber 段落不吃到下一段的表", "gpt-bio" not in cyber_ids, cyber_ids)
+check("Cyber 價格取短情境欄", cyber[-1]["input_price_per_mtok"] == 12.5
+      and cyber[-1]["output_price_per_mtok"] == 75.0, cyber[-1])
+main_ids = [m["id"] for t in op._standard_tables(CYBER_PAGE) for m in op._parse_table(t, "u")]
+check("主表不把 Cyber 段落併進來", main_ids == ["gpt-x"], main_ids)
+check("找不到 Cyber 段落拋錯", raises(lambda: op._cyber_tables(NEW_PAGE)))
+
 print("\n" + (f"{len(fails)} 個測試失敗" if fails else "全部通過"))
 sys.exit(1 if fails else 0)

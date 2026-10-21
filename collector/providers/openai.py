@@ -27,6 +27,11 @@
   - 同段落的 Batch 表照舊不追蹤（規格 §5）；Video（sora，按秒計價）放不進
     本 schema，不追蹤（見 README 已知缺口）。
 
+資安模型（2026-10-21 加入追蹤）：
+  - 在「Cyber models」段落，有自己的「### Standard pricing data」標題，格式同主表。
+    主表的標題搜尋只會命中第一個，所以這段靠區名行另外夾出來解析。
+  - 表裡會重列主表已有的通用模型，以主表為準、只收 Cyber 表獨有的 id。
+
 已知缺口：定價頁沒有 context window，模型頁又是逐一分頁 + tailwind class，
 太脆弱不值得每天抓 50 次，因此 context_window 標為 unavailable（見 README）。
 """
@@ -94,6 +99,35 @@ def _standard_tables(md: str) -> list[list[list[str]]]:
     return tables
 
 
+def _named_section(md: str, name: str) -> str:
+    """用純文字區名行夾出一個段落：區名行起、下一個「… models」區名行止。
+
+    頁面上的 Markdown 標題會重複（「Standard pricing data」出現不只一次、
+    「Grouped Pricing Table data」九次），定位段落只能靠這些區名行。
+    """
+    start = re.search(rf"^{re.escape(name)}\s*$", md, re.M)
+    if start is None:
+        raise base.FetchError(f"定價頁找不到「{name}」段落，頁面結構可能改了")
+
+    section = md[start.end():]
+    nxt = re.search(r"^\w[\w /-]* models\s*$", section, re.M)
+    if nxt:
+        section = section[: nxt.start()]
+    return section
+
+
+CYBER_SECTION = "Cyber models"
+
+
+def _cyber_tables(md: str) -> list[list[list[str]]]:
+    """取出「Cyber models」段落裡的 Standard 價格表（2026-10-21 加入追蹤）。
+
+    段落裡也有一個「### Standard pricing data」標題，表格格式跟主表相同，
+    所以夾出段落之後直接交給 _standard_tables。
+    """
+    return _standard_tables(_named_section(md, CYBER_SECTION))
+
+
 IMAGE_SECTION = "Image generation models"
 
 # 繪圖模型表的每列是（模型, modality）一組，靠這兩欄配對出一個模型的兩列。
@@ -105,19 +139,9 @@ def _image_table(md: str) -> list[list[str]]:
     """取出「Image generation models」段落裡 Standard 分級的表格。
 
     這一區的 Markdown 標題不可用（全頁九個「Grouped Pricing Table data」），
-    改用純文字標記夾範圍：區名行起、下一個「… models」區名行止；
-    其中再取「Standard」到「Batch」之間的第一張表。
+    改用純文字標記夾範圍；其中再取「Standard」到「Batch」之間的第一張表。
     """
-    start = re.search(rf"^{re.escape(IMAGE_SECTION)}\s*$", md, re.M)
-    if start is None:
-        raise base.FetchError(
-            f"定價頁找不到「{IMAGE_SECTION}」段落，頁面結構可能改了"
-        )
-
-    section = md[start.end():]
-    nxt = re.search(r"^\w[\w /-]* models\s*$", section, re.M)
-    if nxt:
-        section = section[: nxt.start()]
+    section = _named_section(md, IMAGE_SECTION)
 
     std = re.search(r"^Standard\s*$", section, re.M)
     if std is None:
@@ -254,6 +278,13 @@ def _parse_image_table(table: list[list[str]], source_url: str) -> list[dict[str
 def collect() -> base.ProviderData:
     md = base.get_markdown(PRICING_MD_URL)
     models = [m for t in _standard_tables(md) for m in _parse_table(t, PRICING_URL)]
+
+    # Cyber 表會重列主表已有的通用模型（2026-10 是 gpt-5.6-sol），同一個 id
+    # 收兩次會在 diff 裡互相覆蓋，以主表為準、只補 Cyber 表獨有的。
+    seen = {m["id"] for m in models}
+    for table in _cyber_tables(md):
+        models += [m for m in _parse_table(table, PRICING_URL) if m["id"] not in seen]
+
     models += _parse_image_table(_image_table(md), PRICING_URL)
 
     data = base.ProviderData(
