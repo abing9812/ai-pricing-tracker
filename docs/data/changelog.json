@@ -696,5 +696,19 @@
     "type": "policy_change",
     "label": "Usage policies",
     "source_url": "https://www.anthropic.com/legal/aup"
+  },
+  {
+    "date": "2026-10-21",
+    "provider": "openai",
+    "model": "gpt-5.6-cyber",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-10-21",
+    "provider": "openai",
+    "model": "gpt-5.5-cyber",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
   }
 ]

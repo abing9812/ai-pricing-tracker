@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T05:29:10Z",
+  "generated_at": "2026-10-21T05:34:22Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1054,6 +1054,72 @@
           "last_changed": "2026-07-17"
         },
         {
+          "id": "gpt-5.6-cyber",
+          "display_name": "gpt-5.6-cyber",
+          "input_price_per_mtok": 12.5,
+          "output_price_per_mtok": 75.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-5.6-cyber",
+            "tier": "standard",
+            "cells": [
+              "gpt-5.6-cyber",
+              "$12.50",
+              "$75.00",
+              "$1.25",
+              "$15.625",
+              "$31.25",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ]
+          },
+          "last_seen": "2026-10-21",
+          "last_changed": "2026-10-21"
+        },
+        {
+          "id": "gpt-5.5-cyber",
+          "display_name": "gpt-5.5-cyber",
+          "input_price_per_mtok": 12.5,
+          "output_price_per_mtok": 75.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-5.5-cyber",
+            "tier": "standard",
+            "cells": [
+              "gpt-5.5-cyber",
+              "$12.50",
+              "$75.00",
+              "$1.25",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ]
+          },
+          "last_seen": "2026-10-21",
+          "last_changed": "2026-10-21"
+        },
+        {
           "id": "gpt-image-2.5-sunburst",
           "display_name": "gpt-image-2.5-sunburst",
           "input_price_per_mtok": 5.0,
@@ -1766,8 +1832,8 @@
           "url": "https://www.anthropic.com/legal/aup",
           "content_hash": "sha256:406ea0d96adee2edbbb3e705113d9278648990a96b3891e3802373b635ef5467",
           "hash_method": "body-v2",
-          "last_changed": "2026-10-20",
-          "acknowledged_at": "2026-10-21"
+          "acknowledged_at": "2026-10-21",
+          "last_changed": "2026-10-20"
         }
       ]
     },
