@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T05:34:22Z",
+  "generated_at": "2026-10-21T06:03:17Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1384,15 +1384,21 @@
           "label": "Usage policies",
           "url": "https://openai.com/policies/usage-policies/",
           "content_hash": "sha256:baa7321f351f4bdc99e5988c988ab521809c81f4f74c4617f591c6340e6670de",
-          "hash_method": "body-v2",
+          "fetch_error": "GET https://openai.com/policies/usage-policies/ 失敗：403 Client Error: Forbidden for url: https://openai.com/policies/usage-policies/",
           "acknowledged_at": "2026-08-03",
-          "last_changed": "2026-08-01"
+          "last_changed": "2026-08-01",
+          "hash_method": "body-v2",
+          "needs_review": true,
+          "review_reasons": [
+            "政策頁抓取失敗，無法比對"
+          ]
         }
       ],
       "notes": [
         "context window 官方定價頁未提供；價格為 standard 分級的短情境（≤272K）區間價。",
         "繪圖模型（gpt-image 系列）：輸入價為文字提示、輸出價為圖片輸出，皆為每百萬 token；圖片輸入（編輯／參考圖）與快取價請點官方連結或見 raw。"
-      ]
+      ],
+      "needs_review": true
     },
     "anthropic": {
       "display_name": "Anthropic",
