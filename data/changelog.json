@@ -710,5 +710,12 @@
     "model": "gpt-5.5-cyber",
     "type": "new_model",
     "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-10-22",
+    "provider": "anthropic",
+    "type": "policy_change",
+    "label": "Usage policies",
+    "source_url": "https://www.anthropic.com/legal/aup"
   }
 ]
