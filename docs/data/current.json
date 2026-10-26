@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T06:17:03Z",
+  "generated_at": "2026-10-26T19:23:44Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -78,6 +78,42 @@
           },
           "last_seen": "2026-10-26",
           "last_changed": "2026-09-29"
+        },
+        {
+          "id": "gpt-6.1-terra",
+          "display_name": "gpt-6.1-terra",
+          "input_price_per_mtok": 1.0,
+          "output_price_per_mtok": 5.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-6.1-terra",
+            "tier": "standard",
+            "cells": [
+              "gpt-6.1-terra",
+              "$1.00",
+              "$5.00",
+              "$0.05",
+              "$1.25",
+              "$2.50",
+              "$2.00",
+              "$7.50",
+              "$0.10",
+              "$2.50",
+              "$5.00"
+            ],
+            "long_context_input_per_mtok": 2.0,
+            "long_context_output_per_mtok": 7.5,
+            "note": "標準（短情境）區間價；長情境請求官方另計價，見 raw 欄位"
+          },
+          "last_seen": "2026-10-26",
+          "last_changed": "2026-10-26"
         },
         {
           "id": "gpt-6-luna",

@@ -731,5 +731,12 @@
     "model": "gpt-image-1",
     "type": "removed_model",
     "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-10-26",
+    "provider": "openai",
+    "model": "gpt-6.1-terra",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
   }
 ]
