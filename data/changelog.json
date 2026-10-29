@@ -738,5 +738,12 @@
     "model": "gpt-6.1-terra",
     "type": "new_model",
     "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-10-29",
+    "provider": "google",
+    "model": "gemini-embedding",
+    "type": "new_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding"
   }
 ]
