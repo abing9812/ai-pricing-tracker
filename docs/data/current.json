@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T07:41:41Z",
+  "generated_at": "2026-11-02T22:21:59Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -726,32 +726,6 @@
           "last_changed": "2026-07-17"
         },
         {
-          "id": "gpt-4.1-nano",
-          "display_name": "gpt-4.1-nano",
-          "input_price_per_mtok": 0.1,
-          "output_price_per_mtok": 0.4,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4.1-nano",
-            "tier": "standard",
-            "cells": [
-              "gpt-4.1-nano",
-              "$0.10",
-              "$0.40",
-              "$0.025"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
           "id": "gpt-4o",
           "display_name": "gpt-4o",
           "input_price_per_mtok": 2.5,
@@ -778,32 +752,6 @@
           "last_changed": "2026-07-17"
         },
         {
-          "id": "gpt-4o-2024-05-13",
-          "display_name": "gpt-4o-2024-05-13",
-          "input_price_per_mtok": 5.0,
-          "output_price_per_mtok": 15.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4o-2024-05-13",
-            "tier": "standard",
-            "cells": [
-              "gpt-4o-2024-05-13",
-              "$5.00",
-              "$15.00",
-              "-"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
           "id": "gpt-4o-mini",
           "display_name": "gpt-4o-mini",
           "input_price_per_mtok": 0.15,
@@ -824,58 +772,6 @@
               "$0.15",
               "$0.60",
               "$0.075"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "o1",
-          "display_name": "o1",
-          "input_price_per_mtok": 15.0,
-          "output_price_per_mtok": 60.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "o1",
-            "tier": "standard",
-            "cells": [
-              "o1",
-              "$15.00",
-              "$60.00",
-              "$7.50"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "o1-pro",
-          "display_name": "o1-pro",
-          "input_price_per_mtok": 150.0,
-          "output_price_per_mtok": 600.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "o1-pro",
-            "tier": "standard",
-            "cells": [
-              "o1-pro",
-              "$150.00",
-              "$600.00",
-              "-"
             ]
           },
           "last_seen": "2026-11-02",
@@ -928,162 +824,6 @@
               "$2.00",
               "$8.00",
               "$0.50"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "o4-mini",
-          "display_name": "o4-mini",
-          "input_price_per_mtok": 1.1,
-          "output_price_per_mtok": 4.4,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "o4-mini",
-            "tier": "standard",
-            "cells": [
-              "o4-mini",
-              "$1.10",
-              "$4.40",
-              "$0.275"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "o3-mini",
-          "display_name": "o3-mini",
-          "input_price_per_mtok": 1.1,
-          "output_price_per_mtok": 4.4,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "o3-mini",
-            "tier": "standard",
-            "cells": [
-              "o3-mini",
-              "$1.10",
-              "$4.40",
-              "$0.55"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gpt-4-turbo-2024-04-09",
-          "display_name": "gpt-4-turbo-2024-04-09",
-          "input_price_per_mtok": 10.0,
-          "output_price_per_mtok": 30.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4-turbo-2024-04-09",
-            "tier": "standard",
-            "cells": [
-              "gpt-4-turbo-2024-04-09",
-              "$10.00",
-              "$30.00",
-              "-"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gpt-4-0613",
-          "display_name": "gpt-4-0613",
-          "input_price_per_mtok": 30.0,
-          "output_price_per_mtok": 60.0,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-4-0613",
-            "tier": "standard",
-            "cells": [
-              "gpt-4-0613",
-              "$30.00",
-              "$60.00",
-              "-"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gpt-3.5-turbo",
-          "display_name": "gpt-3.5-turbo",
-          "input_price_per_mtok": 0.5,
-          "output_price_per_mtok": 1.5,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-3.5-turbo",
-            "tier": "standard",
-            "cells": [
-              "gpt-3.5-turbo",
-              "$0.50",
-              "$1.50",
-              "-"
-            ]
-          },
-          "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
-        },
-        {
-          "id": "gpt-3.5-turbo-0125",
-          "display_name": "gpt-3.5-turbo-0125",
-          "input_price_per_mtok": 0.5,
-          "output_price_per_mtok": 1.5,
-          "context_window": null,
-          "currency": "USD",
-          "source_url": "https://developers.openai.com/api/docs/pricing",
-          "field_status": {
-            "input_price_per_mtok": "ok",
-            "output_price_per_mtok": "ok",
-            "context_window": "unavailable"
-          },
-          "raw": {
-            "label": "gpt-3.5-turbo-0125",
-            "tier": "standard",
-            "cells": [
-              "gpt-3.5-turbo-0125",
-              "$0.50",
-              "$1.50",
-              "-"
             ]
           },
           "last_seen": "2026-11-02",
@@ -1376,6 +1116,326 @@
           },
           "last_seen": "2026-11-02",
           "last_changed": "2026-07-31"
+        },
+        {
+          "id": "gpt-4.1-nano",
+          "display_name": "gpt-4.1-nano",
+          "input_price_per_mtok": 0.1,
+          "output_price_per_mtok": 0.4,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-4.1-nano",
+            "tier": "standard",
+            "cells": [
+              "gpt-4.1-nano",
+              "$0.10",
+              "$0.40",
+              "$0.025"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "gpt-4o-2024-05-13",
+          "display_name": "gpt-4o-2024-05-13",
+          "input_price_per_mtok": 5.0,
+          "output_price_per_mtok": 15.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-4o-2024-05-13",
+            "tier": "standard",
+            "cells": [
+              "gpt-4o-2024-05-13",
+              "$5.00",
+              "$15.00",
+              "-"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "o1",
+          "display_name": "o1",
+          "input_price_per_mtok": 15.0,
+          "output_price_per_mtok": 60.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "o1",
+            "tier": "standard",
+            "cells": [
+              "o1",
+              "$15.00",
+              "$60.00",
+              "$7.50"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "o1-pro",
+          "display_name": "o1-pro",
+          "input_price_per_mtok": 150.0,
+          "output_price_per_mtok": 600.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "o1-pro",
+            "tier": "standard",
+            "cells": [
+              "o1-pro",
+              "$150.00",
+              "$600.00",
+              "-"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "o4-mini",
+          "display_name": "o4-mini",
+          "input_price_per_mtok": 1.1,
+          "output_price_per_mtok": 4.4,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "o4-mini",
+            "tier": "standard",
+            "cells": [
+              "o4-mini",
+              "$1.10",
+              "$4.40",
+              "$0.275"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "o3-mini",
+          "display_name": "o3-mini",
+          "input_price_per_mtok": 1.1,
+          "output_price_per_mtok": 4.4,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "o3-mini",
+            "tier": "standard",
+            "cells": [
+              "o3-mini",
+              "$1.10",
+              "$4.40",
+              "$0.55"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "gpt-4-turbo-2024-04-09",
+          "display_name": "gpt-4-turbo-2024-04-09",
+          "input_price_per_mtok": 10.0,
+          "output_price_per_mtok": 30.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-4-turbo-2024-04-09",
+            "tier": "standard",
+            "cells": [
+              "gpt-4-turbo-2024-04-09",
+              "$10.00",
+              "$30.00",
+              "-"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "gpt-4-0613",
+          "display_name": "gpt-4-0613",
+          "input_price_per_mtok": 30.0,
+          "output_price_per_mtok": 60.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-4-0613",
+            "tier": "standard",
+            "cells": [
+              "gpt-4-0613",
+              "$30.00",
+              "$60.00",
+              "-"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "gpt-3.5-turbo",
+          "display_name": "gpt-3.5-turbo",
+          "input_price_per_mtok": 0.5,
+          "output_price_per_mtok": 1.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-3.5-turbo",
+            "tier": "standard",
+            "cells": [
+              "gpt-3.5-turbo",
+              "$0.50",
+              "$1.50",
+              "-"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
+        },
+        {
+          "id": "gpt-3.5-turbo-0125",
+          "display_name": "gpt-3.5-turbo-0125",
+          "input_price_per_mtok": 0.5,
+          "output_price_per_mtok": 1.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://developers.openai.com/api/docs/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "gpt-3.5-turbo-0125",
+            "tier": "standard",
+            "cells": [
+              "gpt-3.5-turbo-0125",
+              "$0.50",
+              "$1.50",
+              "-"
+            ]
+          },
+          "last_seen": "2026-11-02",
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gpt-image-1",
@@ -1897,7 +1957,7 @@
       "display_name": "Google Gemini",
       "pricing_url": "https://ai.google.dev/gemini-api/docs/pricing",
       "news_url": "https://ai.google.dev/gemini-api/docs/changelog",
-      "fetch_status": "ok",
+      "fetch_status": "partial",
       "models": [
         {
           "id": "gemini-4-argon",
@@ -1917,7 +1977,13 @@
             "output": "$10.00 through November 30, 2026. $20.00 starting December 1, 2026."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-10-13"
+          "last_changed": "2026-10-13",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.8-flash",
@@ -1937,7 +2003,13 @@
             "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-02"
+          "last_changed": "2026-09-02",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.6-flash",
@@ -1957,7 +2029,13 @@
             "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-08-14"
+          "last_changed": "2026-08-14",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.8-live",
@@ -1977,7 +2055,13 @@
             "output": "$4.50 (text) $12.00 or $0.018/min (audio)"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-15"
+          "last_changed": "2026-09-15",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.5-live-translate-preview",
@@ -1997,7 +2081,13 @@
             "output": "$21.00 or $0.0315/min * (audio)"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-08-06"
+          "last_changed": "2026-08-06",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.5-transcribe-live",
@@ -2017,7 +2107,13 @@
             "output": "$21.00 or $0.004/min * (text)"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-08-27"
+          "last_changed": "2026-08-27",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.5-transcribe",
@@ -2037,7 +2133,13 @@
             "output": "$12.00 or $0.002/min * (text)"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-08-27"
+          "last_changed": "2026-08-27",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.5-flash-lite",
@@ -2057,7 +2159,13 @@
             "output": "$2.50"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-22"
+          "last_changed": "2026-07-22",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.1-flash-lite",
@@ -2077,7 +2185,13 @@
             "output": "$1.50"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-omni-1.1-flash",
@@ -2097,7 +2211,13 @@
             "output": "$9.00 (text) $17.50 (video) *"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-08-27"
+          "last_changed": "2026-08-27",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.1-pro-preview",
@@ -2117,7 +2237,13 @@
             "output": "$12.00, prompts <= 200k tokens $18.00, prompts > 200k"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-nano-banana-2.1",
@@ -2137,7 +2263,13 @@
             "output": "$7.50 (text and thinking) $30.00 (images) Equivalent to $0.0336 per 1K image * , $0.0504 per 2K image * , and $0.113 per 4K image * ."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-10-06"
+          "last_changed": "2026-10-06",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.1-flash-image",
@@ -2158,7 +2290,13 @@
             "output": "$3 (text and thinking) $60.00 (images) Equivalent to $0.045 per 0.5K image * $0.067 per 1K image * ,\n        $0.101 per 2K image * ,\n        and $0.151 per 4K image * ."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.1-flash-lite-image",
@@ -2179,7 +2317,13 @@
             "output": "$1.50 (text and thinking) $30.00 (images) Equivalent to $0.0336 per 1K resolution image *"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.8-flash-tts",
@@ -2199,7 +2343,13 @@
             "output": "$9.00 (audio) through December 31, 2026. $18.00 (audio) starting January 1, 2027. Equivalent to $0.00225 per 10s audio * through December 31, 2026. Equivalent to $0.0045 per 10s audio * starting January 1, 2027."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-23"
+          "last_changed": "2026-09-23",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.8-flash-lite-tts",
@@ -2219,7 +2369,13 @@
             "output": "$6.00 (audio) through December 31, 2026. $12.00 (audio) starting January 1, 2027. Equivalent to $0.0015 per 10s audio * through December 31, 2026. Equivalent to $0.003 per 10s audio * starting January 1, 2027."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-23"
+          "last_changed": "2026-09-23",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3.1-flash-tts-preview",
@@ -2239,7 +2395,13 @@
             "output": "$20.00 (audio)"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3-flash-preview",
@@ -2259,7 +2421,13 @@
             "output": "$3.00"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-3-pro-image",
@@ -2280,7 +2448,13 @@
             "output": "$12.00 (text and thinking) $120.00 (images) Equivalent to $0.134 per 1K/2K image ** and $0.24 per 4K image **"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-2.5-pro",
@@ -2300,7 +2474,13 @@
             "output": "$10.00, prompts <= 200k tokens $15.00, prompts > 200k"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-2.5-flash",
@@ -2320,7 +2500,13 @@
             "output": "$2.50"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-2.5-flash-lite",
@@ -2340,7 +2526,13 @@
             "output": "$0.40"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-2.5-flash-image",
@@ -2361,7 +2553,13 @@
             "output": "$0.039 per image*"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-2.5-flash-preview-tts",
@@ -2381,7 +2579,13 @@
             "output": "$10.00 (audio)"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-2.5-pro-preview-tts",
@@ -2401,7 +2605,13 @@
             "output": "$20.00 (audio)"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-07-17"
+          "last_changed": "2026-07-17",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-embedding-2",
@@ -2420,7 +2630,13 @@
             "input": "$0.20"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-13"
+          "last_changed": "2026-09-13",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-embedding",
@@ -2439,7 +2655,13 @@
             "input": "$0.15"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-10-29"
+          "last_changed": "2026-10-29",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-robotics-er-2",
@@ -2459,7 +2681,13 @@
             "output": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-08"
+          "last_changed": "2026-09-08",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-robotics-er-2-streaming",
@@ -2479,7 +2707,13 @@
             "output": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-08"
+          "last_changed": "2026-09-08",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemma-4",
@@ -2499,7 +2733,13 @@
             "output": "Not available"
           },
           "last_seen": "2026-11-02",
-          "last_changed": "2026-09-11"
+          "last_changed": "2026-09-11",
+          "status": "missing",
+          "missing_since": "2026-11-02",
+          "needs_review": true,
+          "review_reasons": [
+            "2026-11-02 起來源就沒再出現，已保留舊資料待確認是否真的下架"
+          ]
         },
         {
           "id": "gemini-omni-flash-preview",
@@ -2540,9 +2780,13 @@
       ],
       "notes": [
         "context window 官方定價頁未提供；價格取付費層 standard 分級，多 modality 或分段計價的模型顯示的是第一個（最基礎）數字，詳情請點官方連結。",
-        "pricing-for-agents 的計價單位不是每百萬 token（表頭： | Model | Tools），已略過。"
+        "解析後沒有任何模型，可能是頁面結構變了"
       ],
-      "needs_review": true
+      "needs_review": true,
+      "review_reasons": [
+        "只抓到部分資料",
+        "模型數量由 31 掉到 0，疑似解析失敗"
+      ]
     },
     "deepseek": {
       "display_name": "DeepSeek",

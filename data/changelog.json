@@ -745,5 +745,285 @@
     "model": "gemini-embedding",
     "type": "new_model",
     "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "gpt-4o-2024-05-13",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "o1",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "o1-pro",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "o4-mini",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "o3-mini",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "gpt-4-turbo-2024-04-09",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "gpt-4-0613",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "openai",
+    "model": "gpt-3.5-turbo-0125",
+    "type": "removed_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-4-argon",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-4-argon"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.8-flash",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.6-flash",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.6-flash"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.8-live",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-live"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.5-live-translate-preview",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-live-translate-preview"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.5-transcribe-live",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-transcribe-live"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.5-transcribe",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-transcribe"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.5-flash-lite",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-lite"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-omni-1.1-flash",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-omni-1.1-flash"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.1-pro-preview",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-nano-banana-2.1",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-nano-banana-2.1"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.1-flash-image",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-image"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.1-flash-lite-image",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-lite-image"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.8-flash-tts",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-tts"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.8-flash-lite-tts",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-lite-tts"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3.1-flash-tts-preview",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-tts-preview"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3-flash-preview",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3-flash-preview"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-3-pro-image",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3-pro-image"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-2.5-pro",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-2.5-flash",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-2.5-flash-lite",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-lite"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-2.5-flash-image",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-image"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-2.5-flash-preview-tts",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-preview-tts"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-2.5-pro-preview-tts",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro-preview-tts"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-embedding-2",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-embedding",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-robotics-er-2",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemini-robotics-er-2-streaming",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming"
+  },
+  {
+    "date": "2026-11-02",
+    "provider": "google",
+    "model": "gemma-4",
+    "type": "removed_model",
+    "source_url": "https://ai.google.dev/gemini-api/docs/pricing#gemma-4"
   }
 ]
