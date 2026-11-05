@@ -1053,5 +1053,19 @@
     "model": "claude-sonnet-4",
     "type": "removed_model",
     "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-11-05",
+    "provider": "openai",
+    "model": "gpt-image-2.6-sunburst",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-05",
+    "provider": "openai",
+    "model": "gpt-image-2.6-flare",
+    "type": "new_model",
+    "source_url": "https://developers.openai.com/api/docs/pricing"
   }
 ]
