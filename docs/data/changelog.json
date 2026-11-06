@@ -1074,5 +1074,19 @@
     "model": "gpt-6-cyber",
     "type": "new_model",
     "source_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "date": "2026-11-06",
+    "provider": "anthropic",
+    "model": "claude-haiku-3.5",
+    "type": "removed_model",
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-11-06",
+    "provider": "anthropic",
+    "type": "policy_change",
+    "label": "Usage policies",
+    "source_url": "https://www.anthropic.com/legal/aup"
   }
 ]
