@@ -225,7 +225,7 @@ def _diff_policies(
                 page["last_changed"] = prev.get("last_changed")
                 # 口徑要跟雜湊一起沿用，否則下次成功抓取會拿新口徑去比舊雜湊。
                 page["hash_method"] = prev.get("hash_method")
-            _flag(page, "政策頁抓取失敗，無法比對")
+            _flag(page, "政策頁抓取失敗，無法自動比對，請開連結看最新版本")
             merged.append(page)
             continue
 

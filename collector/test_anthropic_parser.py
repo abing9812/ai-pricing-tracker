@@ -119,6 +119,21 @@ ONLY_OVER = LOWER + "| Claude Haiku 5.5 (for prompts over 100,000 tokens) | $0.5
 lonely = [m for m in an._parse_pricing(ONLY_OVER, CONTEXTS) if m["id"] == "claude-haiku-5.5"]
 check("只剩加價段時照樣收成一列", len(lonely) == 1, lonely)
 
+
+# 巢狀括號：2026-11-04 起退役模型的註記裡又有一層括號，舊寫法吃到第一個 ) 就停，
+# 模型名變成「Claude Opus 4.1 and Bedrock)」，同一個模型被當成一下架一新增。
+check(
+    "巢狀括號整段拿掉",
+    an._clean_name("Claude Opus 4.1 (retired, except on Claude Models on Google Cloud (Google managed) and Bedrock)")
+    == "Claude Opus 4.1",
+)
+check("單層括號照舊", an._clean_name("Claude Mythos 5 (limited availability)") == "Claude Mythos 5")
+check("沒有括號不受影響", an._clean_name("Claude Opus 5.5") == "Claude Opus 5.5")
+check(
+    "時效字樣保留（兩段價格靠它區分）",
+    an._clean_name("Claude Sonnet 5 through August 31, 2026") == "Claude Sonnet 5 through August 31, 2026",
+)
+
 print()
 print(f"{len(fails)} 個失敗" if fails else "全部通過")
 sys.exit(1 if fails else 0)

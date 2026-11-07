@@ -109,6 +109,10 @@ def main() -> int:
         for _pid, key, item in pending:
             sticky = set(item.get("pending_reviews") or [])
             print(f"  {key}")
+            # 模型存 source_url、政策頁存 url；整家的旗標兩者都沒有，就不印。
+            link = item.get("url") or item.get("source_url")
+            if link:
+                print(f"      {link}")
             if not item.get("review_reasons"):
                 # 整家的旗標多半是衍生的（底下有東西待覆核），本身沒有理由。
                 print("      · 底下有待覆核項目；確認完那幾筆，這行會自動消失")

@@ -96,7 +96,7 @@ job 被推進更擠的時段後配不到 runner —— 2026-08-06 那次 run 就
 |------|----------|--------------|
 | OpenAI | [`developers.openai.com/api/docs/pricing.md`](https://developers.openai.com/api/docs/pricing.md) | `openai.com/api/pricing/` 無 UA 會 **403**，帶瀏覽器 UA 會被導到企業方案頁，**那裡根本沒有 token 單價**。`platform.openai.com` 已 301 到 `developers.openai.com`。文件站有 Markdown 版，不擋機器人。 |
 | Anthropic | [`platform.claude.com/docs/en/about-claude/pricing.md`](https://platform.claude.com/docs/en/about-claude/pricing.md) | `anthropic.com/pricing` 已導向 `claude.com/pricing`，那是**消費者訂閱方案**頁，沒有 API 單價。文件站從 `docs.anthropic.com` 搬到 `platform.claude.com`。完全不擋機器人。 |
-| Google | [`ai.google.dev/gemini-api/docs/pricing`](https://ai.google.dev/gemini-api/docs/pricing) | 沒有 Markdown 版也沒有 JSON，只能解析 HTML（好在價格在原始 HTML 裡）。 |
+| Google | [`aistudio.google.com/docs/pricing.md`](https://aistudio.google.com/docs/pricing.md) | 2026-11-02 從 `ai.google.dev` 搬過來（舊網址 301），格式改成 Markdoc。瀏覽器版是 client-rendered、沒有價格，要抓 `.md`。 |
 | DeepSeek | [`api-docs.deepseek.com/quick_start/pricing/`](https://api-docs.deepseek.com/quick_start/pricing/) | 規格原網址正確，只是會補尾斜線。沒有 JSON，文件原始碼未公開。價格表是轉置的（模型是欄），2026-08 起又分尖峰／離峰兩小列。 |
 
 政策頁：OpenAI [usage policies](https://openai.com/policies/usage-policies/)、
@@ -212,7 +212,8 @@ python collector/ack.py --all --dry-run       # 只看會清掉什麼，不寫�
 |------|------|--------------|
 | **OpenAI 沒有 context window** | 45 個模型的視窗顯示「未知」 | 定價頁沒有這個欄位。每個模型的獨立頁面（`/api/docs/models/<id>`）有，但要逐一抓 45 次，且只能靠 tailwind class 定位、很脆弱。 |
 | **Google 沒有 context window** | 20 個模型的視窗顯示「未知」 | 定價頁沒有；models 頁的規格表是 client-rendered（原始 HTML 的 `<table>` 數為 0）。ListModels API 有 `inputTokenLimit`，但**需要 API 金鑰**（無金鑰回 403），且該 API 不含價格。若你願意加金鑰，可用 repo secret 存放後只用來補這個欄位。 |
-| **Anthropic 部分模型沒有視窗** | 退役／限量機種（Mythos 5、Opus 4、Sonnet 4、Haiku 3.5）顯示「未知」 | 它們不在官方的「最新模型比較表」裡。這是官方文件的結構，不是解析失敗。 |
+| **Anthropic 部分模型沒有視窗** | 退役／限量機種（Mythos 5、Opus 4、Sonnet 4）顯示「未知」 | 它們不在官方的「最新模型比較表」裡。這是官方文件的結構，不是解析失敗。 |
+| **OpenAI 政策頁 CI 抓不到** | 排程抓 `openai.com/policies/usage-policies/` 一律 403，這筆會常駐待覆核，**政策改版不會自動偵測** | GitHub Actions 的 IP 被擋，本機抓得到。2026-10-21 那次改版就是這樣漏掉的。目前的作法是待覆核附上官方連結、由人看最新版；本機跑一次 `collector/main.py` 可更新雜湊。 |
 | **OpenAI 只記標準區間價** | `gpt-5.5` 等模型顯示的是 272K 以內的價格 | 超過 272K 的請求官方另以 2× input / 1.5× output 計價，屬分級定價，依規格 §5 不追蹤。原始標籤留在 `raw.label`。 |
 | **Google 多值格只取第一個** | 例如「$0.25 (text/image/video) $0.50 (audio)」只記 0.25 | 依 modality 或 ≤/>200k 分歧的價格屬分級定價，不追蹤。完整原文留在 `raw`。 |
 | **Gemma 4 只有免費層** | `gemma-4` 的輸入／輸出價都顯示「未知」 | 官方付費欄明寫 `Not available`，沒有付費價可記。解析器看到這個字會標 `unavailable`、不進待覆核區；空格或其他讀不懂的內容仍會標待覆核。 |

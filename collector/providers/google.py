@@ -1,18 +1,23 @@
 """Google（Gemini API）解析器。
 
-來源：https://ai.google.dev/gemini-api/docs/pricing
+來源：https://aistudio.google.com/docs/pricing.md
 
-實測重點（2026-07）：
-  - 規格書給的 https://ai.google.dev/pricing 現行網址是 /gemini-api/docs/pricing。
-  - ⚠ 千萬不要送瀏覽器 UA。送 Chrome UA 會被 302 進 devsite 的 OAuth 登入流程
-    （最後落到 accounts.google.com），拿回一張完全沒有價格的頁面。用 requests
-    的預設 UA 反而直接 200。這與其他三家的直覺相反，改動前請先看這段。
+為什麼是這個網址（2026-11 實測）：
+  - 2026-11-02 文件站整個從 ai.google.dev/gemini-api/docs 搬到 aistudio.google.com/docs，
+    舊網址 301 過去。新站的同一個路徑看 UA 回 Markdown 或 client-rendered 的 HTML
+    （後者 <table> 數為 0、沒有價格）；.md 網址一律回 Markdown，不必再挑 UA。
+  - 舊站「送 Chrome UA 會被導去 OAuth 登入頁」的陷阱在新站不存在了。
   - 沒有 JSON 端點。ListModels API（generativelanguage.googleapis.com）無金鑰會
-    403，而且它只有 token 上限、沒有價格，無法取代 HTML 解析。
-  - 好消息是價格是 server-rendered，原始 HTML 裡就有，不需要無頭瀏覽器。
+    403，而且它只有 token 上限、沒有價格，無法取代定價頁。
 
-已知缺口：定價頁沒有 context window，models 頁的規格表是 client-rendered
-（原始 HTML 的 <table> 數為 0），無金鑰的情況下拿不到 → 標 unavailable（見 README）。
+頁面格式：
+  - Markdoc 原始碼：每個模型一段「## 名稱 {% id="模型 id" %}」，價格在 {% table %} 裡。
+    表格不是管線表格：列之間用 --- 分隔，每格是一個「* 」項目，內容可以跨行。
+  - 分級用 {% tab title="Standard" %} 包起來；只有一種價格的模型（例如 Live 系列）
+    沒有 tab，表格直接放在段落裡。
+
+已知缺口：定價頁沒有 context window，models 頁的規格表無金鑰拿不到
+→ 標 unavailable（見 README）。
 """
 
 from __future__ import annotations
@@ -24,15 +29,13 @@ from . import base
 
 PROVIDER_ID = "google"
 DISPLAY_NAME = "Google Gemini"
-PRICING_URL = "https://ai.google.dev/gemini-api/docs/pricing"
-NEWS_URL = "https://ai.google.dev/gemini-api/docs/changelog"
+PRICING_URL = "https://aistudio.google.com/docs/pricing"
+PRICING_MD_URL = "https://aistudio.google.com/docs/pricing.md"
+NEWS_URL = "https://aistudio.google.com/docs/changelog"
 
 POLICY_PAGES = [
     ("Prohibited use policy", "https://policies.google.com/terms/generative-ai/use-policy"),
 ]
-
-# devsite 看到瀏覽器 UA 會轉址到 OAuth；預設的 python-requests UA 直接 200。
-PLAIN_UA = {"User-Agent": "python-requests"}
 
 # 第 2 欄是 Free Tier、第 3 欄才是付費價，欄序寫死會抓到「Free of charge」。
 PAID_COLUMN = 2
@@ -81,58 +84,85 @@ def _first_price(cell: str) -> tuple[float | None, bool]:
     return base.parse_price(match.group(0)), False
 
 
-def _standard_tables(html: str) -> list[tuple[str, Any]]:
-    """找出每個模型的 standard 分級表格，回傳 [(model_id, table)]。
+_SECTION = re.compile(r'^##\s+(?P<title>.+?)\s*\{%\s*id="(?P<id>[^"]+)"\s*%\}\s*$', re.M)
+_TAB = re.compile(r'\{%\s*tab\s+title="(?P<title>[^"]+)"\s*%\}')
+_TAB_END = re.compile(r"\{%\s*/tab\s*%\}")
+_TABLE = re.compile(r"\{%\s*table\s*%\}(?P<body>.*?)\{%\s*/table\s*%\}", re.S)
+_ROW_SEPARATOR = re.compile(r"^\s*---\s*$", re.M)
+_CELL_START = re.compile(r"^(?P<indent>[ \t]*)\*\s+(?P<text>.*)$")
+_MARKDOC_TAG = re.compile(r"\{%.*?%\}")
+TIER = "Standard"
 
-    定位方式是從表格往回找，而不是從 h2 往下找：表格被包在
-    <devsite-selector><section> 裡，不是 h2 的兄弟節點，順著 h2 的 siblings
-    走永遠走不到。往回找最近的 h3（分級）與 h2（模型）才可靠。
 
-    tier 的 h3 id 會加流水號（standard, standard_1 … standard_20）且不與模型
-    對應，所以只能用前綴判斷，不能拿它配對模型。全頁 71 張表裡 standard 只有
-    21 張，其餘是 batch / flex / priority —— 那些不在追蹤範圍（規格 §5），
-    且價格較低，混進來會直接覆蓋掉標準價。
+def _standard_tables(md: str) -> list[tuple[str, str]]:
+    """找出每個模型的 standard 分級表格，回傳 [(model_id, table 原始碼)]。
+
+    先切段落再找分頁：同一段裡 Batch / Flex / Priority 的表格式完全相同，價格較低，
+    混進來會直接蓋掉標準價（規格 §5 不追蹤）。段落有分頁卻沒有 Standard 時寧可
+    跳過，也不要退回去抓第一張表 —— 那張可能是別的分級。
     """
-    soup = base.soup_of(html)
     found = []
+    headings = list(_SECTION.finditer(md))
 
-    for table in soup.find_all("table", class_="pricing-table"):
-        tier = table.find_previous("h3", id=True)
-        model = table.find_previous("h2", id=True)
-        if not tier or not model:
-            continue
-        if not tier["id"].startswith("standard"):
-            continue
-        found.append((model["id"], table))
+    for index, heading in enumerate(headings):
+        end = headings[index + 1].start() if index + 1 < len(headings) else len(md)
+        section = md[heading.end():end]
+
+        tabs = list(_TAB.finditer(section))
+        if tabs:
+            standard = next((t for t in tabs if t["title"] == TIER), None)
+            if standard is None:
+                continue
+            closing = _TAB_END.search(section, standard.end())
+            section = section[standard.end(): closing.start() if closing else len(section)]
+
+        table = _TABLE.search(section)
+        if table:
+            found.append((heading["id"], table["body"]))
 
     return found
 
 
-def _rows(table: Any) -> list[list[str]]:
-    """只取屬於這張表自己的列，不含巢狀表的列。
+def _clean_cell(lines: list[str]) -> str:
+    # 反斜線是 Markdoc 的強制換行，原文留在 raw 裡只會多一串 \\ 雜訊。
+    return base.strip_markup(_MARKDOC_TAG.sub("", " ".join(lines)).replace("\\", " "))
 
-    2026-09-11 起官方 HTML 在 gemini-robotics-er-2-streaming 那段漏了 </table>，
-    lxml 會把後面 computer-use、gemma-4、tools、agents 四張表全包進這張表裡。
-    table.find_all("tr") 會一路掃進去，後面每一列「Input price」都覆寫前面的值，
-    streaming 最後拿到 gemma-4 的「Not available」。這次剛好解析不到值還會標待覆核；
-    哪天排在最後的是有價格的表，就會靜默拿到別的模型的價格。
+
+def _rows(table: str) -> list[list[str]]:
+    """把 Markdoc 表格拆成 [列][格]。
+
+    每一列用 --- 分隔，一格從「* 」開始，到下一個同縮排的「* 」為止：格子內容可以
+    跨行（分段計價常見），也可能自己帶一層更深的項目符號，所以只認第一格的縮排。
     """
-    return [
-        [td.get_text(" ", strip=True) for td in tr.find_all(["td", "th"])]
-        for tr in table.find_all("tr")
-        if tr.find_parent("table") is table
-    ]
+    rows: list[list[str]] = []
+
+    for chunk in _ROW_SEPARATOR.split(table):
+        cells: list[list[str]] = []
+        indent: str | None = None
+
+        for line in chunk.splitlines():
+            start = _CELL_START.match(line)
+            if start and (indent is None or start["indent"] == indent):
+                indent = start["indent"]
+                cells.append([start["text"]])
+            elif cells:
+                cells[-1].append(line.strip())
+
+        if cells:
+            rows.append([_clean_cell(cell) for cell in cells])
+
+    return rows
 
 
 def _paid_cell(cells: list[str]) -> str | None:
     return cells[PAID_COLUMN] if len(cells) > PAID_COLUMN else None
 
 
-def _parse(html: str) -> tuple[list[dict[str, Any]], list[str]]:
+def _parse(md: str) -> tuple[list[dict[str, Any]], list[str]]:
     models: list[dict[str, Any]] = []
     notes: list[str] = []
 
-    for model_id, table in _standard_tables(html):
+    for model_id, table in _standard_tables(md):
         rows = _rows(table)
         if not rows:
             continue
@@ -202,14 +232,12 @@ def _parse(html: str) -> tuple[list[dict[str, Any]], list[str]]:
 
 
 def collect() -> base.ProviderData:
-    html = base.get_text(PRICING_URL, headers=PLAIN_UA)
+    models, notes = _parse(base.get_markdown(PRICING_MD_URL))
 
-    if "accounts.google.com" in html[:4000] or "oauth2authorize" in html[:4000]:
-        raise base.FetchError(
-            "定價頁被導向 Google 登入頁（多半是 UA 被判定為瀏覽器），沒有拿到價格"
-        )
-
-    models, notes = _parse(html)
+    if not models:
+        # 頁面拿到了卻一個模型都解析不出來，代表格式又改了。寧可整家 failed 讓 diff
+        # 沿用舊資料，也不要回傳空清單 —— 2026-11-02 就這樣噴了整批假下架事件。
+        raise base.FetchError("定價頁解析出 0 個模型，頁面結構可能改了")
 
     data = base.ProviderData(
         display_name=DISPLAY_NAME,

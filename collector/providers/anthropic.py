@@ -41,7 +41,6 @@ _PRICING_HEADERS = (_INPUT_HEADER, _OUTPUT_HEADER)
 # 同一個模型的兩段時效價格，官方同時列出兩列。id 保留時效字樣讓兩列各自獨立，
 # 否則後者會覆蓋前者；查 context window 時才把字樣拿掉去對照。
 _TEMPORAL_QUALIFIER = re.compile(r"\s+(through|starting)\s+.*$", re.I)
-_PARENTHETICAL = re.compile(r"\s*\([^)]*\)")
 
 # 「Claude Haiku 5.5 (for prompts up to 100,000 tokens)」與「… (for prompts over
 # 100,000 tokens)」是同一個模型依提示長度分兩段計價（2026-10-07 起）。括號拿掉後
@@ -52,7 +51,22 @@ _LONG_CONTEXT_TIER = re.compile(r"\((?:for\s+)?prompts?\s+(?:over|above|more tha
 
 
 def _clean_name(cell: str) -> str:
-    return _PARENTHETICAL.sub("", cell).strip()
+    """拿掉括號註記，巢狀的也一起拿掉。
+
+    2026-11-04 起退役模型的註記變成「(retired, except on … (Google managed) and
+    Bedrock)」。只吃到第一個 ) 的話，剩下的「and Bedrock)」會黏進模型名，
+    id 變成 claude-opus-4.1-and-bedrock，同一個模型被當成一下架一新增。
+    """
+    kept: list[str] = []
+    depth = 0
+    for char in cell:
+        if char == "(":
+            depth += 1
+        elif char == ")" and depth:
+            depth -= 1
+        elif not depth:
+            kept.append(char)
+    return re.sub(r"\s+", " ", "".join(kept)).strip()
 
 
 def _base_name(name: str) -> str:

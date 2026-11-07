@@ -133,8 +133,11 @@ def strip_markup(text: str) -> str:
 
     '[through August 31](/docs/x)' → 'through August 31'
     '<Tooltip content="…">1M tokens</Tooltip>' → '1M tokens'
+
+    只認字母開頭的標籤：Google 的「$1.25, prompts <= 200k tokens $2.50, prompts > 200k」
+    裡的 < 和 > 是比較符號，當成標籤會把中間那段價格整個吃掉。
     """
-    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"</?[A-Za-z][^>]*>", "", text)
     text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)
     return re.sub(r"\s+", " ", text).strip()
 
