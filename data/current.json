@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T02:26:41Z",
+  "generated_at": "2026-11-07T07:12:52Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1230,16 +1230,21 @@
           "label": "Usage policies",
           "url": "https://openai.com/policies/usage-policies/",
           "content_hash": "sha256:8cf06694c49a3bff312e8f4727c76c0ccc457322a321d3e835ee302956ce8dde",
-          "hash_method": "body-v2",
+          "fetch_error": "GET https://openai.com/policies/usage-policies/ 失敗：403 Client Error: Forbidden for url: https://openai.com/policies/usage-policies/",
           "acknowledged_at": "2026-11-07",
-          "last_changed": "2026-11-07"
+          "last_changed": "2026-11-07",
+          "hash_method": "body-v2",
+          "needs_review": true,
+          "review_reasons": [
+            "政策頁抓取失敗，無法自動比對，請開連結看最新版本"
+          ]
         }
       ],
       "notes": [
         "context window 官方定價頁未提供；價格為 standard 分級的短情境（≤272K）區間價。",
         "繪圖模型（gpt-image 系列）：輸入價為文字提示、輸出價為圖片輸出，皆為每百萬 token；圖片輸入（編輯／參考圖）與快取價請點官方連結或見 raw。"
       ],
-      "acknowledged_at": "2026-11-07"
+      "needs_review": true
     },
     "anthropic": {
       "display_name": "Anthropic",
@@ -1661,8 +1666,7 @@
           "acknowledged_at": "2026-11-07",
           "last_changed": "2026-11-06"
         }
-      ],
-      "acknowledged_at": "2026-11-07"
+      ]
     },
     "google": {
       "display_name": "Google Gemini",
@@ -2328,8 +2332,7 @@
         "lyria-3-5 的計價單位不是每百萬 token（表頭：Feature | Free Tier | Paid Tier, per request in USD），已略過。",
         "lyria-3 的計價單位不是每百萬 token（表頭：Feature | Free Tier | Paid Tier, per request in USD），已略過。",
         "pricing-for-agents 的計價單位不是每百萬 token（表頭：Feature | Model | Tools），已略過。"
-      ],
-      "acknowledged_at": "2026-11-07"
+      ]
     },
     "deepseek": {
       "display_name": "DeepSeek",
