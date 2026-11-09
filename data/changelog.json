@@ -871,5 +871,12 @@
     "model": "gemini-2.5-flash-native-audio",
     "type": "new_model",
     "source_url": "https://aistudio.google.com/docs/pricing#gemini-2.5-flash-native-audio"
+  },
+  {
+    "date": "2026-11-09",
+    "provider": "anthropic",
+    "type": "policy_change",
+    "label": "Usage policies",
+    "source_url": "https://www.anthropic.com/legal/aup"
   }
 ]
