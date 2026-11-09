@@ -878,5 +878,19 @@
     "type": "policy_change",
     "label": "Usage policies",
     "source_url": "https://www.anthropic.com/legal/aup"
+  },
+  {
+    "date": "2026-11-09",
+    "provider": "anthropic",
+    "model": "claude-fable-5.2",
+    "type": "new_model",
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-11-09",
+    "provider": "anthropic",
+    "model": "claude-mythos-5.2",
+    "type": "new_model",
+    "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
   }
 ]

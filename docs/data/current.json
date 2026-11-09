@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T07:59:53Z",
+  "generated_at": "2026-11-09T23:01:07Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1253,10 +1253,10 @@
       "fetch_status": "ok",
       "models": [
         {
-          "id": "claude-fable-5.1",
-          "display_name": "Claude Fable 5.1",
-          "input_price_per_mtok": 10.0,
-          "output_price_per_mtok": 50.0,
+          "id": "claude-fable-5.2",
+          "display_name": "Claude Fable 5.2",
+          "input_price_per_mtok": 8.0,
+          "output_price_per_mtok": 40.0,
           "context_window": 1000000,
           "currency": "USD",
           "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
@@ -1264,6 +1264,48 @@
             "input_price_per_mtok": "ok",
             "output_price_per_mtok": "ok",
             "context_window": "ok"
+          },
+          "raw": {
+            "label": "Claude Fable 5.2",
+            "input": "$8 / MTok",
+            "output": "$40 / MTok"
+          },
+          "last_seen": "2026-11-09",
+          "last_changed": "2026-11-09"
+        },
+        {
+          "id": "claude-mythos-5.2",
+          "display_name": "Claude Mythos 5.2",
+          "input_price_per_mtok": 8.0,
+          "output_price_per_mtok": 40.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "label": "Claude Mythos 5.2 (limited availability)",
+            "input": "$8 / MTok",
+            "output": "$40 / MTok"
+          },
+          "last_seen": "2026-11-09",
+          "last_changed": "2026-11-09"
+        },
+        {
+          "id": "claude-fable-5.1",
+          "display_name": "Claude Fable 5.1",
+          "input_price_per_mtok": 10.0,
+          "output_price_per_mtok": 50.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
           },
           "raw": {
             "label": "Claude Fable 5.1",
@@ -1663,15 +1705,15 @@
           "url": "https://www.anthropic.com/legal/aup",
           "content_hash": "sha256:67720b6ec7bc7dd2bf1c4cec755a576c8129826651b2add976ddd73439c605ff",
           "hash_method": "body-v2",
-          "acknowledged_at": "2026-11-07",
-          "last_changed": "2026-11-09",
           "needs_review": true,
           "review_reasons": [
             "2026-11-09 政策頁內容有變動，請人工檢視"
           ],
           "pending_reviews": [
             "2026-11-09 政策頁內容有變動，請人工檢視"
-          ]
+          ],
+          "acknowledged_at": "2026-11-07",
+          "last_changed": "2026-11-09"
         }
       ],
       "needs_review": true
