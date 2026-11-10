@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T08:26:39Z",
+  "generated_at": "2026-11-10T20:29:25Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1877,6 +1877,26 @@
       "news_url": "https://aistudio.google.com/docs/changelog",
       "fetch_status": "ok",
       "models": [
+        {
+          "id": "gemini-4-carbon",
+          "display_name": "gemini-4-carbon",
+          "input_price_per_mtok": 2.0,
+          "output_price_per_mtok": 10.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-carbon",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$2.00 through November 30, 2026. $4.00 starting December 1, 2026.",
+            "output": "$10.00 through November 30, 2026. $20.00 starting December 1, 2026."
+          },
+          "last_seen": "2026-11-10",
+          "last_changed": "2026-11-10"
+        },
         {
           "id": "gemini-4-argon",
           "display_name": "gemini-4-argon",

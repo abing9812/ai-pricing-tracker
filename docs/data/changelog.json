@@ -892,5 +892,12 @@
     "model": "claude-mythos-5.2",
     "type": "new_model",
     "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "date": "2026-11-10",
+    "provider": "google",
+    "model": "gemini-4-carbon",
+    "type": "new_model",
+    "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-carbon"
   }
 ]
