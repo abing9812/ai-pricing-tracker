@@ -899,5 +899,12 @@
     "model": "gemini-4-carbon",
     "type": "new_model",
     "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-carbon"
+  },
+  {
+    "date": "2026-11-11",
+    "provider": "google",
+    "model": "gemini-decision",
+    "type": "new_model",
+    "source_url": "https://aistudio.google.com/docs/pricing#gemini-decision"
   }
 ]

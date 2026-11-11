@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T07:45:41Z",
+  "generated_at": "2026-11-11T20:14:00Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2440,6 +2440,26 @@
           },
           "last_seen": "2026-11-11",
           "last_changed": "2026-07-17"
+        },
+        {
+          "id": "gemini-decision",
+          "display_name": "gemini-decision",
+          "input_price_per_mtok": 0.1,
+          "output_price_per_mtok": null,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://aistudio.google.com/docs/pricing#gemini-decision",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "needs_review",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$0.10",
+            "output": "Not applicable (0 output tokens)"
+          },
+          "last_seen": "2026-11-11",
+          "last_changed": "2026-11-11"
         },
         {
           "id": "gemini-embedding-2",
