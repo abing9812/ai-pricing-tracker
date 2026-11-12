@@ -906,5 +906,12 @@
     "model": "gemini-decision",
     "type": "new_model",
     "source_url": "https://aistudio.google.com/docs/pricing#gemini-decision"
+  },
+  {
+    "date": "2026-11-12",
+    "provider": "google",
+    "model": "gemini-4-hydrogen",
+    "type": "new_model",
+    "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-hydrogen"
   }
 ]

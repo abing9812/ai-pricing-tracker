@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T08:22:01Z",
+  "generated_at": "2026-11-12T20:55:23Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1916,6 +1916,26 @@
           },
           "last_seen": "2026-11-12",
           "last_changed": "2026-10-13"
+        },
+        {
+          "id": "gemini-4-hydrogen",
+          "display_name": "gemini-4-hydrogen",
+          "input_price_per_mtok": 1.5,
+          "output_price_per_mtok": 7.5,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-hydrogen",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.50",
+            "output": "$7.50"
+          },
+          "last_seen": "2026-11-12",
+          "last_changed": "2026-11-12"
         },
         {
           "id": "gemini-3.8-flash",
