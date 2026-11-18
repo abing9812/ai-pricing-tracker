@@ -913,5 +913,12 @@
     "model": "gemini-4-hydrogen",
     "type": "new_model",
     "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-hydrogen"
+  },
+  {
+    "date": "2026-11-18",
+    "provider": "google",
+    "model": "gemini-4-neon",
+    "type": "new_model",
+    "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-neon"
   }
 ]

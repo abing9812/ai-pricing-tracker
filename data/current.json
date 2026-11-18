@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T08:33:46Z",
+  "generated_at": "2026-11-18T21:27:55Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -1916,6 +1916,26 @@
           },
           "last_seen": "2026-11-18",
           "last_changed": "2026-10-13"
+        },
+        {
+          "id": "gemini-4-neon",
+          "display_name": "gemini-4-neon",
+          "input_price_per_mtok": 3.0,
+          "output_price_per_mtok": 15.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-neon",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$3.00",
+            "output": "$15.00"
+          },
+          "last_seen": "2026-11-18",
+          "last_changed": "2026-11-18"
         },
         {
           "id": "gemini-4-hydrogen",
