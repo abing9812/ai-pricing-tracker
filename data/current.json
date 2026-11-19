@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T08:49:51Z",
+  "generated_at": "2026-11-19T21:39:16Z",
   "providers": {
     "openai": {
       "display_name": "OpenAI",
@@ -2056,6 +2056,26 @@
           },
           "last_seen": "2026-11-19",
           "last_changed": "2026-07-22"
+        },
+        {
+          "id": "genie-4",
+          "display_name": "genie-4",
+          "input_price_per_mtok": 1.5,
+          "output_price_per_mtok": 9.0,
+          "context_window": null,
+          "currency": "USD",
+          "source_url": "https://aistudio.google.com/docs/pricing#genie-4",
+          "field_status": {
+            "input_price_per_mtok": "ok",
+            "output_price_per_mtok": "ok",
+            "context_window": "unavailable"
+          },
+          "raw": {
+            "input": "$1.50 (text / reference image)",
+            "output": "$9.00 (text) $17.50 (video, audio included)*"
+          },
+          "last_seen": "2026-11-19",
+          "last_changed": "2026-11-19"
         },
         {
           "id": "gemini-omni-1.2-flash",

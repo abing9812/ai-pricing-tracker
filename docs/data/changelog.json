@@ -920,5 +920,12 @@
     "model": "gemini-4-neon",
     "type": "new_model",
     "source_url": "https://aistudio.google.com/docs/pricing#gemini-4-neon"
+  },
+  {
+    "date": "2026-11-19",
+    "provider": "google",
+    "model": "genie-4",
+    "type": "new_model",
+    "source_url": "https://aistudio.google.com/docs/pricing#genie-4"
   }
 ]
